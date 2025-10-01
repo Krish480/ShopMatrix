@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ShopMetrix</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link href="./dist/output.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="/images/ShopMatrix_logo.png">
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
+
+  <header class="bg-white dark:bg-gray-800 sticky top-0 w-full shadow-md z-50 transition-all duration-300 py-3">
+    <div class="container mx-auto flex justify-between items-center px-4">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-6">
+        <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+          <i id="menu-icon" class="fa-solid fa-bars"></i>
+        </button>
+        <div class="flex items-center space-x-3">
+          <img src="/images/ShopMatrix_logo.png" alt="ShopMatrix Logo" class="h-10 w-auto object-contain">
+          <span class="text-xl font-bold">ShopMetrix</span>
+        </div>
+      </div>
+
+      <!-- Desktop Search -->
+      <div class="hidden md:flex flex-1 max-w-xl mx-8">
+        <form action="" class="w-full">
+          <div class="relative">
+            <input type="text" placeholder="Search products..."
+              class="w-full h-12 bg-gray-200 dark:bg-gray-700 py-2 pl-4 pr-10 rounded-full text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
+
+            <button type="submit"
+              class="absolute right-3 top-1/2 text-lg -translate-y-1/2 text-gray-600 dark:text-gray-200 hover:text-indigo-500 transition flex items-center justify-center">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+
+      <!-- Desktop Menu -->
+      <div class="flex items-center space-x-2">
+        <nav class="hidden md:flex font-medium items-center gap-4">
+          <a href="index.html"
+            class="hover:text-indigo-500 mt-1 dark:hover:text-indigo-400 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+            <i class="fa-solid fa-house text-lg"></i> Home
+          </a>
+          <a href="products.html"
+            class="hover:text-indigo-500 mt-1 dark:hover:text-indigo-400 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+            <i class="fa-solid fa-bag-shopping text-lg"></i> Products
+          </a>
+          <a href="admin/login.html"
+            class="hover:text-indigo-500 mt-1 dark:hover:text-indigo-400 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+            <i class="fa-solid fa-shield text-lg"></i> Admin
+          </a>
+          <a href="user/dashboard.html"
+            class="hover:text-indigo-500 mt-1 dark:hover:text-indigo-400 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+            <i class="fa-solid fa-user text-lg"></i> User
+          </a>
+        </nav>
+      </div>
+
+      <!-- Right Buttons -->
+      <div class="flex items-center gap-4">
+        <button id="mobile-search-btn" class="md:hidden text-xl text-gray-800 dark:text-gray-200 focus:outline-none">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button id="dark-mode-toggle" class="text-gray-800 dark:text-gray-200 text-xl focus:outline-none">
+          <i id="theme-icon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Search -->
+    <div id="mobile-search" class="hidden md:hidden px-4 pb-3 bg-gray-800 dark:bg-gray-800">
+      <input type="text" placeholder="Search products..."
+        class="w-full py-2 px-4 rounded-full text-gray-200 bg-gray-600 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition">
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white transition-all duration-400">
+      <a href="index.html" class=" py-2 px-4 hover:bg-gray-600 flex items-center gap-2"><i
+          class="fa-solid fa-house"></i> Home</a>
+      <a href="products.html" class=" py-2 px-4 hover:bg-gray-600 flex items-center gap-2"><i
+          class="fa-solid fa-bag-shopping"></i> Products</a>
+      <a href="admin/login.html" class="py-2 px-4 hover:bg-gray-600 flex items-center gap-2"><i
+          class="fa-solid fa-shield"></i> Admin</a>
+      <a href="user/dashboard.html" class=" py-2 px-4 hover:bg-gray-600 flex items-center gap-2"><i
+          class="fa-solid fa-user"></i> User</a>
+    </div>
+  </header>
+  <!-- Hero section -->
+  <section class="relative overflow-hidden" data-aos="fade-up">
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-purple-500/90 to-emerald-600/90 dark:opacity-5 pointer-events-none">
+    </div>
+
+    <div class="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center" data-aos="fade-up"
+      data-aos-duration="1000">
+
+      <!-- Text content -->
+      <div class="md:w-1/2 mb-10 md:mb-0 p-4">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-white">Welcome to SuperMetrix</h1>
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
+          ShopMatrix is dedicated to bringing traditional Indian artistry to modern platforms.
+          Every product you buy supports local artisans and helps preserve our culture.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/ProductList"
+            class="px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+            Explore Products
+            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+              stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="/MerchantRegistration"
+            class="px-8 py-4 border-2 dark:text-white border-gray-300 hover:border-purple-600 text-black rounded-full font-semibold hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-xl">
+            Become a Seller
+          </a>
+        </div>
+      </div>
+
+      <!-- Images -->
+      <div class="md:w-1/2 relative" data-aos="fade-left" data-aos-duration="1000">
+        <div class="grid grid-cols-2 gap-5 p-3">
+
+          <!-- Image 1 -->
+          <div class="relative -rotate-4 border border-gray-300 rounded-xl w-full h-64 md:h-80 overflow-hidden">
+            <img alt="Handicraft products"
+              class="w-full h-full object-cover hover:scale-102 transition-transform duration-300" loading="lazy"
+              src="https://images.unsplash.com/photo-1647771746351-7235cf9df865?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+          </div>
+
+          <!-- Image 2 -->
+          <div class="relative rotate-2 border border-gray-300 rounded-xl w-full h-56 md:h-72 mt-6 overflow-hidden">
+            <img alt="Fresh farm produce"
+              class="w-full h-full object-cover hover:scale-102 transition-transform duration-300" loading="lazy"
+              src="https://plus.unsplash.com/premium_photo-1700695638084-5f46e469e223?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+          </div>
+
+          <!-- Image 3 -->
+          <div class="relative rotate-5 border border-gray-300 rounded-xl w-full h-56 md:h-72 overflow-hidden">
+            <img alt="Handloom textiles"
+              class="w-full h-full object-cover hover:scale-102 transition-transform duration-300" loading="lazy"
+              src="https://images.unsplash.com/photo-1726931535415-edbc43d42c28?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+          </div>
+
+          <!-- Image 4 -->
+          <div class="relative -rotate-2 border border-gray-300 rounded-xl w-full h-48 md:h-64 mt-6 overflow-hidden">
+            <img alt="Indian spices"
+              class="w-full h-full object-cover hover:scale-102 transition-transform duration-300" loading="lazy"
+              src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Shop Category -->
+  <section class="py-12 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900"
+    data-aos="fade-up">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white" style="opacity: 1;">Shop by
+        Category</h2>
+      <div class="flex flex-wrap justify-center gap-6 ">
+        <div
+          class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col items-center"
+          data-aos="zoom-in" style="opacity: 1; transform: none;">
+          <div class="h-16 w-16 rounded-full text-purple-700 bg-purple-300 flex items-center justify-center mb-3"><svg
+              stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+              stroke-linejoin="round" class="text-3xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg></div>
+          <h3 class="text-lg font-medium text-gray-800 dark:text-white">Handloom</h3>
+        </div>
+        <div
+          class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col items-center"
+          data-aos="zoom-in" data-aos-delay="200" style="opacity: 1; transform: none;">
+          <div class="h-16 w-16 rounded-full text-purple-700 bg-purple-300 flex items-center justify-center mb-3"><svg
+              stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" class="text-3xl"
+              height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M488 192H336v56c0 39.7-32.3 72-72 72s-72-32.3-72-72V126.4l-64.9 39C107.8 176.9 96 197.8 96 220.2v47.3l-80 46.2C.7 322.5-4.6 342.1 4.3 357.4l80 138.6c8.8 15.3 28.4 20.5 43.7 11.7L231.4 448H368c35.3 0 64-28.7 64-64h16c17.7 0 32-14.3 32-32v-64h8c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24zm147.7-37.4L555.7 16C546.9.7 527.3-4.5 512 4.3L408.6 64H306.4c-12 0-23.7 3.4-33.9 9.7L239 94.6c-9.4 5.8-15 16.1-15 27.1V248c0 22.1 17.9 40 40 40s40-17.9 40-40v-88h184c30.9 0 56 25.1 56 56v28.5l80-46.2c15.3-8.9 20.5-28.4 11.7-43.7z">
+              </path>
+            </svg></div>
+          <h3 class="text-lg font-medium text-gray-800 dark:text-white">Handicraft</h3>
+        </div>
+        <div
+          class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col items-center"
+          data-aos="zoom-in" data-aos-delay="400" style="opacity: 1; transform: none;">
+          <div class="h-16 w-16 rounded-full text-purple-700 bg-purple-300 flex items-center justify-center mb-3"><svg
+              stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" class="text-3xl"
+              height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M546.2 9.7c-5.6-12.5-21.6-13-28.3-1.2C486.9 62.4 431.4 96 368 96h-80C182 96 96 182 96 288c0 7 .8 13.7 1.5 20.5C161.3 262.8 253.4 224 384 224c8.8 0 16 7.2 16 16s-7.2 16-16 16C132.6 256 26 410.1 2.4 468c-6.6 16.3 1.2 34.9 17.5 41.6 16.4 6.8 35-1.1 41.8-17.3 1.5-3.6 20.9-47.9 71.9-90.6 32.4 43.9 94 85.8 174.9 77.2C465.5 467.5 576 326.7 576 154.3c0-50.2-10.8-102.2-29.8-144.6z">
+              </path>
+            </svg></div>
+          <h3 class="text-lg font-medium text-gray-800 dark:text-white">Organic Food</h3>
+        </div>
+        <div
+          class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col items-center"
+          data-aos="zoom-in" data-aos-delay="600" style="opacity: 1; transform: none;">
+          <div class="h-16 w-16 rounded-full text-purple-700 bg-purple-300 flex items-center justify-center mb-3"><svg
+              stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+              stroke-linejoin="round" class="text-3xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+              </path>
+            </svg></div>
+          <h3 class="text-lg font-medium text-gray-800 dark:text-white">Spices</h3>
+        </div>
+        <div
+          class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col items-center"
+          style="opacity: 1; transform: none;">
+          <div class="h-16 w-16 rounded-full text-purple-700 bg-purple-300 flex items-center justify-center mb-3"><svg
+              stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+              stroke-linejoin="round" class="text-3xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+              </path>
+            </svg></div>
+          <h3 class="text-lg font-medium text-gray-800 dark:text-white">Jewelry</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-10">
+        <h2 class="text-3xl font-bold text-white" style="opacity: 1;">Featured Products</h2><a
+          class="flex items-center text-purple-600 dark:text-purple-300 p-2 rounded-md hover:bg-purple-200 dark:hover:bg-purple-900 font-bold"
+          href="/ProductList" data-discover="true">View All <svg stroke="currentColor" fill="none" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="ml-1" height="1em" width="1em"
+            xmlns="http://www.w3.org/2000/svg">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg></a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          style="opacity: 1; transform: none;">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+            <div class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200"><img alt="Handwoven Silk Saree"
+                class="w-full object-center object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                src="https://rmkv.com/cdn/shop/files/dy1586_.2_fa226e86-55be-4328-872d-b1cfc4283d97_1370x.webp?v=1749044756"><button
+                class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full shadow-sm hover:bg-white dark:hover:bg-gray-700 transition-colors"><svg
+                  stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" class="text-gray-500 hover:text-red-500 text-lg transition-colors"
+                  height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg></button></div>
+            <div class="p-4"></div>
+          </div>
+          <div class="p-4">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-gray-800 dark:text-white">Handwoven Silk Saree</h3>
+              <div
+                class="flex items-center bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded text-sm">
+                <i class="fa-solid fa-star"></i></i>4.8
+              </div>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Handloom</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center text-lg font-bold text-gray-800 dark:text-white">₹ 2499</div><button
+                class="bg-purple-200 items-center rounded-lg dark:bg-purple-900/40 hovpurple-purple-300 dark:hover:bg-purple-800 p-2 flex flex-row gap-2 transition-colors duration-300">
+                <i class="fa-solid fa-cart-shopping  text-purple-800 dark:text-purple-300"></i><span class="text-purple-800 dark:text-purple-300">Add to
+                  Cart</span></button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          style="opacity: 1; transform: none;">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+            <div class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200"><img alt="Organic Turmeric Powder"
+                class="w-full object-center object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                src="https://ueirorganic.com/cdn/shop/files/turmericpowder_e2ff52f3-af0e-43de-9319-85c5dede5abc.jpg?v=1693824200"><button
+                class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full shadow-sm hover:bg-white dark:hover:bg-gray-700 transition-colors"><svg
+                  stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" class="text-gray-500 hover:text-red-500 text-lg transition-colors"
+                  height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg></button></div>
+            <div class="p-4"></div>
+          </div>
+          <div class="p-4">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-gray-800 dark:text-white">Organic Turmeric Powder</h3>
+              <div
+                class="flex items-center bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded text-sm">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" class="mr-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg> 4.5
+              </div>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Spices</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center text-lg font-bold text-gray-800 dark:text-white">
+                   ₹ 299</div><button
+                class="bg-purple-200 items-center rounded-lg dark:bg-purple-900/40 hover:bg-purple-300 dark:hover:bg-purple-800 p-2 flex flex-row gap-2 transition-colors duration-300">
+                <i class="fa-solid fa-cart-shopping"></i><span class="text-purple-800 dark:text-purple-300">Add to Cart</span></button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          style="opacity: 1; transform: none;">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+            <div class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200"><img alt="Terracotta Pot Set"
+                class="w-full object-center object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                src="https://exclusivelane.com/cdn/shop/products/EL-004-015_A_1024x.jpg?v=1598086287"><button
+                class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full shadow-sm hover:bg-white dark:hover:bg-gray-700 transition-colors"><svg
+                  stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" class="text-gray-500 hover:text-red-500 text-lg transition-colors"
+                  height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg></button></div>
+            <div class="p-4"></div>
+          </div>
+          <div class="p-4">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-gray-800 dark:text-white">Terracotta Pot Set</h3>
+              <div
+                class="flex items-center bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded text-sm">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" class="mr-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg> 4.7
+              </div>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Handicraft</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center text-lg font-bold text-gray-800 dark:text-white">₹ 799</div><button
+                class="bg-purple-200 items-center rounded-lg dark:bg-purple-900/40 hover:bg-purple-300 dark:hover:bg-purple-800 p-2 flex flex-row gap-2 transition-colors duration-300">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="text-purple-800 dark:text-purple-300">Add to Cart</span></button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+          style="opacity: 1; transform: none;">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+            <div class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200"><img alt="Handmade Jute Bag"
+                class="w-full object-center object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                src="https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/67c6e5efd64350e9a77cf33e/whatsapp-image-2024-10-29-at-2-32-06-pm.jpg"><button
+                class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full shadow-sm hover:bg-white dark:hover:bg-gray-700 transition-colors"><svg
+                  stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" class="text-gray-500 hover:text-red-500 text-lg transition-colors"
+                  height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg></button></div>
+            <div class="p-4"></div>
+          </div>
+          <div class="p-4">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-gray-800 dark:text-white">Handmade Jute Bag</h3>
+              <div
+                class="flex items-center bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-2 py-1 rounded text-sm">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                  stroke-linejoin="round" class="mr-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg> 4.6
+              </div>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Eco-friendly</p>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center text-lg font-bold text-gray-800 dark:text-white">₹ 499</div><button
+                class="bg-purple-200 items-center rounded-lg dark:bg-purple-900/40 hover:bg-purple-300 dark:hover:bg-purple-800 p-2 flex flex-row gap-2 transition-colors duration-300">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="text-purple-800 dark:text-purple-300">Add to Cart</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer
+    class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-6 mt-20 transition-colors duration-300">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 ShopMatrix</p>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileSearchBtn = document.getElementById('mobile-search-btn');
+    const mobileSearch = document.getElementById('mobile-search');
+
+    // Load saved theme
+    if (localStorage.theme === 'dark') {
+      html.classList.add('dark');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    // Dark mode toggle
+    darkModeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      if (html.classList.contains('dark')) {
+        localStorage.theme = 'dark';
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        localStorage.theme = 'light';
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+      }
+    });
+
+    // Mobile menu toggle
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (!mobileMenu.classList.contains('hidden')) {
+        menuIcon.classList.replace('fa-bars', 'fa-xmark');
+        mobileSearch.classList.add('hidden');
+      } else {
+        menuIcon.classList.replace('fa-xmark', 'fa-bars');
+      }
+    });
+
+    // Mobile search toggle
+    mobileSearchBtn.addEventListener('click', () => {
+      mobileSearch.classList.toggle('hidden');
+      if (!mobileSearch.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.replace('fa-xmark', 'fa-bars');
+      }
+    });
+  </script>
+
+
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true
+    });
+  </script>
+</body>
+
+</html>
