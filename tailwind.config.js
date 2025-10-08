@@ -24,6 +24,7 @@ module.exports = {
           light: "#6EE7B7",
           DEFAULT: "#3B82F6",
           dark: "#1E40AF",
+          pinkCustom: '#FB5E9C'
         },
       },
       fontFamily: {
