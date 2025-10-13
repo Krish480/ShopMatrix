@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | ShopMatrix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link href="./dist/output.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="/images/ShopMatrix_logo.png">
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
+
+    <!-- Header -->
+    <header
+        class="bg-white text-white dark:bg-gray-800 sticky top-0 w-full shadow-md z-50 transition-all duration-300 py-3">
+        <div class="container mx-auto flex justify-between items-center px-4">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-6">
+                <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+                    <i id="menu-icon" class="fa-solid fa-bars"></i>
+                </button>
+                <div class="flex items-center space-x-3">
+                    <img src="/images/ShopMatrix_logo.png" alt="ShopMatrix Logo" class="h-10 w-auto object-contain">
+                    <span class="text-xl font-bold">ShopMetrix</span>
+                </div>
+            </div>
+
+            <!-- Desktop Search -->
+            <div class="hidden md:flex flex-1 max-w-xl mx-8">
+                <form action="" class="w-full">
+                    <div class="relative">
+                        <input type="text" placeholder="Search products..."
+                            class="w-full h-12 bg-gray-200 dark:bg-gray-700 py-2 pl-4 pr-10 rounded-full text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+
+                        <button type="submit"
+                            class="absolute right-3 top-1/2 text-lg -translate-y-1/2 text-gray-400 dark:text-gray-200 hover:text-indigo-500 transition flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- Desktop Menu -->
+            <div class="flex items-center space-x-2">
+                <nav class="hidden md:flex font-medium items-center gap-4">
+                    <a href="index.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-house text-lg"></i> Home
+                    </a>
+                    <a href="products.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i> Products
+                    </a>
+                    <a href="/admin/admin.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-shield text-lg"></i> Admin
+                    </a>
+                    <a href="admin/login.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-shop text-lg"></i> Merchant
+                    </a>
+                    <a href="user/dashboard.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-user text-lg"></i> User
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Right Buttons -->
+            <div class="flex items-center gap-4">
+                <button id="mobile-search-btn"
+                    class="md:hidden text-xl text-gray-800 dark:text-gray-200 focus:outline-none">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button id="dark-mode-toggle" class="text-gray-800 dark:text-gray-200 text-xl focus:outline-none">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile Search -->
+        <div id="mobile-search" class="hidden md:hidden px-4 pb-3 bg-gray-800 dark:bg-gray-800">
+            <input type="text" placeholder="Search products..."
+                class="w-full py-2 px-4 rounded-full text-gray-200 mt-2 bg-gray-400 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white transition-all duration-250">
+            <a href="index.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-house"></i> Home</a>
+            <a href="products.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-bag-shopping"></i> Products</a>
+            <a href="user/dashboard.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-shop"></i>Merchant</a>
+            <a href="admin/login.html" class="py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-shield"></i> Admin</a>
+            <a href="user/dashboard.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-user"></i> User</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8 transition-colors duration-300">
+        <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center transition-colors duration-300">
+            Our Products</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- First Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1628329567705-f8f7150c3cff?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fFNtYXJ0JTIwTm9pc2UlMjBDYW5jZWxsaW5nJTIwSGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
+                        alt="Smart Noise Cancelling Headphones"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-tags"></i> 15% OFF
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Smart Noise Cancelling Headphones
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.0
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Experience deep bass, active noise cancellation, and 30 hours of playtime.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Section A
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Tech Haven - 1st Floor
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 w-fit mb-4">
+                        Electronics
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹4,999
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1744814917796-ed07707b8114?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fEVjby1GcmllbmRseSUyMFNuZWFrZXJzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
+                        alt="Eco-Friendly Sneakers"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fas fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-tags"></i> 20% OFF
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Eco-Friendly Sneakers
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.7
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Lightweight, breathable, and sustainable sneakers made from recycled materials.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Section A - Footwear
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Green Shoe Boutique - Ground Floor
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 w-fit mb-4">
+                        Sneakers
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹5,499
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1544003484-3cd181d17917?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8RWNvLUZyaWVuZGx5JTIwU3RhaW5sZXNzJTIwU3RlZWwlMjBCb3R0bGV8ZW58MHx8MHx8fDA%3D"
+                        alt="Eco-Friendly Stainless Steel Water Bottle"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-tags"></i> 10% OFF with code ECO10
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Eco-Friendly Stainless Steel Bottle
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.8
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        32oz reusable water bottle with double-wall insulation. Keeps beverages hot for 12 hours & cold
+                        for 24 hours.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> First Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Green Living Store - First Floor, Section
+                        B
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 w-fit mb-4">
+                        Home & Kitchen
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹2,299
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fourth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://m.media-amazon.com/images/I/61SX3yM4cML._AC_SL1483_.jpg"
+                        alt="Advanced Smart Fitness Tracker"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-tags"></i> 15% OFF with code FIT15
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Advanced Smart Fitness Tracker
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.7
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Monitor heart rate, sleep quality, and daily activity with a waterproof design and 10-day
+                        battery life.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Second Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Fitness Gear Hub - Second Floor, Section
+                        D
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 w-fit mb-4">
+                        Electronics
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹4,499
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fifth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1606503825008-909a67e63c3d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1025"
+                        alt="Premium Leather Wallet"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-gift"></i> Free Engraving Today Only
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Premium Leather Wallet
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.8
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Stylish full-grain leather wallet with multiple card slots and RFID protection.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Ground Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Leather & More - Ground Floor, Near
+                        Escalator
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 w-fit mb-4">
+                        Accessories
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹2,799
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sixth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1637157216470-d92cd2edb2e8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8RWNvLUZyaWVuZGx5JTIwWW9nYSUyME1hdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=1000"
+                        alt="Eco-Friendly Yoga Mat"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-percent"></i> 20% Off for New Members
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Eco-Friendly Yoga Mat
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.7
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Durable, non-slip yoga mat made from eco-friendly TPE material with convenient carrying strap.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Third Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Sports World - Third Floor, Section D
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300 w-fit mb-4">
+                        Sports
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹1,499
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Seventh Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1633382570322-523ae94e5178?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fEZhc3QlMjBXaXJlbGVzcyUyMENoYXJnaW5nJTIwUGFkfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
+                        alt="Fast Wireless Charging Pad"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-bolt"></i> Fast Charge +10% Off
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Fast Wireless Charging Pad
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.6
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Sleek Qi-enabled wireless charger compatible with iPhone, Samsung, and other devices. Compact
+                        design for desk or nightstand.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> First Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Tech Haven - First Floor, Section A
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 w-fit mb-4">
+                        Electronics
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹1,199
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eighth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1611571741792-edb58d0ceb67?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UHJlbWl1bSUyMEhhcmRjb3ZlciUyME5vdGVib29rfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1000"
+                        alt="Premium Hardcover Notebook"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-book-open"></i> 3 for $30
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Premium Hardcover Notebook
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.5
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        High-quality hardcover notebook with 120 premium pages. Perfect for journaling, note-taking, or
+                        sketches.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Second Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Book Nook - Second Floor, Quiet Corner
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 w-fit mb-4">
+                        Books
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹199
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Ninth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38" alt="Ceramic Coffee Mug"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-bolt"></i> 10% Off
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Ceramic Coffee Mug
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.5
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Handcrafted ceramic mug with comfortable handle. Perfect for coffee or tea.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Ground Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Kitchen Essentials - Ground Floor, Near
+                        Cafe
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 w-fit mb-4">
+                        Home
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹149
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tenth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1709258228137-19a8c193be39?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFJ1bm5pbmclMjBTaG9lc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
+                        alt="Running Shoes"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-amber-500 text-white px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-tag"></i> Last season's colors - 30% off
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Running Shoes
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.5
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Lightweight running shoes with cushioned soles. Perfect for sports and daily running.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Third Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Sports World - Third Floor, Section E
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300 w-fit mb-4">
+                        Sports
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹6,499
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eleventh Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://img.tttcdn.com/product/original/images/tomtopsite/H/H24956US/H24956US-15646423272999.jpg"
+                        alt="High-Speed Blender"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-amber-500 text-white px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-percent"></i> 30% Off
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            High-Speed Blender
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.5
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Powerful blender perfect for smoothies, sauces, and food preparation. Easy to clean and compact
+                        design.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Second Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Home Appliances - Second Floor, Section B
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300 w-fit mb-4">
+                        Home
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹4,999
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Twelth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1662220727289-27d6b2f10a82?ixlib=rb-4.1.0&auto=format&fit=crop&q=60&w=600"
+                        alt="Smartwatch Series X Pro"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-amber-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-percent"></i> 25% Off
+                    </div>
+                </div>
+
+                <!-- Product Content -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Smartwatch Series X Pro
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.8
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Stylish smartwatch with fitness tracking, heart rate monitor, and long-lasting battery life.
+                    </p>
+
+                    <!-- Shop Info -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> First Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Tech World Store - First Floor, Gadget
+                        Section
+                    </div>
+
+                    <!-- Category Tag -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 w-fit mb-4">
+                        Electronics
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹7,999
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Thirteenth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1731209519754-d580baf6f64f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fFRyYXZlbFBybyUyMFdhdGVycHJvb2YlMjBMYXB0b3AlMjBCYWNrcGFja3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
+                        alt="TravelPro Backpack"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-amber-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fas fa-percent"></i> 15% Off
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            TravelPro Waterproof Laptop Backpack
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.6
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Spacious and durable backpack with padded laptop sleeve, water-resistant material, and
+                        multi-utility pockets — perfect for travel or college.
+                    </p>
+
+                    <!-- Location & Shop -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Ground Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Travel Gear Hub - Near Main Entrance
+                    </div>
+
+                    <!-- Category -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 w-fit mb-4">
+                        Accessories
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹3,499
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fourteenth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.bYT5MWGlK6DhSzmTGXpIwgHaFj?rs=1&pid=ImgDetMain&o=7&rm=3"
+                        alt="Indian Spice Cookbook"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fa-solid fa-star"></i> Bestseller
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            The Indian Spice Cookbook
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.8
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        A delightful collection of 120 traditional and modern Indian recipes, complete with colorful
+                        photos and easy instructions by Chef Ananya Rao.
+                    </p>
+
+                    <!-- Location & Shop -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> Second Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Book Nook - Cooking Section
+                    </div>
+
+                    <!-- Category -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300 w-fit mb-4">
+                        Books
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹1,299
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fifteenth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1669255344177-dc55f537acc9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8QWRqdXN0YWJsZSUyMFNtYXJ0cGhvbmUlMjBTdGFuZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600"
+                        alt="Adjustable Smartphone Stand"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-blue-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fa-solid fa-bolt"></i> Trending
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Adjustable Smartphone Stand
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.6
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Foldable and height-adjustable smartphone stand with aluminum alloy body — perfect for video
+                        calls, desk setup, and hands-free use.
+                    </p>
+
+                    <!-- Location & Shop -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fas fa-map-marker-alt mr-2 text-indigo-500"></i> First Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Tech Accessories - Section C
+                    </div>
+
+                    <!-- Category -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 w-fit mb-4">
+                        Electronics
+                    </span>
+
+                    <!-- Price & Button -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹799
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sixteenth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1684154156224-6f4f70fff486?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFByZW1pdW0lMjBQb2xhcml6ZWQlMjBTdW5nbGFzc2VzfGVufDB8fDB8fHww"
+                        alt="Premium Polarized Sunglasses"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-amber-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fa-solid fa-gift"></i> Free Case Included
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title & Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Premium Polarized Sunglasses
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fa-solid fa-star mr-1"></i> 4.7
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Stylish UV400 polarized sunglasses offering maximum sun protection with a sleek metal frame and
+                        free travel case.
+                    </p>
+
+                    <!-- Location -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fa-solid fa-location-dot text-indigo-500 mr-2"></i> Ground Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
+                        <i class="fa-solid fa-store text-indigo-500 mr-2"></i> Vision Center - Near Main Doors
+                    </div>
+
+                    <!-- Category -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 w-fit mb-4">
+                        Accessories
+                    </span>
+
+                    <!-- Price & Add to Cart -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹2,499
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seventeenth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 group">
+                    <img src="https://th.bing.com/th/id/R.114a987af4ab74524384b4283e05e532?rik=2IhOvyLPF%2fvTWg&riu=http%3a%2f%2f1.bp.blogspot.com%2f-YA1f4CzOA78%2fUkmB2XJh6wI%2fAAAAAAAAACg%2fxRMDQA1qGxc%2fs1600%2fBowflex%2badjustable%2bdumbbells1.jpg&ehk=zb4p5BmFssf4giy169ZHs1BnhRJlODkxq7laDvX5c9o%3d&risl=&pid=ImgRaw&r=0"
+                        alt="Adjustable Dumbbell Set"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fa-solid fa-dumbbell"></i> 20% OFF
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow">
+                    <!-- Title and Rating -->
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-semibold text-lg text-gray-900 dark:text-white line-clamp-2">
+                            Adjustable Dumbbell Set (20kg)
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fa-solid fa-star mr-1"></i> 4.8
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                        Premium 20kg adjustable dumbbell set ideal for strength training, toning, and full-body workouts
+                        at home.
+                    </p>
+
+                    <!-- Location and Shop -->
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> Third Floor
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-store mr-2 text-indigo-500"></i> Sports World - Fitness Section
+                    </div>
+
+                    <!-- Category -->
+                    <span
+                        class="text-xs font-medium px-2 py-1 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300 w-fit mb-4">
+                        Fitness Equipment
+                    </span>
+
+                    <!-- Price and Add to Cart -->
+                    <div class="mt-auto flex justify-between items-center">
+                        <div class="flex items-center text-2xl font-bold text-gray-900 dark:text-white">
+                            ₹3,499
+                        </div>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eighteenth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 group">
+                    <img src="https://plus.unsplash.com/premium_photo-1739612417248-b155b42142b8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Decorative Cushion"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-3 right-3 bg-white/70 dark:bg-gray-700/70 text-gray-800 dark:text-white rounded-full p-2 hover:bg-red-100 dark:hover:bg-red-800 transition">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1">
+                        <i class="fa-solid fa-tags"></i> Buy 2 Get 1 Free
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">
+                            Decorative Cushion Set
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm">
+                            <i class="fa-solid fa-star mr-1"></i> 4.7
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        Soft cotton decorative cushions with premium fabric for living room and bedroom comfort.
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> Second Floor
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 text-indigo-500 mt-1"></i> Home Elegance - Section B
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                            Home Decor
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div
+                                class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100 transition-colors duration-300">
+                                ₹1,299
+                            </div>
+                            <button
+                                class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nineteenth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div
+                    class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                    <img alt="Smartwatch"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                        src="https://images.unsplash.com/photo-1718309602791-8f3cc83840b7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-md text-xs font-bold flex items-center">
+                        <i class="fa-solid fa-bolt mr-1"></i> 25% OFF
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">NoiseFit Pro 4
+                            Smartwatch</h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm ml-2">
+                            <i class="fa-solid fa-star mr-1"></i> 4.7
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        Advanced smartwatch with AMOLED display, Bluetooth calling, and fitness tracking.
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> <span>Ground Floor</span>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 mt-1 text-indigo-500"></i>
+                            <span class="line-clamp-2">Electronics Hub - Ground Floor, Section C</span>
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+                            electronics
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100">
+                                ₹3,499
+                            </div>
+                            <button
+                                class="bg-green-200 dark:bg-green-900/40 hover:bg-green-300 dark:hover:bg-green-800 p-2 px-4 rounded-lg flex items-center gap-2 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping text-green-800 dark:text-green-300"></i>
+                                <span class="text-green-800 dark:text-green-300 font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twentieth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div
+                    class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                    <img alt="Hooded Sweatshirt"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                        src="https://images.unsplash.com/photo-1608745128320-9291dfb0e12d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fEhvb2RlZCUyMFN3ZWF0c2hpcnR8ZW58MHx8MHx8fDA%3D" />
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-amber-500 text-white px-2 py-1 rounded-md text-xs font-bold flex items-center">
+                        <i class="fa-solid fa-percent mr-1"></i> Clearance Sale - 40% OFF
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">Hooded
+                            Sweatshirt</h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm ml-2">
+                            <i class="fa-solid fa-star mr-1"></i> 4.5
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        Warm and comfortable hoodie for casual wear, perfect for winter fashion lovers.
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> <span>Ground Floor</span>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 mt-1 text-indigo-500"></i>
+                            <span class="line-clamp-2">Fashion Boutique - Ground Floor, Seasonal Section</span>
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300">
+                            clothing
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100">
+                                ₹2,499
+                            </div>
+                            <button
+                                class="bg-green-200 dark:bg-green-900/40 hover:bg-green-300 dark:hover:bg-green-800 p-2 px-4 rounded-lg flex items-center gap-2 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping text-green-800 dark:text-green-300"></i>
+                                <span class="text-green-800 dark:text-green-300 font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twenty First Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div
+                    class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                    <img alt="Desk Organizer"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                        src="https://i.pinimg.com/originals/b5/67/71/b567715017c200c5b0fdae2ab13bc2ff.jpg" />
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-md text-xs font-bold flex items-center">
+                        <i class="fa-solid fa-bolt mr-1"></i> 20% OFF
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">Desk Organizer
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm ml-2">
+                            <i class="fa-solid fa-star mr-1"></i> 4.5
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        Wooden organizer for your desk accessories
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> <span>Second Floor</span>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 mt-1 text-indigo-500"></i>
+                            <span class="line-clamp-2">Office Solutions - Second Floor, Near Stationery</span>
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                            home
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100">
+                                ₹279
+                            </div>
+                            <button
+                                class="bg-green-200 dark:bg-green-900/40 hover:bg-green-300 dark:hover:bg-green-800 p-2 px-4 rounded-lg flex items-center gap-2 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping text-green-800 dark:text-green-300"></i>
+                                <span class="text-green-800 dark:text-green-300 font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twenty Second Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div
+                    class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                    <img alt="Wireless Mouse"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                        src="https://images.unsplash.com/photo-1586349906319-48d20e9d17e5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8V2lyZWxlc3MlMjBNb3VzZXxlbnwwfHwwfHx8MA%3D%3D" />
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <!-- Offer Badge -->
+                    <div
+                        class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-md text-xs font-bold flex items-center">
+                        <i class="fa-solid fa-bolt mr-1"></i> Bundle with keyboard - 15% OFF
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">Wireless Mouse
+                        </h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm ml-2">
+                            <i class="fa-solid fa-star mr-1"></i> 4.5
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        Ergonomic wireless mouse with silent clicks
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> <span>First Floor</span>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 mt-1 text-indigo-500"></i>
+                            <span class="line-clamp-2">Tech Haven - First Floor, Section D</span>
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+                            electronics
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100">
+                                ₹1,290
+                            </div>
+                            <button
+                                class="bg-green-200 dark:bg-green-900/40 hover:bg-green-300 dark:hover:bg-green-800 p-2 px-4 rounded-lg flex items-center gap-2 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping text-green-800 dark:text-green-300"></i>
+                                <span class="text-green-800 dark:text-green-300 font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twenty Third Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div
+                    class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                    <img alt="Yoga Pants"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy" src="https://cdn.fcglcdn.com/brainbees/images/products/583x720/19386697a.webp" />
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">Yoga Pants</h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm ml-2">
+                            <i class="fa-solid fa-star mr-1"></i> 4.5
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        Stretchy and comfortable yoga pants for workouts
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> <span>Ground Floor</span>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 mt-1 text-indigo-500"></i>
+                            <span class="line-clamp-2">Active Wear - Ground Floor, Near Fitness Section</span>
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300">
+                            clothing
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100">
+                                ₹1,200
+                            </div>
+                            <button
+                                class="bg-green-200 dark:bg-green-900/40 hover:bg-green-300 dark:hover:bg-green-800 p-2 px-4 rounded-lg flex items-center gap-2 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping text-green-800 dark:text-green-300"></i>
+                                <span class="text-green-800 dark:text-green-300 font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Twenty Fourth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div
+                    class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                    <img alt="Air Fryer"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy"
+                        src="https://i5.walmartimages.com/asr/2c0055e8-8dea-4bb7-a08f-0b903fe2488c.094e9c43810b5aa65022354921a3b9ef.jpeg" />
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <!-- Special Tag -->
+                    <div
+                        class="absolute top-3 left-3 bg-amber-500 text-white px-2 py-1 rounded-md text-xs font-bold flex items-center">
+                        <i class="fa-solid fa-book mr-1"></i> Free recipe book included
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">Air Fryer</h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm ml-2">
+                            <i class="fa-solid fa-star mr-1"></i> 4.5
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        Digital air fryer with multiple cooking functions
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> <span>Second Floor</span>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 mt-1 text-indigo-500"></i>
+                            <span class="line-clamp-2">Kitchen Innovations - Second Floor, Section E</span>
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                            home
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100">₹6,499
+                            </div>
+                            <button
+                                class="bg-green-200 dark:bg-green-900/40 hover:bg-green-300 dark:hover:bg-green-800 p-2 px-4 rounded-lg flex items-center gap-2 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping text-green-800 dark:text-green-300"></i>
+                                <span class="text-green-800 dark:text-green-300 font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twenty Fifth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div
+                    class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                    <img alt="Puzzle Set"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy" src="https://h2.commercev3.net/cdn.bitsandpieces.com/images/1000/45951_1.jpg" />
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">Puzzle Set</h3>
+                        <div
+                            class="flex items-center bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-sm ml-2">
+                            <i class="fa-solid fa-star mr-1"></i> 4.5
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        1000-piece jigsaw puzzle of famous artwork
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> <span>Second Floor</span>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 mt-1 text-indigo-500"></i>
+                            <span class="line-clamp-2">Games & Puzzles - Second Floor, Family Section</span>
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300">
+                            books
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100">₹899
+                            </div>
+                            <button
+                                class="bg-green-200 dark:bg-green-900/40 hover:bg-green-300 dark:hover:bg-green-800 p-2 px-4 rounded-lg flex items-center gap-2 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping text-green-800 dark:text-green-300"></i>
+                                <span class="text-green-800 dark:text-green-300 font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twenty Sixth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- Product Image -->
+                <div
+                    class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                    <img alt="Wireless Headphones"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy" src="https://images.unsplash.com/photo-1612858249937-1cc0852093dd?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V2lyZWxlc3MlMjBIZWFkcGhvbmVzfGVufDB8fDB8fHww" />
+
+                    <!-- Wishlist Button -->
+                    <button
+                        class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">Wireless
+                            Headphones</h3>
+                        <div
+                            class="flex items-center bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 px-2 py-1 rounded text-sm ml-2">
+                            <i class="fa-solid fa-star mr-1"></i> 4.6
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        Noise-cancelling wireless headphones with long battery life
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> <span>First Floor</span>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 mt-1 text-indigo-500"></i>
+                            <span class="line-clamp-2">Electronics - First Floor, Gadgets Section</span>
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+                            electronics
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100">₹4,599
+                            </div>
+                            <button
+                                class="bg-green-200 dark:bg-green-900/40 hover:bg-green-300 dark:hover:bg-green-800 p-2 px-4 rounded-lg flex items-center gap-2 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping text-green-800 dark:text-green-300"></i>
+                                <span class="text-green-800 dark:text-green-300 font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twenty Seventh Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <div
+                    class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                    <img alt="Smartwatch"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy" src="https://images.unsplash.com/photo-1632794716789-42d9995fb5b6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    <button
+                        class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">Smartwatch</h3>
+                        <div
+                            class="flex items-center bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 px-2 py-1 rounded text-sm ml-2">
+                            <i class="fa-solid fa-star mr-1"></i> 4.7
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        Waterproof smartwatch with fitness tracking and notifications
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> <span>First Floor</span>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 mt-1 text-indigo-500"></i>
+                            <span class="line-clamp-2">Gadgets - First Floor, Smart Devices Section</span>
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+                            electronics
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100">₹6,499
+                            </div>
+                            <button
+                                class="bg-green-200 dark:bg-green-900/40 hover:bg-green-300 dark:hover:bg-green-800 p-2 px-4 rounded-lg flex items-center gap-2 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping text-green-800 dark:text-green-300"></i>
+                                <span class="text-green-800 dark:text-green-300 font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twenty Eighth Product -->
+            <div
+                class="bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <div
+                    class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
+                    <img alt="Coffee Maker"
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        loading="lazy" src="https://images.unsplash.com/photo-1707241358597-bafcc8a8e73d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    <button
+                        class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+
+                <div class="p-5 flex flex-col flex-grow transition-colors duration-300">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 line-clamp-2">Coffee Maker
+                        </h3>
+                        <div
+                            class="flex items-center bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 px-2 py-1 rounded text-sm ml-2">
+                            <i class="fa-solid fa-star mr-1"></i> 4.4
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-gray-500 dark:text-gray-300 mb-4 line-clamp-2">
+                        Automatic coffee maker with programmable timer
+                    </p>
+
+                    <div class="mt-auto space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-location-dot mr-2 text-indigo-500"></i> <span>Ground Floor</span>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                            <i class="fa-solid fa-store mr-2 mt-1 text-indigo-500"></i>
+                            <span class="line-clamp-2">Kitchen - Ground Floor, Appliances Section</span>
+                        </div>
+
+                        <span
+                            class="text-xs px-2 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                            home
+                        </span>
+
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center text-xl font-bold text-gray-800 dark:text-gray-100">₹3,299
+                            </div>
+                            <button
+                                class="bg-green-200 dark:bg-green-900/40 hover:bg-green-300 dark:hover:bg-green-800 p-2 px-4 rounded-lg flex items-center gap-2 transition-colors duration-300">
+                                <i class="fa-solid fa-cart-shopping text-green-800 dark:text-green-300"></i>
+                                <span class="text-green-800 dark:text-green-300 font-medium">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+            <script>
+                const html = document.documentElement;
+                const darkModeToggle = document.getElementById('dark-mode-toggle');
+                const themeIcon = document.getElementById('theme-icon');
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const menuIcon = document.getElementById('menu-icon');
+                const mobileSearchBtn = document.getElementById('mobile-search-btn');
+                const mobileSearch = document.getElementById('mobile-search');
+
+                // Load saved theme
+                if (localStorage.theme === 'dark') {
+                    html.classList.add('dark');
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+
+                // Dark mode toggle
+                darkModeToggle.addEventListener('click', () => {
+                    html.classList.toggle('dark');
+                    if (html.classList.contains('dark')) {
+                        localStorage.theme = 'dark';
+                        themeIcon.classList.replace('fa-moon', 'fa-sun');
+                    } else {
+                        localStorage.theme = 'light';
+                        themeIcon.classList.replace('fa-sun', 'fa-moon');
+                    }
+                });
+
+                // Mobile menu toggle
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        menuIcon.classList.replace('fa-bars', 'fa-xmark');
+                        mobileSearch.classList.add('hidden');
+                    } else {
+                        menuIcon.classList.replace('fa-xmark', 'fa-bars');
+                    }
+                });
+
+                // Mobile search toggle
+                mobileSearchBtn.addEventListener('click', () => {
+                    mobileSearch.classList.toggle('hidden');
+                    if (!mobileSearch.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.replace('fa-xmark', 'fa-bars');
+                    }
+                });
+
+
+                document.addEventListener("DOMContentLoaded", () => {
+                    const currentPage = window.location.pathname.split("/").pop(); // e.g. 'offers.html'
+                    const headerLinks = document.querySelectorAll("header nav a");
+
+                    headerLinks.forEach((link) => {
+                        const linkPage = link.getAttribute("href").split("/").pop();
+
+                        if (linkPage === currentPage) {
+                            link.classList.add("text-indigo-400", "font-semibold", "border-b-2", "border-indigo-400", "pb-1");
+                        } else {
+                            link.classList.remove("text-indigo-400", "font-semibold", "border-b-2", "border-indigo-400", "pb-1");
+                        }
+                    });
+                });
+
+            </script>
+
+
+            <!-- AOS Animation -->
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+                AOS.init({
+                    duration: 1000,
+                    easing: 'ease-in-out',
+                    once: true
+                });
+            </script>
+
+</body>
+
+</html>
