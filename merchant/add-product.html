@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - ShopMetrix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="stylesheet" href="/dist/output.css">
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+    <!-- Header -->
+    <header
+        class="bg-white text-white dark:bg-gray-800 sticky top-0 w-full shadow-md z-50 transition-all duration-300 py-3">
+        <div class="container mx-auto flex justify-between items-center px-4">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-6">
+                <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+                    <i id="menu-icon" class="fa-solid fa-bars"></i>
+                </button>
+                <div class="flex items-center space-x-3">
+                    <img src="/images/ShopMatrix_logo.png" alt="ShopMatrix Logo" class="h-10 w-auto object-contain">
+                    <span class="text-xl font-bold">ShopMetrix</span>
+                </div>
+            </div>
+
+            <!-- Desktop Search -->
+            <div class="hidden md:flex flex-1 max-w-xl mx-8">
+                <form action="" class="w-full">
+                    <div class="relative">
+                        <input type="text" placeholder="Search products..."
+                            class="w-full h-12 bg-gray-200 dark:bg-gray-700 py-2 pl-4 pr-10 rounded-full text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+
+                        <button type="submit"
+                            class="absolute right-3 top-1/2 text-lg -translate-y-1/2 text-gray-400 dark:text-gray-200 hover:text-indigo-500 transition flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- Desktop Menu -->
+            <div class="flex items-center space-x-2">
+                <nav class="hidden md:flex font-medium items-center gap-4">
+                    <a href="/index.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-house text-lg"></i> Home
+                    </a>
+                    <a href="/Products.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i> Products
+                    </a>
+                    <a href="/admin/admin.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-shield text-lg"></i> Admin
+                    </a>
+                    <a href="/merchant/dashboard.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-shop text-lg"></i> Merchant
+                    </a>
+                    <a href="/user/User.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-user text-lg"></i> User
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Right Buttons -->
+            <div class="flex items-center gap-4">
+                <button id="mobile-search-btn"
+                    class="md:hidden text-xl text-gray-800 dark:text-gray-200 focus:outline-none">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button id="dark-mode-toggle" class="text-gray-800 dark:text-gray-200 text-xl focus:outline-none">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile Search -->
+        <div id="mobile-search" class="hidden md:hidden px-4 pb-3 bg-gray-800 dark:bg-gray-800">
+            <input type="text" placeholder="Search products..."
+                class="w-full py-2 px-4 rounded-full text-gray-200 mt-2 bg-gray-400 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white transition-all duration-250">
+            <a href="/index.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-house"></i> Home</a>
+            <a href="/Products.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-bag-shopping"></i> Products</a>
+            <a href="/merchant/dashboard.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-shop"></i>Merchant</a>
+            <a href="/admin/admin.html" class="py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-shield"></i> Admin</a>
+            <a href="/user/dashboard.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-user"></i> User</a>
+        </div>
+    </header>
+
+    <!-- Hamburger Menu JS -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileSearchBtn = document.getElementById('mobile-search-btn');
+        const mobileSearch = document.getElementById('mobile-search');
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (!mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.replace('fa-bars', 'fa-xmark');
+                mobileSearch.classList.add('hidden');
+            } else {
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+
+        // Mobile search toggle
+        mobileSearchBtn.addEventListener('click', () => {
+            mobileSearch.classList.toggle('hidden');
+            if (!mobileSearch.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+    </script>
+
+     <!-- MERCHANT HUB HEADER -->
+            <header
+                class="sticky top-2 z-20 bg-white dark:bg-gray-800 mt-5 shadow-[0_0_10px_#2563eb] rounded-2xl mx-2 transition-all duration-300">
+                <div class="flex items-center justify-between p-4">
+                    <!-- Left: Mobile Menu + Title -->
+                    <div class="flex items-center">
+                        <!-- Hamburger Button -->
+                        <button id="merchant-mobile-menu-btn"
+                            class="md:hidden mr-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-xl transition">
+                            <i id="menu-icon" class="fas fa-bars"></i>
+                        </button>
+                        <h2 class="text-xl font-bold text-indigo-500">Merchant Hub</h2>
+                    </div>
+
+                    <!-- Desktop Nav -->
+                    <nav class="hidden md:flex space-x-2">
+                        <a href="/merchant/dashboard.html"
+                            class="flex items-center px-4 py-2 bg-indigo-100/50 dark:bg-gray-700 text-white font-medium rounded-lg transition-all hover:bg-indigo-200/50 dark:hover:bg-gray-600">
+                            <i class="fas fa-home text-lg mr-2"></i> Dashboard
+                        </a>
+                        <a href="/merchant/add-product.html"
+                            class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all">
+                            <i class="fas fa-plus-square text-lg mr-2"></i> Add Product
+                        </a>
+                        <a href="/merchant/Productlist.html"
+                            class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all">
+                            <i class="fas fa-list-ul text-lg mr-2"></i> Product List
+                        </a>
+                        <a href="/merchant/My_store.html"
+                            class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all">
+                            <i class="fas fa-store text-lg mr-2"></i> My Store
+                        </a>
+                    </nav>
+
+                    <!-- Right: Notification, Chat, Settings -->
+                    <div class="flex items-center gap-3">
+                        <button
+                            class="relative p-2 rounded-full bg-indigo-200/50 shadow hover:shadow-md transition-all text-indigo-700 ">
+                            <i class="fas fa-bell text-lg"></i>
+                            <span
+                                class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </button>
+                        <button
+                            class="p-2 rounded-full bg-indigo-200/50 shadow hover:shadow-md transition-all text-indigo-700">
+                            <i class="fas fa-comment text-lg"></i>
+                        </button>
+                        <button
+                            class="p-2 rounded-full bg-indigo-200/50 shadow hover:shadow-md transition-all text-indigo-700">
+                            <i class="fas fa-cog text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Merchant Mobile Menu -->
+                <div id="merchant-mobile-menu"
+                    class="hidden md:hidden bg-gray-100 dark:bg-gray-700 rounded-b-2xl transition-all duration-300 overflow-hidden">
+                    <a href="/merchant/dashboard.html"
+                        class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                    <a href="/merchant/add-product.html"
+                        class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                        <i class="fas fa-plus-square"></i> Add Product
+                    </a>
+                    <a href="/merchant/Productlist.html"
+                        class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                        <i class="fas fa-list-ul"></i> Product List
+                    </a>
+                    <a href="/merchant/My_store.html"
+                        class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                        <i class="fas fa-store"></i> My Store
+                    </a>
+                </div>
+            </header>
+
+
+            <!--Merchant Hamburger Menu JS -->
+            <script>
+                const merchantMenuBtn = document.getElementById("merchant-mobile-menu-btn");
+                const merchantMenu = document.getElementById("merchant-mobile-menu");
+                const merchantMenuIcon = document.getElementById("merchant-menu-icon");
+
+                    //Merchant Mobile
+                    merchantMenuBtn.addEventListener('click', () => {
+                        merchantMenu.classList.toggle('hidden');
+                        if (!merchantMenu.classList.contains('hidden')) {
+                            merchantMenuIcon.classList.replace('fa-bars', 'fa-xmark');
+
+                        } else {
+                            merchantMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+                        }
+                    });
+                
+
+            </script>
+
+    <!-- Add Product header -->
+    <section class="bg-white dark:bg-gray-800 shadow sticky top-0 z-50 mt-5">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="flex items-center gap-4">
+                <h1 class="text-2xl font-bold text-indigo-500 flex items-center gap-2">
+                    <i class="fas fa-box-open animate-bounce"></i> Add Product
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6">
+        <div class="bg-white dark:bg-gray-800 shadow-2xl rounded-2xl p-8 max-w-3xl mx-auto border border-gray-200 dark:border-gray-700">
+            <h2 class="text-2xl font-semibold mb-6 flex items-center gap-2 text-indigo-500">
+                <i class="fas fa-plus-circle"></i> Add a New Product
+            </h2>
+
+            <form class="space-y-5">
+
+                <!-- Product Name -->
+                <div class="relative">
+                    <i class="fas fa-tag absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300"></i>
+                    <input type="text" placeholder="Product Name"
+                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm">
+                </div>
+
+                <!-- Product Category -->
+                <div class="relative">
+                    <i class="fas fa-list-alt absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300"></i>
+                    <select
+                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm">
+                        <option disabled selected>Select Category</option>
+                        <option>Electronics</option>
+                        <option>Clothing</option>
+                        <option>Books</option>
+                        <option>Accessories</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <!-- Product Price -->
+                
+                <div class="relative">
+                    <i class="fa-solid fa-indian-rupee-sign absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300"></i>
+                    <input type="number" placeholder="Price"
+                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm">
+                </div>
+
+                <!-- Product Stock -->
+                <div class="relative">
+                    <i class="fas fa-boxes absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300"></i>
+                    <input type="number" placeholder="Stock Quantity"
+                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm">
+                </div>
+
+                <!-- Product Description -->
+                <div class="relative">
+                    <i class="fas fa-align-left absolute left-3 top-3 text-gray-400 dark:text-gray-300"></i>
+                    <textarea rows="4" placeholder="Description"
+                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"></textarea>
+                </div>
+
+                <!-- Product Image -->
+                <div>
+                    <label class="mb-2 font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-image text-indigo-500"></i> Upload Product Image
+                    </label>
+                    <input type="file" accept="image/*" id="product-image"
+                        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+                    <img id="preview-image" src="" alt="Preview" class="mt-4 rounded-lg hidden max-h-60">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-right">
+                    <button type="submit"
+                        class="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-purple-500 hover:to-indigo-500 text-white px-6 py-3 rounded-xl shadow-lg flex items-center gap-2 transition transform hover:scale-105">
+                        <i class="fas fa-paper-plane"></i> Add Product
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Dark Mode & Image Preview Scripts -->
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            themeIcon.classList.toggle('fa-moon');
+            themeIcon.classList.toggle('fa-sun');
+        });
+
+        // Image Preview
+        const productImage = document.getElementById('product-image');
+        const previewImage = document.getElementById('preview-image');
+
+        productImage.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                previewImage.src = URL.createObjectURL(file);
+                previewImage.classList.remove('hidden');
+            }
+        });
+    </script>
+
+    <!-- <script src="/js/merchant.js"></script> -->
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>

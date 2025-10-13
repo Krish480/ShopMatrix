@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="/images/ShopMatrix_logo.png">
+    <title>Shop Management | ShopMatrix Admin</title>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header
+        class="bg-white text-white dark:bg-gray-800 sticky top-0 w-full shadow-md z-50 transition-all duration-300 py-3">
+        <div class="container mx-auto flex justify-between items-center px-4">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-6">
+                <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+                    <i id="menu-icon" class="fa-solid fa-bars"></i>
+                </button>
+                <div class="flex items-center space-x-3">
+                    <img src="/images/ShopMatrix_logo.png" alt="ShopMatrix Logo" class="h-10 w-auto object-contain">
+                    <span class="text-xl font-bold">ShopMetrix</span>
+                </div>
+            </div>
+
+            <!-- Desktop Search -->
+            <div class="hidden md:flex flex-1 max-w-xl mx-8">
+                <form action="" class="w-full">
+                    <div class="relative">
+                        <input type="text" placeholder="Search products..."
+                            class="w-full h-12 bg-gray-200 dark:bg-gray-700 py-2 pl-4 pr-10 rounded-full text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+
+                        <button type="submit"
+                            class="absolute right-3 top-1/2 text-lg -translate-y-1/2 text-gray-400 dark:text-gray-200 hover:text-indigo-500 transition flex items-center justify-center">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- Desktop Menu -->
+            <div class="flex items-center space-x-2">
+                <nav class="hidden md:flex font-medium items-center gap-4">
+                    <a href="/index.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-house text-lg"></i> Home
+                    </a>
+                    <a href="/Products.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i> Products
+                    </a>
+                    <a href="/admin/admin.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-shield text-lg"></i> Admin
+                    </a>
+                    <a href="/merchant/dashboard.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-shop text-lg"></i> Merchant
+                    </a>
+                    <a href="/user/User.html"
+                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+                        <i class="fa-solid fa-user text-lg"></i> User
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Right Buttons -->
+            <div class="flex items-center gap-4">
+                <button id="mobile-search-btn"
+                    class="md:hidden text-xl text-gray-800 dark:text-gray-200 focus:outline-none">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button id="dark-mode-toggle" class="text-gray-800 dark:text-gray-200 text-xl focus:outline-none">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile Search -->
+        <div id="mobile-search" class="hidden md:hidden px-4 pb-3 bg-gray-800 dark:bg-gray-800">
+            <input type="text" placeholder="Search products..."
+                class="w-full py-2 px-4 rounded-full text-gray-200 mt-2 bg-gray-400 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white transition-all duration-250">
+            <a href="/index.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-house"></i> Home</a>
+            <a href="/Products.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-bag-shopping"></i> Products</a>
+            <a href="/merchant/dashboard.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-shop"></i>Merchant</a>
+            <a href="/admin/admin.html" class="py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-shield"></i> Admin</a>
+            <a href="/user/User.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+                    class="fa-solid fa-user"></i> User</a>
+        </div>
+    </header>
+
+    <!-- Hamburger Menu JS -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileSearchBtn = document.getElementById('mobile-search-btn');
+        const mobileSearch = document.getElementById('mobile-search');
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (!mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.replace('fa-bars', 'fa-xmark');
+                mobileSearch.classList.add('hidden');
+            } else {
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+
+        // Mobile search toggle
+        mobileSearchBtn.addEventListener('click', () => {
+            mobileSearch.classList.toggle('hidden');
+            if (!mobileSearch.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+    </script>
+
+    <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div class="p-6 max-w-7xl mx-auto">
+
+            <!-- MERCHANT HUB HEADER -->
+            <header
+                class="sticky top-2 z-20 bg-white dark:bg-gray-800 shadow-[0_0_10px_#2563eb] rounded-2xl mx-2 transition-all duration-300">
+                <div class="flex items-center justify-between p-4">
+                    <!-- Left: Mobile Menu + Title -->
+                    <div class="flex items-center">
+                        <!-- Hamburger Button -->
+                        <button id="merchant-mobile-menu-btn"
+                            class="md:hidden mr-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-xl transition">
+                            <i id="menu-icon" class="fas fa-bars"></i>
+                        </button>
+                        <h2 class="text-xl font-bold text-indigo-500">Merchant Hub</h2>
+                    </div>
+
+                    <!-- Desktop Nav -->
+                    <nav class="hidden md:flex space-x-2">
+                        <a href="/merchant/dashboard.html"
+                            class="flex items-center px-4 py-2 bg-indigo-100/50 dark:bg-gray-700 text-white font-medium rounded-lg transition-all hover:bg-indigo-200/50 dark:hover:bg-gray-600">
+                            <i class="fas fa-home text-lg mr-2"></i> Dashboard
+                        </a>
+                        <a href="/merchant/add-product.html"
+                            class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all">
+                            <i class="fas fa-plus-square text-lg mr-2"></i> Add Product
+                        </a>
+                        <a href="/merchant/Productlist.html"
+                            class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all">
+                            <i class="fas fa-list-ul text-lg mr-2"></i> Product List
+                        </a>
+                        <a href="/merchant/My_store.html"
+                            class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all">
+                            <i class="fas fa-store text-lg mr-2"></i> My Store
+                        </a>
+                    </nav>
+
+                    <!-- Right: Notification, Chat, Settings -->
+                    <div class="flex items-center gap-3">
+                        <button
+                            class="relative p-2 rounded-full bg-indigo-200/50 shadow hover:shadow-md transition-all text-indigo-700 ">
+                            <i class="fas fa-bell text-lg"></i>
+                            <span
+                                class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </button>
+                        <button
+                            class="p-2 rounded-full bg-indigo-200/50 shadow hover:shadow-md transition-all text-indigo-700">
+                            <i class="fas fa-comment text-lg"></i>
+                        </button>
+                        <button
+                            class="p-2 rounded-full bg-indigo-200/50 shadow hover:shadow-md transition-all text-indigo-700">
+                            <i class="fas fa-cog text-lg"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Merchant Mobile Menu -->
+                <div id="merchant-mobile-menu"
+                    class="hidden md:hidden bg-gray-100 dark:bg-gray-700 rounded-b-2xl transition-all duration-300 overflow-hidden">
+                    <a href="/merchant/dashboard.html"
+                        class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                    <a href="/merchant/add-product.html"
+                        class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                        <i class="fas fa-plus-square"></i> Add Product
+                    </a>
+                    <a href="/merchant/Productlist.html"
+                        class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                        <i class="fas fa-list-ul"></i> Product List
+                    </a>
+                    <a href="/merchant/My_store.html"
+                        class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                        <i class="fas fa-store"></i> My Store
+                    </a>
+                </div>
+            </header>
+
+
+            <!--Merchant Hamburger Menu JS -->
+            <script>
+                const merchantMenuBtn = document.getElementById("merchant-mobile-menu-btn");
+                const merchantMenu = document.getElementById("merchant-mobile-menu");
+                const merchantMenuIcon = document.getElementById("merchant-menu-icon");
+
+                    //Merchant Mobile
+                    merchantMenuBtn.addEventListener('click', () => {
+                        merchantMenu.classList.toggle('hidden');
+                        if (!merchantMenu.classList.contains('hidden')) {
+                            merchantMenuIcon.classList.replace('fa-bars', 'fa-xmark');
+
+                        } else {
+                            merchantMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+                        }
+                    });
+                
+
+            </script>
+
+
+             <!-- MerchantPro Header -->
+            <div class="flex justify-between items-center py-4 mb-6 border-b border-gray-200 dark:border-gray-700 px-4">
+
+                <!-- Left: Logo & Title -->
+                <div class="flex items-center space-x-3">
+
+                    <h1 class="text-2xl font-bold text-indigo-500">MerchantPro</h1>
+                </div>
+
+                <!-- Right: Profile & Logout -->
+                <div class="flex items-center space-x-4">
+                    <!-- Profile Avatar -->
+                    <div class="flex items-center space-x-2">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-indigo-600 flex items-center justify-center text-white font-bold text-lg">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <span class="hidden md:inline text-gray-700 dark:text-gray-200 font-medium">Merchant</span>
+                    </div>
+
+                    <!-- Logout Button -->
+                    <button
+                        class="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-all duration-200">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- Dashboard Header -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 px-4">
+
+                <!-- Left: Greeting -->
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-[#FF5200] dark:text-white">Welcome Back</h1>
+                    <p class="text-gray-500 dark:text-gray-400 mt-1">Sunday, October 12, 2025 08:45 pm</p>
+                </div>
+
+                <!-- Right: Stats Cards -->
+                <div
+                    class="flex flex-col md:flex-row items-start md:items-center space-y-3 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
+
+                    <!-- Today Earnings -->
+                    <div
+                        class="flex items-center space-x-2 bg-gradient-to-r from-green-100 to-green-200 dark:from-green-900/30 dark:to-green-800/30 px-4 py-2 rounded-xl shadow-[0_0_10px_#2563eb]-sm hover:shadow-[0_0_10px_#2563eb]-md transition-all w-full md:w-auto">
+                        <span class="text-sm font-semibold text-green-700 dark:text-green-200">Today:</span>
+                        <span class="text-lg font-bold text-green-900 dark:text-white">₹24,850</span>
+                    </div>
+
+                    <!-- Orders Count -->
+                    <div
+                        class="flex items-center space-x-2 bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 px-4 py-2 rounded-xl shadow-[0_0_10px_#2563eb]-sm hover:shadow-[0_0_10px_#2563eb]-md transition-all w-full md:w-auto">
+                        <span class="text-sm font-semibold text-orange-700 dark:text-orange-200">Orders:</span>
+                        <span class="text-lg font-bold text-orange-900 dark:text-white">28</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+
+                <!-- Revenue Card -->
+                <div
+                    class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-[0_0_10px_#2563eb] border-none dark:border-gray-700 transition-all shadow-[0_0_10px_#2563eb]-indigo-500">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Revenue</p>
+                            <p class="text-2xl font-bold text-gray-800 dark:text-white mt-1">₹84,245</p>
+                        </div>
+                        <div
+                            class="p-3 rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400 text-xl flex items-center justify-center">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm mt-3 text-indigo-600 dark:text-indigo-400"><span class="font-medium">+12%</span>
+                        from last week</p>
+                </div>
+
+                <!-- Orders Card -->
+                <div
+                    class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-[0_0_10px_#2563eb] border-none dark:border-gray-700 transition-all shadow-[0_0_10px_#2563eb]-indigo-500">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Orders</p>
+                            <p class="text-2xl font-bold text-gray-800 dark:text-white mt-1">156</p>
+                        </div>
+                        <div
+                            class="p-3 rounded-full bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400 text-xl flex items-center justify-center">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm mt-3 text-indigo-600 dark:text-indigo-400"><span class="font-medium">+8%</span>
+                        from last week</p>
+                </div>
+
+                <!-- Customers Card -->
+                <div
+                    class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-[0_0_10px_#2563eb] border-none dark:border-gray-700 transition-all shadow-[0_0_10px_#2563eb]-indigo-500">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Customers</p>
+                            <p class="text-2xl font-bold text-gray-800 dark:text-white mt-1">89</p>
+                        </div>
+                        <div
+                            class="p-3 rounded-full bg-yellow-100 text-yellow-600 dark:bg-yellow-900/30 dark:text-yellow-400 text-xl flex items-center justify-center">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm mt-3 text-indigo-600 dark:text-indigo-400"><span class="font-medium">+5%</span>
+                        from last week</p>
+                </div>
+
+                <!-- Repeat Rate Card -->
+                <div
+                    class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-[0_0_10px_#2563eb] border-none dark:border-gray-700 transition-all shadow-[0_0_10px_#2563eb]-indigo-500">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Repeat Rate</p>
+                            <p class="text-2xl font-bold text-gray-800 dark:text-white mt-1">32%</p>
+                        </div>
+                        <div
+                            class="p-3 rounded-full bg-pink-100 text-pink-600 dark:bg-pink-900/30 dark:text-pink-400 text-xl flex items-center justify-center">
+                            <i class="fas fa-redo-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm mt-3 text-indigo-600 dark:text-indigo-400"><span class="font-medium">+2%</span>
+                        from last week</p>
+                </div>
+            </div>
+
+
+
+
+            <!-- ===== Revenue Overview Chart ===== -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-[0_0_10px_#2563eb] mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Revenue Overview</h2>
+                    <i class="fas fa-chart-line text-indigo-500 text-xl"></i>
+                </div>
+                <canvas id="revenueChart" height="100"></canvas>
+            </div>
+
+            <!-- ===== Inventory Alerts ===== -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-[0_0_10px_#2563eb] mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Inventory Alerts</h2>
+                    <i class="fas fa-box-open text-yellow-500 text-xl"></i>
+                </div>
+                <ul class="space-y-3">
+                    <li class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
+                        <span class="text-gray-700 dark:text-gray-300">Wireless Headphones</span>
+                        <span class="text-red-500 font-medium">Low Stock</span>
+                    </li>
+                    <li class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
+                        <span class="text-gray-700 dark:text-gray-300">Smartwatch</span>
+                        <span class="text-yellow-500 font-medium">Reorder Soon</span>
+                    </li>
+                    <li class="flex items-center justify-between">
+                        <span class="text-gray-700 dark:text-gray-300">Bluetooth Speaker</span>
+                        <span class="text-green-500 font-medium">In Stock</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ===== Recent Orders ===== -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-[0_0_10px_#2563eb] mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Recent Orders</h2>
+                    <i class="fas fa-receipt text-blue-500 text-xl"></i>
+                </div>
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-gray-200 dark:border-gray-700">
+                            <th class="py-2 text-gray-600 dark:text-gray-400">Customer</th>
+                            <th class="py-2 text-gray-600 dark:text-gray-400">Product</th>
+                            <th class="py-2 text-gray-600 dark:text-gray-400">Amount</th>
+                            <th class="py-2 text-gray-600 dark:text-gray-400">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 dark:text-gray-300">
+                        <tr class="border-b border-gray-200 dark:border-gray-700">
+                            <td class="py-2">Rohit Sharma</td>
+                            <td class="py-2">Smartphone</td>
+                            <td class="py-2">₹24,999</td>
+                            <td class="py-2 text-green-500">Delivered</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 dark:border-gray-700">
+                            <td class="py-2">Sneha Patel</td>
+                            <td class="py-2">Wireless Earbuds</td>
+                            <td class="py-2">₹3,499</td>
+                            <td class="py-2 text-yellow-500">Pending</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2">Aman Verma</td>
+                            <td class="py-2">Smartwatch</td>
+                            <td class="py-2">₹5,999</td>
+                            <td class="py-2 text-red-500">Cancelled</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ===== Quick Actions ===== -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-[0_0_10px_#2563eb] mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Quick Actions</h2>
+                    <i class="fas fa-bolt text-orange-500 text-xl"></i>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button
+                        class="flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg">
+                        <i class="fas fa-plus mr-2"></i> Add Product
+                    </button>
+                    <button
+                        class="flex items-center justify-center bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg">
+                        <i class="fas fa-tags mr-2"></i> View Sales
+                    </button>
+                    <button
+                        class="flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg">
+                        <i class="fas fa-box mr-2"></i> Manage Stock
+                    </button>
+                    <button
+                        class="flex items-center justify-center bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-lg">
+                        <i class="fas fa-chart-pie mr-2"></i> Analytics
+                    </button>
+                </div>
+            </div>
+
+            <!-- ===== Store Performance ===== -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-[0_0_10px_#2563eb] mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Store Performance</h2>
+                    <i class="fas fa-tachometer-alt text-purple-500 text-xl"></i>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <p class="text-3xl font-bold text-indigo-600">4.8★</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Customer Rating</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-green-600">98%</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Order Accuracy</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-yellow-500">2.5s</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Avg. Response Time</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-pink-600">92%</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">On-Time Delivery</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== Chart.js Script ===== -->
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                const ctx = document.getElementById('revenueChart');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Revenue (₹)',
+                            data: [12000, 19000, 15000, 22000, 17000, 25000, 28000],
+                            backgroundColor: '#4f46e5',
+                            borderRadius: 8
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: { color: '#94a3b8' },
+                                grid: { color: '#e2e8f0' }
+                            },
+                            x: {
+                                ticks: { color: '#94a3b8' },
+                                grid: { display: false }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            </script>
+
+
+            <div
+                class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800 text-center text-gray-500 dark:text-gray-400 text-sm">
+                <p>MerchantPro Dashboard • Last updated: Today at 08:45 pm</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
