@@ -17,3 +17,53 @@
 //     }
 //   });
 
+// Merchant Hamburger Menu JS 
+        
+            const merchantMenuBtn = document.getElementById("merchant-mobile-menu-btn");
+            const merchantMenu = document.getElementById("merchant-mobile-menu");
+            const merchantMenuIcon = document.getElementById("merchant-menu-icon");
+
+            //Merchant Mobile
+            merchantMenuBtn.addEventListener('click', () => {
+                merchantMenu.classList.toggle('hidden');
+                if (!merchantMenu.classList.contains('hidden')) {
+                    merchantMenuIcon.classList.replace('fa-bars', 'fa-xmark');
+
+                } else {
+                    merchantMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+                }
+            });
+
+
+   
+            // Chart.js for Revenue Overview
+                const ctx = document.getElementById('revenueChart');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Revenue (₹)',
+                            data: [12000, 19000, 15000, 22000, 17000, 25000, 28000],
+                            backgroundColor: '#4f46e5',
+                            borderRadius: 8
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: { color: '#94a3b8' },
+                                grid: { color: '#e2e8f0' }
+                            },
+                            x: {
+                                ticks: { color: '#94a3b8' },
+                                grid: { display: false }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+          
