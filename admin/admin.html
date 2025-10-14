@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - SuperMall</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="/images/ShopMatrix_logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/dist/output.css">
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+  <!-- Header -->
+  <header class="bg-white dark:bg-gray-800 sticky top-0 w-full shadow-md z-50 transition-all duration-300 py-3">
+    <div class="container mx-auto flex justify-between items-center px-4">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-6">
+        <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+          <i id="menu-icon" class="fa-solid fa-bars"></i>
+        </button>
+        <div class="flex items-center space-x-3">
+          <img src="/images/ShopMatrix_logo.png" alt="ShopMatrix Logo" class="h-10 w-auto object-contain">
+          <span class="text-xl font-bold">ShopMetrix</span>
+        </div>
+      </div>
+
+      <!-- Desktop Search -->
+      <div class="hidden md:flex flex-1 max-w-xl mx-8">
+        <form action="" class="w-full">
+          <div class="relative">
+            <input type="text" placeholder="Search products..."
+              class="w-full h-12 bg-gray-200 dark:bg-gray-700 py-2 pl-4 pr-10 rounded-full text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+
+            <button type="submit"
+              class="absolute right-3 top-1/2 text-lg -translate-y-1/2 text-gray-400 dark:text-gray-200 hover:text-indigo-500 transition flex items-center justify-center">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+
+      <!-- Desktop Menu -->
+      <div class="flex items-center space-x-2">
+        <nav class="hidden md:flex font-medium items-center gap-4">
+          <a href="/index.html"
+            class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+            <i class="fa-solid fa-house text-lg"></i> Home
+          </a>
+          <a href="/Products.html"
+            class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+            <i class="fa-solid fa-bag-shopping text-lg"></i> Products
+          </a>
+          <a href="/admin/admin.html"
+            class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+            <i class="fa-solid fa-shield text-lg"></i> Admin
+          </a>
+          <a href="/merchant/dashboard.html"
+            class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+            <i class="fa-solid fa-shop text-lg"></i> Merchant
+          </a>
+          <a href="/user/User.html"
+            class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
+            <i class="fa-solid fa-user text-lg"></i> User
+          </a>
+        </nav>
+      </div>
+
+      <!-- Right Buttons -->
+      <div class="flex items-center gap-4">
+        <button id="mobile-search-btn" class="md:hidden text-xl text-gray-800 dark:text-gray-200 focus:outline-none">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button id="dark-mode-toggle" class="text-gray-800 dark:text-gray-200 text-xl focus:outline-none">
+          <i id="theme-icon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Search -->
+    <div id="mobile-search" class="hidden md:hidden px-4 pb-3 bg-gray-800 dark:bg-gray-800">
+      <input type="text" placeholder="Search products..."
+        class="w-full py-2 px-4 rounded-full text-gray-200 mt-2 bg-gray-400 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white transition-all duration-250">
+      <a href="/index.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+          class="fa-solid fa-house"></i> Home</a>
+      <a href="/Products.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+          class="fa-solid fa-bag-shopping"></i> Products</a>
+      <a href="/merchant/dashboard.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+          class="fa-solid fa-shop"></i>Merchant</a>
+      <a href="/admin/admin.html" class="py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+          class="fa-solid fa-shield"></i> Admin</a>
+      <a href="/user/User.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
+          class="fa-solid fa-user"></i> User</a>
+    </div>
+  </header>
+
+  <!-- Admin Navigation -->
+  <nav class="bg-white dark:bg-gray-800 shadow-md ">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center">
+          <h1 class="text-xl font-bold text-indigo-600 dark:text-indigo-400">Admin Panel</h1>
+        </div>
+
+        <!-- Hamburger Icon (Mobile) -->
+        <div class="md:hidden flex items-center">
+          <button id="admin-menu-btn"
+            class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+            <i id="admin-menu-icon" class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div id="admin-menu" class="hidden md:flex items-center space-x-4">
+          <a class="px-3 py-2 rounded-md text-sm font-medium flex items-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            href="/admin/admin.html"><i class="fa-solid fa-home mr-2"></i>Dashboard</a>
+          <a class="px-3 py-2 rounded-md text-sm font-medium flex items-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            href="/admin/shop_management.html"><i class="fa-solid fa-bag-shopping mr-2"></i>Shops</a>
+          <a class="px-3 py-2 rounded-md text-sm font-medium flex items-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            href="/admin/products_managment.html"><i class="fa-solid fa-box-open mr-2"></i>Products</a>
+          <a class="px-3 py-2 rounded-md text-sm font-medium flex items-center bg-indigo-100 dark:bg-gray-700 text-indigo-600 dark:text-indigo-300"
+            href="/admin/offer_manament.html"><i class="fa-solid fa-tag mr-2"></i>Offers</a>
+
+          <div class="flex items-center space-x-3 ml-4">
+            <div class="w-7 h-7 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+              <i class="fa-solid fa-circle-user"></i>
+            </div>
+            <button
+              class="text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 px-3 py-2 rounded-md flex items-center">
+              <i class="fa-solid fa-right-from-bracket mr-2"></i>Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Admin Menu -->
+    <div id="admin-mobile-menu" class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white">
+      <a href="/admin/admin.html" class="block px-4 py-2 hover:bg-gray-600"><i
+          class="fa-solid fa-home mr-2"></i>Dashboard</a>
+      <a href="/admin/shop_management.html" class="block px-4 py-2 hover:bg-gray-600"><i
+          class="fa-solid fa-bag-shopping mr-2"></i>Shops</a>
+      <a href="/admin/products_managment.html" class="block px-4 py-2 hover:bg-gray-600"><i
+          class="fa-solid fa-box-open mr-2"></i>Products</a>
+      <a href="/admin/offer_manament.html" class="block px-4 py-2 hover:bg-gray-600"><i
+          class="fa-solid fa-tag mr-2"></i>Offers</a>
+      <button class="w-full text-left px-4 py-2 text-red-400 hover:bg-gray-600 flex items-center"><i
+          class="fa-solid fa-right-from-bracket mr-2"></i>Logout</button>
+    </div>
+  </nav>
+
+
+  <!-- Dashboard Overview -->
+  <main class="space-y-6 m-5">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <h1 class="text-2xl font-bold">Dashboard Overview</h1>
+      <button class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 mt-4 md:mt-0">Generate
+        Report</button>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <p class="text-sm text-gray-500 dark:text-gray-400">Total Revenue</p>
+        <p class="text-2xl font-semibold mt-1">$24,780</p>
+        <p class="mt-4 text-sm text-green-500">+12% compared to last month</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <p class="text-sm text-gray-500 dark:text-gray-400">Total Orders</p>
+        <p class="text-2xl font-semibold mt-1">1,429</p>
+        <p class="mt-4 text-sm text-green-500">+8% compared to last month</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <p class="text-sm text-gray-500 dark:text-gray-400">New Customers</p>
+        <p class="text-2xl font-semibold mt-1">356</p>
+        <p class="mt-4 text-sm text-red-500">-2% compared to last month</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <p class="text-sm text-gray-500 dark:text-gray-400">Conversion Rate</p>
+        <p class="text-2xl font-semibold mt-1">3.2%</p>
+        <p class="mt-4 text-sm text-green-500">+0.5% compared to last month</p>
+      </div>
+    </div>
+
+    <!-- Recent Sales and Activity -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <h2 class="text-lg font-medium mb-4">Recent Sales</h2>
+        <div class="h-64 bg-gray-100 dark:bg-gray-700 flex items-center justify-center rounded">Sales chart would be
+          here</div>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <h2 class="text-lg font-medium mb-4">Recent Activity</h2>
+        <div class="space-y-4">
+          <div>
+            <p class="text-sm font-medium">New order received</p>
+            <p class="text-xs text-gray-500">Order #1234 from John Doe</p>
+          </div>
+          <div>
+            <p class="text-sm font-medium">New customer registered</p>
+            <p class="text-xs text-gray-500">Jane Smith created an account</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Orders Table -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-medium">Recent Orders</h2>
+          <button class="text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-500">View all</button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <thead class="bg-gray-50 dark:bg-gray-700">
+              <tr>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  Order ID</th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  Customer</th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  Date</th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  Amount</th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  Status</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+              <tr>
+                <td class="px-6 py-4">#1234</td>
+                <td class="px-6 py-4">John Doe</td>
+                <td class="px-6 py-4">2023-05-15</td>
+                <td class="px-6 py-4">$120</td>
+                <td class="px-6 py-4 text-green-500">Completed</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">#1235</td>
+                <td class="px-6 py-4">Jane Smith</td>
+                <td class="px-6 py-4">2023-05-14</td>
+                <td class="px-6 py-4">$85</td>
+                <td class="px-6 py-4 text-yellow-500">Processing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer
+    class="bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-900 text-gray-300 py-12 px-6 md:px-16 lg:px-24">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 border-b border-gray-700 pb-10">
+
+      <!-- About Section -->
+      <div>
+        <h2 class="text-2xl font-bold text-white mb-4">ShopMatrix</h2>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Your one-stop destination for premium quality products at unbeatable prices.
+          Experience smart shopping with ShopMatrix — fast, reliable, and trusted by thousands.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-indigo-400 transition">Home</a></li>
+          <li><a href="#" class="hover:text-indigo-400 transition">Products</a></li>
+          <li><a href="#" class="hover:text-indigo-400 transition">About Us</a></li>
+          <li><a href="#" class="hover:text-indigo-400 transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Customer Support -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Customer Support</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-indigo-400 transition">Help Center</a></li>
+          <li><a href="#" class="hover:text-indigo-400 transition">Returns & Refunds</a></li>
+          <li><a href="#" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-indigo-400 transition">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter / Contact -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Stay Connected</h3>
+        <p class="text-gray-400 text-sm mb-3">Subscribe to our newsletter to get the latest offers and updates.</p>
+        <form class="flex items-center gap-2">
+          <input type="email" placeholder="Enter your email"
+            class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+          <button
+            class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg font-medium transition">Subscribe</button>
+        </form>
+
+        <!-- Social Media Icons -->
+        <div class="flex gap-4 mt-6">
+          <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-8 text-center text-gray-500 text-sm">
+      © 2025 <span class="text-indigo-400 font-medium">ShopMatrix</span>. All Rights Reserved.
+    </div>
+  </footer>
+
+  
+  <script src="/js/admin.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+
+</html>
