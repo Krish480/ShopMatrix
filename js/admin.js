@@ -13,3 +13,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Admin panel hamburger toggle
+        const adminMenuBtn = document.getElementById('admin-menu-btn');
+        const adminMenuIcon = document.getElementById('admin-menu-icon');
+        const adminMobileMenu = document.getElementById('admin-mobile-menu');
+
+        adminMenuBtn.addEventListener('click', () => {
+            adminMobileMenu.classList.toggle('hidden');
+            if (!adminMobileMenu.classList.contains('hidden')) {
+                adminMenuIcon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                adminMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+
+        
