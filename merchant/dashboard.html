@@ -107,34 +107,6 @@
         </div>
     </header>
 
-    <!-- Hamburger Menu JS -->
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const mobileSearchBtn = document.getElementById('mobile-search-btn');
-        const mobileSearch = document.getElementById('mobile-search');
-
-        // Mobile menu toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (!mobileMenu.classList.contains('hidden')) {
-                menuIcon.classList.replace('fa-bars', 'fa-xmark');
-                mobileSearch.classList.add('hidden');
-            } else {
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
-            }
-        });
-
-        // Mobile search toggle
-        mobileSearchBtn.addEventListener('click', () => {
-            mobileSearch.classList.toggle('hidden');
-            if (!mobileSearch.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
-            }
-        });
-    </script>
 
     <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
         <div class="p-6 max-w-7xl mx-auto">
@@ -213,28 +185,6 @@
                     </a>
                 </div>
             </header>
-
-
-            <!--Merchant Hamburger Menu JS -->
-            <script>
-                const merchantMenuBtn = document.getElementById("merchant-mobile-menu-btn");
-                const merchantMenu = document.getElementById("merchant-mobile-menu");
-                const merchantMenuIcon = document.getElementById("merchant-menu-icon");
-
-                    //Merchant Mobile
-                    merchantMenuBtn.addEventListener('click', () => {
-                        merchantMenu.classList.toggle('hidden');
-                        if (!merchantMenu.classList.contains('hidden')) {
-                            merchantMenuIcon.classList.replace('fa-bars', 'fa-xmark');
-
-                        } else {
-                            merchantMenuIcon.classList.replace('fa-xmark', 'fa-bars');
-                        }
-                    });
-                
-
-            </script>
-
 
              <!-- MerchantPro Header -->
             <div class="flex justify-between items-center py-4 mb-6 border-b border-gray-200 dark:border-gray-700 px-4">
@@ -371,7 +321,7 @@
 
 
 
-            <!-- ===== Revenue Overview Chart ===== -->
+            <!-- Revenue Overview Chart -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-[0_0_10px_#2563eb] mb-8">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Revenue Overview</h2>
@@ -380,7 +330,7 @@
                 <canvas id="revenueChart" height="100"></canvas>
             </div>
 
-            <!-- ===== Inventory Alerts ===== -->
+            <!-- Inventory Alerts -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-[0_0_10px_#2563eb] mb-8">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Inventory Alerts</h2>
@@ -402,7 +352,7 @@
                 </ul>
             </div>
 
-            <!-- ===== Recent Orders ===== -->
+            <!-- Recent Orders -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-[0_0_10px_#2563eb] mb-8">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Recent Orders</h2>
@@ -440,7 +390,7 @@
                 </table>
             </div>
 
-            <!-- ===== Quick Actions ===== -->
+            <!-- Quick Actions -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-[0_0_10px_#2563eb] mb-8">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Quick Actions</h2>
@@ -466,7 +416,7 @@
                 </div>
             </div>
 
-            <!-- ===== Store Performance ===== -->
+            <!-- Store Performance -->
             <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-[0_0_10px_#2563eb] mb-8">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Store Performance</h2>
@@ -492,39 +442,9 @@
                 </div>
             </div>
 
-            <!-- ===== Chart.js Script ===== -->
+            <!-- Chart.js Script -->
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script>
-                const ctx = document.getElementById('revenueChart');
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                        datasets: [{
-                            label: 'Revenue (₹)',
-                            data: [12000, 19000, 15000, 22000, 17000, 25000, 28000],
-                            backgroundColor: '#4f46e5',
-                            borderRadius: 8
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: { color: '#94a3b8' },
-                                grid: { color: '#e2e8f0' }
-                            },
-                            x: {
-                                ticks: { color: '#94a3b8' },
-                                grid: { display: false }
-                            }
-                        },
-                        plugins: {
-                            legend: { display: false }
-                        }
-                    }
-                });
-            </script>
+            
 
 
             <div
@@ -535,6 +455,7 @@
     </div>
 
     <script src="/js/main.js"></script>
+    <script src="/js/merchant.js"></script>
 </body>
 
 </html>
