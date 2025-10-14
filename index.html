@@ -273,7 +273,7 @@
       <div class="flex justify-between items-center mb-10">
         <h2 class="text-3xl font-bold text-white" style="opacity: 1;">Featured Products</h2>
         <a class="flex items-center text-purple-400 dark:text-purple-300 p-2 rounded-md hover:bg-purple-200 dark:hover:bg-purple-900 font-bold"
-          href="/ProductList" data-discover="true">View All ➞</a>
+          href="/Products.html" data-discover="true">View All ➞</a>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div
@@ -405,15 +405,14 @@
   </section>
 
   <!-- Call to action (CTA) -->
-
   <section class="py-16 bg-gradient-to-r from-purple-600 to-indigo-700 text-white text-center">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        Expand Your Reach with <span class="text-pink-400">ShopMatrix</span>
+        Expand Your Reach with <span class="text-pink-400">ShopMetrix</span>
       </h2>
 
       <p class="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-        Connect with a wide network of buyers and sellers. ShopMatrix helps small businesses
+        Connect with a wide network of buyers and sellers. ShopMetrix helps small businesses
         grow faster with a trusted online platform — simple, secure, and built for success.
       </p>
 
@@ -431,8 +430,6 @@
     </div>
   </section>
 
-
-
   <!-- Footer Section -->
   <footer
     class="bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-900 text-gray-300 py-12 px-6 md:px-16 lg:px-24">
@@ -440,10 +437,10 @@
 
       <!-- About Section -->
       <div>
-        <h2 class="text-2xl font-bold text-white mb-4">ShopMatrix</h2>
+        <h2 class="text-2xl font-bold text-white mb-4">ShopMetrix</h2>
         <p class="text-gray-400 text-sm leading-relaxed">
           Your one-stop destination for premium quality products at unbeatable prices.
-          Experience smart shopping with ShopMatrix — fast, reliable, and trusted by thousands.
+          Experience smart shopping with ShopMetrix — fast, reliable, and trusted by thousands.
         </p>
       </div>
 
@@ -492,59 +489,9 @@
 
     <!-- Copyright -->
     <div class="mt-8 text-center text-gray-500 text-sm">
-      © 2025 <span class="text-indigo-400 font-medium">ShopMatrix</span>. All Rights Reserved.
+      © 2025 <span class="text-indigo-400 font-medium">ShopMetrix</span>. All Rights Reserved.
     </div>
   </footer>
-
-
-  <script>
-    const html = document.documentElement;
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const mobileSearchBtn = document.getElementById('mobile-search-btn');
-    const mobileSearch = document.getElementById('mobile-search');
-
-    // Load saved theme
-    if (localStorage.theme === 'dark') {
-      html.classList.add('dark');
-      themeIcon.classList.replace('fa-moon', 'fa-sun');
-    }
-
-    // Dark mode toggle
-    darkModeToggle.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      if (html.classList.contains('dark')) {
-        localStorage.theme = 'dark';
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-      } else {
-        localStorage.theme = 'light';
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-      }
-    });
-
-    // Mobile menu toggle
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      if (!mobileMenu.classList.contains('hidden')) {
-        menuIcon.classList.replace('fa-bars', 'fa-xmark');
-        mobileSearch.classList.add('hidden');
-      } else {
-        menuIcon.classList.replace('fa-xmark', 'fa-bars');
-      }
-    });
-
-    // Mobile search toggle
-    mobileSearchBtn.addEventListener('click', () => {
-      mobileSearch.classList.toggle('hidden');
-      if (!mobileSearch.classList.contains('hidden')) {
-        mobileMenu.classList.add('hidden');
-        menuIcon.classList.replace('fa-xmark', 'fa-bars');
-      }
-    });
-  </script>
 
 
   <!-- AOS Animation -->
