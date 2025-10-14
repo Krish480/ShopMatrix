@@ -106,9 +106,13 @@
         </div>
     </header>
 
-     <!-- MERCHANT HUB HEADER -->
+    <!-- Main Content -->
+    <main class="container mx-auto p-6">
+
+        <!-- MERCHANT HUB HEADER -->
+        <div class="w-full flex justify-center">
             <header
-                class="sticky top-2 z-20 bg-white dark:bg-gray-800 shadow-[0_0_10px_#2563eb] mt-5 rounded-2xl mx-2 transition-all duration-300">
+                class="sticky top-2 z-20 bg-white dark:bg-gray-800 shadow-[0_0_10px_#2563eb] mt-5 rounded-2xl  w-full mx-2 transition-all duration-300">
                 <div class="flex items-center justify-between p-4">
                     <!-- Left: Mobile Menu + Title -->
                     <div class="flex items-center">
@@ -180,40 +184,57 @@
                     </a>
                 </div>
             </header>
+        </div>
 
 
-            <!--Merchant Hamburger Menu JS -->
-            <script>
-                const merchantMenuBtn = document.getElementById("merchant-mobile-menu-btn");
-                const merchantMenu = document.getElementById("merchant-mobile-menu");
-                const merchantMenuIcon = document.getElementById("merchant-menu-icon");
+        <!--Merchant Hamburger Menu JS -->
+        <script>
+            const merchantMenuBtn = document.getElementById("merchant-mobile-menu-btn");
+            const merchantMenu = document.getElementById("merchant-mobile-menu");
+            const merchantMenuIcon = document.getElementById("merchant-menu-icon");
 
-                    //Merchant Mobile
-                    merchantMenuBtn.addEventListener('click', () => {
-                        merchantMenu.classList.toggle('hidden');
-                        if (!merchantMenu.classList.contains('hidden')) {
-                            merchantMenuIcon.classList.replace('fa-bars', 'fa-xmark');
+            //Merchant Mobile
+            merchantMenuBtn.addEventListener('click', () => {
+                merchantMenu.classList.toggle('hidden');
+                if (!merchantMenu.classList.contains('hidden')) {
+                    merchantMenuIcon.classList.replace('fa-bars', 'fa-xmark');
 
-                        } else {
-                            merchantMenuIcon.classList.replace('fa-xmark', 'fa-bars');
-                        }
-                    });
-                
-            </script>
+                } else {
+                    merchantMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+                }
+            });
 
-    <!-- My Store Header -->
-    <header class="bg-white dark:bg-gray-800 shadow sticky mt-5 top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <div class="flex items-center gap-4">
-                <h1 class="text-2xl font-bold text-indigo-500 flex items-center gap-2">
-                    <i class="fas fa-store animate-bounce"></i> My Store
+        </script>
+
+        <!-- My Store Header -->
+        <div class="flex justify-between items-center py-4 mb-6 border-b border-gray-200 dark:border-gray-700 px-4">
+
+            <!-- Left: Logo & Title -->
+            <div class="flex items-center space-x-3">
+                <h1 class="text-2xl font-bold text-indigo-500"><i class="fas fa-box-open animate-bounce"></i> My Store
                 </h1>
             </div>
-        </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto p-6">
+            <!-- Right: Profile & Logout -->
+            <div class="flex items-center space-x-4">
+                <!-- Profile Avatar -->
+                <div class="flex items-center space-x-2">
+                    <div
+                        class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-indigo-600 flex items-center justify-center text-white font-bold text-lg">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span class="hidden md:inline text-gray-700 dark:text-gray-200 font-medium">Merchant</span>
+                </div>
+
+                <!-- Logout Button -->
+                <button
+                    class="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-all duration-200">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+
 
         <!-- Store Info Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
