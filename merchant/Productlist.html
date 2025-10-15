@@ -14,97 +14,7 @@
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
 
     <!-- Header -->
-    <header
-        class="bg-white text-white dark:bg-gray-800 sticky top-0 w-full shadow-md z-50 transition-all duration-300 py-3">
-        <div class="container mx-auto flex justify-between items-center px-4">
-
-            <!-- Logo -->
-            <div class="flex items-center gap-6">
-                <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
-                    <i id="menu-icon" class="fa-solid fa-bars"></i>
-                </button>
-                <div class="flex items-center space-x-3">
-                    <img src="/images/ShopMatrix_logo.png" alt="ShopMatrix Logo" class="h-10 w-auto object-contain">
-                    <span class="text-xl font-bold">ShopMetrix</span>
-                </div>
-            </div>
-
-            <!-- Desktop Search -->
-            <div class="hidden md:flex flex-1 max-w-xl mx-8">
-                <form action="" class="w-full">
-                    <div class="relative">
-                        <input type="text" placeholder="Search products..."
-                            class="w-full h-12 bg-gray-200 dark:bg-gray-700 py-2 pl-4 pr-10 rounded-full text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
-
-                        <button type="submit"
-                            class="absolute right-3 top-1/2 text-lg -translate-y-1/2 text-gray-400 dark:text-gray-200 hover:text-indigo-500 transition flex items-center justify-center">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-
-            <!-- Desktop Menu -->
-            <div class="flex items-center space-x-2">
-                <nav class="hidden md:flex font-medium items-center gap-4">
-                    <a href="/index.html"
-                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
-                        <i class="fa-solid fa-house text-lg"></i> Home
-                    </a>
-                    <a href="/Products.html"
-                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
-                        <i class="fa-solid fa-bag-shopping text-lg"></i> Products
-                    </a>
-                    <a href="/admin/admin.html"
-                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
-                        <i class="fa-solid fa-shield text-lg"></i> Admin
-                    </a>
-                    <a href="/merchant/dashboard.html"
-                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
-                        <i class="fa-solid fa-shop text-lg"></i> Merchant
-                    </a>
-                    <a href="user/dashboard.html"
-                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
-                        <i class="fa-solid fa-user text-lg"></i> User
-                    </a>
-                </nav>
-            </div>
-
-            <!-- Right Buttons -->
-            <div class="flex items-center gap-4">
-                <button id="mobile-search-btn"
-                    class="md:hidden text-xl text-gray-800 dark:text-gray-200 focus:outline-none">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-                <button id="dark-mode-toggle" class="text-gray-800 dark:text-gray-200 text-xl focus:outline-none">
-                    <i id="theme-icon" class="fa-solid fa-moon"></i>
-                </button>
-            </div>
-
-        </div>
-
-        <!-- Mobile Search -->
-        <div id="mobile-search" class="hidden md:hidden px-4 pb-3 bg-gray-800 dark:bg-gray-800">
-            <input type="text" placeholder="Search products..."
-                class="w-full py-2 px-4 rounded-full text-gray-200 mt-2 bg-gray-400 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white transition-all duration-250">
-            <a href="/index.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
-                    class="fa-solid fa-house"></i> Home</a>
-            <a href="/Products.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
-                    class="fa-solid fa-bag-shopping"></i> Products</a>
-            <a href="/merchant/dashboard.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
-                    class="fa-solid fa-shop"></i>Merchant</a>
-            <a href="/admin/admin.html" class="py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
-                    class="fa-solid fa-shield"></i> Admin</a>
-            <a href="/user/dashboard.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
-                    class="fa-solid fa-user"></i> User</a>
-        </div>
-    </header>
+  <div id="header-placeholder"></div>
 
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-8 transition-colors duration-300">
@@ -2096,8 +2006,10 @@
         </script>
     </div>
 
+    <script src="/js/include-components.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/merchant.js"></script>
+
 </body>
 
 </html>
