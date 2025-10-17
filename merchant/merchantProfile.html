@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchant Profile | ShopMatrix</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="icon" href="../images/ShopMatrix_logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="../js/firebaseConfig.js"></script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen flex flex-col items-center p-6">
+
+    <!-- Back Button -->
+    <div class="w-full max-w-2xl mb-4">
+        <button onclick="window.history.back()"
+            class="flex items-center gap-2 bg-gray-800 px-2 py-1 rounded-lg text-indigo-600 hover:text-indigo-500 font-semibold cursor-pointer">
+            <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+    </div>
+
+    <!-- Page Title -->
+    <h1 class="text-3xl font-bold text-indigo-600 mb-6">My Profile</h1>
+
+    <!-- Profile Container -->
+    <div class="w-full max-w-2xl bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+
+        <!-- Avatar Section -->
+        <div class="flex flex-col items-center mb-6 space-y-2">
+            <div id="avatar"
+                class="w-20 h-20 rounded-full bg-gradient-to-r from-blue-400 to-indigo-600 flex items-center justify-center text-white text-3xl font-bold">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="flex gap-2">
+                <!-- Upload Button -->
+                <label
+                    class="flex items-center gap-2 text-white cursor-pointer bg-indigo-600 p-2 rounded-lg hover:bg-indigo-700">
+                    <i class="fa-solid fa-upload"></i> Upload
+                    <input type="file" id="avatarUpload" accept="image/*" class="hidden">
+                </label>
+                <!-- Delete Button -->
+                <button id="avatarDelete"
+                    class="flex items-center gap-2 text-white bg-red-500 hover:bg-red-600 p-2 rounded-lg">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+            </div>
+        </div>
+
+        <!-- Profile Form -->
+        <form id="merchantProfileForm" class="space-y-4 text-white">
+
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-building text-indigo-500 w-5"></i>
+                <input type="text" id="profileBusinessName" placeholder="Business Name"
+                    class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-id-badge text-indigo-500 w-5"></i>
+                <input type="text" id="profileBusinessId" placeholder="Business ID"
+                    class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-briefcase text-indigo-500 w-5"></i>
+                <input type="text" id="profileBusinessType" placeholder="Business Type"
+                    class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-file-invoice text-indigo-500 w-5"></i>
+                <input type="text" id="profileTaxId" placeholder="Tax ID"
+                    class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-indigo-500 w-5"></i>
+                <input type="email" id="profileEmail" placeholder="Email" readonly
+                    class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 cursor-not-allowed">
+            </div>
+
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-phone text-indigo-500 w-5"></i>
+                <input type="text" id="profilePhone" placeholder="Phone"
+                    class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div class="flex items-start gap-2">
+                <i class="fa-solid fa-location-dot text-indigo-500 mt-2 w-5"></i>
+                <textarea id="profileAddress" placeholder="Address"
+                    class="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+            </div>
+
+            <button type="submit"
+                class="w-full bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded font-semibold transition-all">
+                Save Changes
+            </button>
+        </form>
+    </div>
+
+    <!-- Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const userFields = {
+                businessName: document.getElementById('profileBusinessName'),
+                businessId: document.getElementById('profileBusinessId'),
+                businessType: document.getElementById('profileBusinessType'),
+                taxId: document.getElementById('profileTaxId'),
+                email: document.getElementById('profileEmail'),
+                phone: document.getElementById('profilePhone'),
+                address: document.getElementById('profileAddress')
+            };
+            const avatarDiv = document.getElementById('avatar');
+            const avatarUpload = document.getElementById('avatarUpload');
+            const avatarDelete = document.getElementById('avatarDelete');
+
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    // Prefill from localStorage or Firebase
+                    userFields.businessName.value = localStorage.getItem('businessName') || user.displayName || '';
+                    userFields.email.value = user.email;
+                    userFields.businessId.value = localStorage.getItem('businessId') || '';
+                    userFields.businessType.value = localStorage.getItem('businessType') || '';
+                    userFields.taxId.value = localStorage.getItem('taxId') || '';
+                    userFields.phone.value = localStorage.getItem('phone') || '';
+                    userFields.address.value = localStorage.getItem('address') || '';
+
+                    // Load avatar if saved
+                    const avatarUrl = localStorage.getItem('merchantAvatar');
+                    if (avatarUrl) {
+                        avatarDiv.innerHTML = `<img src="${avatarUrl}" class="w-full h-full rounded-full object-cover">`;
+                    }
+                } else {
+                    window.location.href = "login.html";
+                }
+            });
+
+            // Avatar upload preview
+            avatarUpload.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        avatarDiv.innerHTML = `<img src="${reader.result}" class="w-full h-full rounded-full object-cover">`;
+                        localStorage.setItem('merchantAvatar', reader.result); // Save for session
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Delete avatar
+            avatarDelete.addEventListener('click', () => {
+                localStorage.removeItem('merchantAvatar');
+                avatarDiv.innerHTML = `<i class="fa-solid fa-user"></i>`;
+            });
+
+            // Form submit
+            document.getElementById('merchantProfileForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Save data to localStorage
+                localStorage.setItem('businessName', userFields.businessName.value);
+                localStorage.setItem('businessId', userFields.businessId.value);
+                localStorage.setItem('businessType', userFields.businessType.value);
+                localStorage.setItem('taxId', userFields.taxId.value);
+                localStorage.setItem('phone', userFields.phone.value);
+                localStorage.setItem('address', userFields.address.value);
+
+                // Update Firebase displayName
+                const user = auth.currentUser;
+                if (user) {
+                    user.updateProfile({ displayName: userFields.businessName.value })
+                        .then(() => alert("Profile updated successfully!"))
+                        .catch(err => console.error(err));
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
