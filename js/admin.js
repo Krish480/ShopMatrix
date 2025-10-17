@@ -29,3 +29,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         
+
+        //  Logout section 
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Check if user is logged in
+    auth.onAuthStateChanged((user) => {
+      if (!user) {
+        window.location.href = "login.html";
+      } else {
+        console.log("Admin logged in:", user.email);
+      }
+    });
+
+    // Logout functionality
+    const logoutBtns = document.querySelectorAll("button, a");
+    logoutBtns.forEach(btn => {
+      if (btn.textContent.includes("Logout")) {
+        btn.addEventListener("click", async () => {
+          try {
+            await auth.signOut();
+            alert("You have been logged out successfully!");
+            window.location.href = "login.html";
+          } catch (error) {
+            console.error("Logout Error:", error);
+          }
+        });
+      }
+    });
+  });
