@@ -1,2 +1,11 @@
 @import "tailwindcss";
 
+/* Active nav ke liye */
+.active-nav {
+  @apply bg-gray-700 text-indigo-500 font-semibold rounded-md;
+}
+
+/* Agar mobile nav bhi chahiye */
+.active-nav-mobile {
+  @apply bg-gray-800 text-indigo-500 font-semibold rounded-md;
+}
