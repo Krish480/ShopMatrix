@@ -357,3 +357,26 @@ function init() {
 
 // initialize on load
 window.addEventListener('DOMContentLoaded', init);
+
+
+//  Logout 
+
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                const name = user.displayName || localStorage.getItem('userName') || user.email;
+                document.getElementById('userGreeting').textContent = `Hello, ${name}`;
+            } else {
+                window.location.href = "login.html";
+            }
+        });
+
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', () => {
+            auth.signOut()
+                .then(() => {
+                    localStorage.removeItem('userName');
+                    window.location.href = "login.html";
+                })
+                .catch(err => console.error("Logout Error:", err));
+        });
+
