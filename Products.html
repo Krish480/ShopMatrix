@@ -14,97 +14,7 @@
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
 
     <!-- Header -->
-    <header
-        class="bg-white text-white dark:bg-gray-800 sticky top-0 w-full shadow-md z-50 transition-all duration-300 py-3">
-        <div class="container mx-auto flex justify-between items-center px-4">
-
-            <!-- Logo -->
-            <div class="flex items-center gap-6">
-                <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
-                    <i id="menu-icon" class="fa-solid fa-bars"></i>
-                </button>
-                <div class="flex items-center space-x-3">
-                    <img src="/images/ShopMatrix_logo.png" alt="ShopMatrix Logo" class="h-10 w-auto object-contain">
-                    <span class="text-xl font-bold">ShopMetrix</span>
-                </div>
-            </div>
-
-            <!-- Desktop Search -->
-            <div class="hidden md:flex flex-1 max-w-xl mx-8">
-                <form action="" class="w-full">
-                    <div class="relative">
-                        <input type="text" placeholder="Search products..."
-                            class="w-full h-12 bg-gray-200 dark:bg-gray-700 py-2 pl-4 pr-10 rounded-full text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
-
-                        <button type="submit"
-                            class="absolute right-3 top-1/2 text-lg -translate-y-1/2 text-gray-400 dark:text-gray-200 hover:text-indigo-500 transition flex items-center justify-center">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-
-            <!-- Desktop Menu -->
-            <div class="flex items-center space-x-2">
-                <nav class="hidden md:flex font-medium items-center gap-4">
-                    <a href="index.html"
-                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
-                        <i class="fa-solid fa-house text-lg"></i> Home
-                    </a>
-                    <a href="products.html"
-                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
-                        <i class="fa-solid fa-bag-shopping text-lg"></i> Products
-                    </a>
-                    <a href="/admin/admin.html"
-                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
-                        <i class="fa-solid fa-shield text-lg"></i> Admin
-                    </a>
-                    <a href="admin/login.html"
-                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
-                        <i class="fa-solid fa-shop text-lg"></i> Merchant
-                    </a>
-                    <a href="user/dashboard.html"
-                        class="hover:text-purple-400 mt-1 dark:hover:text-indigo-250 text-sm flex flex-col hover:bg-gray-700 h-17 w-20 p-3 rounded items-center gap-2 transition">
-                        <i class="fa-solid fa-user text-lg"></i> User
-                    </a>
-                </nav>
-            </div>
-
-            <!-- Right Buttons -->
-            <div class="flex items-center gap-4">
-                <button id="mobile-search-btn"
-                    class="md:hidden text-xl text-gray-800 dark:text-gray-200 focus:outline-none">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-                <button id="dark-mode-toggle" class="text-gray-800 dark:text-gray-200 text-xl focus:outline-none">
-                    <i id="theme-icon" class="fa-solid fa-moon"></i>
-                </button>
-            </div>
-
-        </div>
-
-        <!-- Mobile Search -->
-        <div id="mobile-search" class="hidden md:hidden px-4 pb-3 bg-gray-800 dark:bg-gray-800">
-            <input type="text" placeholder="Search products..."
-                class="w-full py-2 px-4 rounded-full text-gray-200 mt-2 bg-gray-400 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white transition-all duration-250">
-            <a href="index.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
-                    class="fa-solid fa-house"></i> Home</a>
-            <a href="products.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
-                    class="fa-solid fa-bag-shopping"></i> Products</a>
-            <a href="user/dashboard.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
-                    class="fa-solid fa-shop"></i>Merchant</a>
-            <a href="admin/login.html" class="py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
-                    class="fa-solid fa-shield"></i> Admin</a>
-            <a href="user/dashboard.html" class=" py-2 px-4 hover:bg-gray-400 flex items-center gap-2"><i
-                    class="fa-solid fa-user"></i> User</a>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-8 transition-colors duration-300">
@@ -1836,7 +1746,8 @@
                     class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
                     <img alt="Wireless Headphones"
                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                        loading="lazy" src="https://images.unsplash.com/photo-1612858249937-1cc0852093dd?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V2lyZWxlc3MlMjBIZWFkcGhvbmVzfGVufDB8fDB8fHww" />
+                        loading="lazy"
+                        src="https://images.unsplash.com/photo-1612858249937-1cc0852093dd?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V2lyZWxlc3MlMjBIZWFkcGhvbmVzfGVufDB8fDB8fHww" />
 
                     <!-- Wishlist Button -->
                     <button
@@ -1895,7 +1806,8 @@
                     class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
                     <img alt="Smartwatch"
                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                        loading="lazy" src="https://images.unsplash.com/photo-1632794716789-42d9995fb5b6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        loading="lazy"
+                        src="https://images.unsplash.com/photo-1632794716789-42d9995fb5b6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     <button
                         class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
                         <i class="fa-regular fa-heart"></i>
@@ -1950,7 +1862,8 @@
                     class="relative h-64 overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700 transition-colors duration-300">
                     <img alt="Coffee Maker"
                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                        loading="lazy" src="https://images.unsplash.com/photo-1707241358597-bafcc8a8e73d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        loading="lazy"
+                        src="https://images.unsplash.com/photo-1707241358597-bafcc8a8e73d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     <button
                         class="absolute top-2 right-3 text-xl text-gray-700 dark:text-gray-200 bg-gray-300/70 p-2 rounded-full hover:bg-gray-400">
                         <i class="fa-regular fa-heart"></i>
@@ -1995,87 +1908,92 @@
                             </button>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
 
-            <script>
-                const html = document.documentElement;
-                const darkModeToggle = document.getElementById('dark-mode-toggle');
-                const themeIcon = document.getElementById('theme-icon');
-                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-                const mobileMenu = document.getElementById('mobile-menu');
-                const menuIcon = document.getElementById('menu-icon');
-                const mobileSearchBtn = document.getElementById('mobile-search-btn');
-                const mobileSearch = document.getElementById('mobile-search');
+    </div>
 
-                // Load saved theme
-                if (localStorage.theme === 'dark') {
-                    html.classList.add('dark');
-                    themeIcon.classList.replace('fa-moon', 'fa-sun');
-                }
+    <!-- Footer Section -->
+    <footer
+        class="bg-gradient-to-t from-slate-900 via-indigo-900 to-slate-900 text-gray-300 py-12 px-6 md:px-16 lg:px-24">
 
-                // Dark mode toggle
-                darkModeToggle.addEventListener('click', () => {
-                    html.classList.toggle('dark');
-                    if (html.classList.contains('dark')) {
-                        localStorage.theme = 'dark';
-                        themeIcon.classList.replace('fa-moon', 'fa-sun');
-                    } else {
-                        localStorage.theme = 'light';
-                        themeIcon.classList.replace('fa-sun', 'fa-moon');
-                    }
-                });
+        <div
+            class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 border-t border-gray-700 pt-10">
 
-                // Mobile menu toggle
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        menuIcon.classList.replace('fa-bars', 'fa-xmark');
-                        mobileSearch.classList.add('hidden');
-                    } else {
-                        menuIcon.classList.replace('fa-xmark', 'fa-bars');
-                    }
-                });
+            <!-- About Section -->
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-4">ShopMetrix</h2>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Your one-stop destination for premium quality products at unbeatable prices.
+                    Experience smart shopping with ShopMetrix — fast, reliable, and trusted by thousands.
+                </p>
+            </div>
 
-                // Mobile search toggle
-                mobileSearchBtn.addEventListener('click', () => {
-                    mobileSearch.classList.toggle('hidden');
-                    if (!mobileSearch.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        menuIcon.classList.replace('fa-xmark', 'fa-bars');
-                    }
-                });
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Home</a></li>
+                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Products</a></li>
+                    <li><a href="#" class="hover:text-indigo-400 transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Contact</a></li>
+                </ul>
+            </div>
 
+            <!-- Customer Support -->
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Customer Support</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Help Center</a></li>
+                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Returns & Refunds</a></li>
+                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Terms & Conditions</a></li>
+                </ul>
+            </div>
 
-                document.addEventListener("DOMContentLoaded", () => {
-                    const currentPage = window.location.pathname.split("/").pop(); // e.g. 'offers.html'
-                    const headerLinks = document.querySelectorAll("header nav a");
+            <!-- Newsletter / Contact -->
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Stay Connected</h3>
+                <p class="text-gray-400 text-sm mb-3">
+                    Subscribe to our newsletter to get the latest offers and updates.
+                </p>
+                <form class="flex flex-col sm:flex-row items-center gap-2">
+                    <input type="email" placeholder="Enter your email"
+                        class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+                    <button
+                        class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg font-medium transition">
+                        Subscribe
+                    </button>
+                </form>
 
-                    headerLinks.forEach((link) => {
-                        const linkPage = link.getAttribute("href").split("/").pop();
+                <!-- Social Media Icons -->
+                <div class="flex gap-4 mt-6">
+                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
 
-                        if (linkPage === currentPage) {
-                            link.classList.add("text-indigo-400", "font-semibold", "border-b-2", "border-indigo-400", "pb-1");
-                        } else {
-                            link.classList.remove("text-indigo-400", "font-semibold", "border-b-2", "border-indigo-400", "pb-1");
-                        }
-                    });
-                });
+        </div>
 
-            </script>
+        <!-- Copyright -->
+        <div class="mt-8 text-center text-gray-500 text-sm">
+            © 2025 <span class="text-indigo-400 font-medium">ShopMetrix</span>. All Rights Reserved.
+        </div>
+    </footer>
 
-
-            <!-- AOS Animation -->
-            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-            <script>
-                AOS.init({
-                    duration: 1000,
-                    easing: 'ease-in-out',
-                    once: true
-                });
-            </script>
-
+    <script src="/js/include-components.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
 </body>
 
 </html>
