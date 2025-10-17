@@ -8,73 +8,79 @@ async function loadComponent(url, selector) {
     const html = await res.text();
     const container = document.querySelector(selector);
     if (container) container.innerHTML = html;
+    return container;
   } catch (err) {
     console.error(err);
   }
 }
 
-// compute prefix based on current location depth
+// Compute prefix based on current location depth
 function computePrefix() {
-  // pathParts e.g. ["", "admin", "admin.html"] => depth=1 (one folder)
   const parts = window.location.pathname.split('/').filter(Boolean);
-  // if file at root (parts length 1 and is file), depth 0
-  // depth = number of folder levels (exclude last item if it has a dot => file)
   let depth = 0;
   if (parts.length > 0) {
     const last = parts[parts.length - 1];
-    if (last.includes('.')) depth = parts.length - 1;
-    else depth = parts.length;
+    depth = last.includes('.') ? parts.length - 1 : parts.length;
   }
   return depth === 0 ? '' : '../'.repeat(depth);
 }
 
-// Normalize path: remove query/hash and index.html/trailing slash
+// Normalize path for comparison
 function normalizePath(path) {
   if (!path) return '/';
   try { path = decodeURI(path.split('?')[0].split('#')[0]); } catch {}
-  path = path.replace(/index\.html$/i, '');
-  path = path.replace(/\/$/, '');
+  path = path.replace(/index\.html$/i, '').replace(/\/$/, '');
   if (path === '' || path === '.') return '/';
   return path.toLowerCase();
 }
 
-// Highlight top nav links robustly
-function highlightTopNav() {
-  const links = document.querySelectorAll('.main-nav .nav-link, header nav a');
+// Check if link is active
+function isLinkActive(linkPath, currentPath) {
+  if (linkPath === '/') return currentPath === '/';
+  return (
+    currentPath === linkPath ||
+    currentPath.startsWith(linkPath + '/') ||
+    (currentPath.includes('/admin') && linkPath.includes('/admin')) ||
+    (currentPath.includes('/merchant') && linkPath.includes('/merchant'))
+  );
+}
+
+
+// Highlight top nav links (desktop + mobile)
+function highlightNav() {
   const current = normalizePath(window.location.pathname);
 
-  links.forEach(link => {
-    try {
-      const href = link.getAttribute('href') || '';
-      const linkPath = normalizePath(new URL(href, window.location.origin).pathname);
-      // match exact or folder/endsWith
-      const isActive = linkPath === current || current.endsWith(linkPath) || current.includes(linkPath);
-      if (isActive) link.classList.add('active-nav');
-      else link.classList.remove('active-nav');
-    } catch (e) {}
+  // Desktop nav
+  document.querySelectorAll('.main-nav .nav-link').forEach(link => {
+    const href = normalizePath(link.getAttribute('href'));
+    if (isLinkActive(href, current)) link.classList.add('active-nav');
+    else link.classList.remove('active-nav');
+  });
+
+  // Mobile nav
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    const href = normalizePath(link.getAttribute('href'));
+    if (isLinkActive(href, current)) link.classList.add('active-nav-mobile');
+    else link.classList.remove('active-nav-mobile');
   });
 }
 
-// Highlight sub-nav (use .sub-nav on admin pages)
+// Highlight sub-nav (admin or merchant pages)
 function highlightSubNav() {
   const links = document.querySelectorAll('.sub-nav a');
   if (!links.length) return;
   const current = normalizePath(window.location.pathname);
   links.forEach(link => {
-    try {
-      const href = link.getAttribute('href') || '';
-      const linkPath = normalizePath(new URL(href, window.location.origin).pathname);
-      const isActive = linkPath === current || current.endsWith(linkPath) || current.includes(linkPath);
-      if (isActive) link.classList.add('active-subnav');
-      else link.classList.remove('active-subnav');
-    } catch (e) {}
+    const href = normalizePath(link.getAttribute('href'));
+    if (isLinkActive(href, current)) link.classList.add('active-subnav');
+    else link.classList.remove('active-subnav');
   });
 }
 
-// Mobile menu + search + icon toggle
+// Mobile menu + search toggle
 function setupMobileToggle() {
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('i') : null;
+  const menuIcon = mobileMenuBtn?.querySelector('i');
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileSearchBtn = document.getElementById('mobile-search-btn');
   const mobileSearch = document.getElementById('mobile-search');
@@ -83,10 +89,10 @@ function setupMobileToggle() {
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
       if (!mobileMenu.classList.contains('hidden')) {
-        if (menuIcon) menuIcon.classList.replace('fa-bars', 'fa-xmark');
-        if (mobileSearch) mobileSearch.classList.add('hidden');
+        menuIcon?.classList.replace('fa-bars', 'fa-xmark');
+        mobileSearch?.classList.add('hidden');
       } else {
-        if (menuIcon) menuIcon.classList.replace('fa-xmark', 'fa-bars');
+        menuIcon?.classList.replace('fa-xmark', 'fa-bars');
       }
     });
   }
@@ -96,39 +102,85 @@ function setupMobileToggle() {
       mobileSearch.classList.toggle('hidden');
       if (!mobileSearch.classList.contains('hidden') && mobileMenu) {
         mobileMenu.classList.add('hidden');
-        if (menuIcon) menuIcon.classList.replace('fa-xmark', 'fa-bars');
+        menuIcon?.classList.replace('fa-xmark', 'fa-bars');
       }
     });
   }
 }
 
-// Dark-mode toggle (safe)
+// Dark-mode toggle
 function setupDarkModeToggle() {
   const html = document.documentElement;
   const darkModeToggle = document.getElementById('dark-mode-toggle');
   const themeIcon = document.getElementById('theme-icon');
   if (!darkModeToggle) return;
-  // load
-  try { if (localStorage.theme === 'dark') { html.classList.add('dark'); if (themeIcon) themeIcon.classList.replace('fa-moon','fa-sun'); } } catch {}
+
+  try {
+    if (localStorage.theme === 'dark') {
+      html.classList.add('dark');
+      themeIcon?.classList.replace('fa-moon', 'fa-sun');
+    }
+  } catch {}
+
   darkModeToggle.addEventListener('click', () => {
     html.classList.toggle('dark');
     try {
-      if (html.classList.contains('dark')) { localStorage.theme = 'dark'; if (themeIcon) themeIcon.classList.replace('fa-moon','fa-sun'); }
-      else { localStorage.theme = 'light'; if (themeIcon) themeIcon.classList.replace('fa-sun','fa-moon'); }
+      if (html.classList.contains('dark')) {
+        localStorage.theme = 'dark';
+        themeIcon?.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        localStorage.theme = 'light';
+        themeIcon?.classList.replace('fa-sun', 'fa-moon');
+      }
     } catch {}
   });
 }
 
-// main loader
+// Admin & Merchant auth redirect (Firebase)
+function setupAuthRedirect() {
+  if (typeof auth === 'undefined' || typeof db === 'undefined') {
+    console.warn("Firebase auth or db not loaded yet!");
+    return;
+  }
+
+  const adminLinks = document.querySelectorAll('a[href*="admin"]') || [];
+  const merchantLinks = document.querySelectorAll('a[href*="merchant"]') || [];
+
+  function handleClick(e, type) {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
+
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        const collection = type === 'admin' ? 'admins' : 'merchants';
+        db.collection(collection).doc(user.uid).get().then(doc => {
+          if (doc.exists) {
+            window.location.href = href; 
+          } else {
+            alert(`You are not authorized as ${type}.`);
+            auth.signOut();
+          }
+        }).catch(err => console.error(err));
+      } else {
+        const loginPage = type === 'admin' ? '/admin/login.html' : '/merchant/login.html';
+        window.location.href = loginPage;
+      }
+    });
+  }
+
+  adminLinks.forEach(link => link.addEventListener('click', (e) => handleClick(e, 'admin')));
+  merchantLinks.forEach(link => link.addEventListener('click', (e) => handleClick(e, 'merchant')));
+}
+
+// Main initializer
 (async function init() {
-  const prefix = computePrefix(); // auto prefix based on depth
+  const prefix = computePrefix();
   await loadComponent(prefix + 'components/header.html', '#header-placeholder');
 
-  // small wait ensures injected DOM is parsed
-  setTimeout(() => {
-    highlightTopNav();
-    highlightSubNav();
-    setupMobileToggle();
-    setupDarkModeToggle();
-  }, 80);
+  // Header load ho gaya → ab DOM safe hai
+  highlightNav();       // ✅ desktop + mobile nav highlight
+  highlightSubNav();
+  setupMobileToggle();
+  setupDarkModeToggle();
+  setupAuthRedirect();
 })();
