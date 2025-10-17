@@ -1,6 +1,6 @@
 const merchantLoginForm = document.getElementById("merchantLoginForm");
 
-// 🔥 Custom Toast Function using Toastify
+// Custom Toast Function using Toastify
 function showToast(type, message, position = "top") {
   // position = "top" or "bottom"
   Toastify({
@@ -16,7 +16,7 @@ function showToast(type, message, position = "top") {
   }).showToast();
 }
 
-// 🔹 Redirect if already logged in
+// Redirect if already logged in
 window.addEventListener("DOMContentLoaded", () => {
   auth.onAuthStateChanged((user) => {
     if (user) {
@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// 🔹 Login functionality
+// Login functionality
 merchantLoginForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
