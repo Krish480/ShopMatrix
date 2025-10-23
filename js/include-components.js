@@ -45,7 +45,6 @@ function isLinkActive(linkPath, currentPath) {
   );
 }
 
-
 // Highlight top nav links (desktop + mobile)
 function highlightNav() {
   const current = normalizePath(window.location.pathname);
@@ -108,31 +107,24 @@ function setupMobileToggle() {
   }
 }
 
-// Dark-mode toggle
+// Dark-mode toggle (fixed)
 function setupDarkModeToggle() {
   const html = document.documentElement;
-  const darkModeToggle = document.getElementById('dark-mode-toggle');
+  const toggleBtn = document.getElementById('dark-mode-toggle');
   const themeIcon = document.getElementById('theme-icon');
-  if (!darkModeToggle) return;
+  if (!toggleBtn || !themeIcon) return;
 
-  try {
-    if (localStorage.theme === 'dark') {
-      html.classList.add('dark');
-      themeIcon?.classList.replace('fa-moon', 'fa-sun');
-    }
-  } catch {}
+  // Initial theme load
+  if (localStorage.theme === 'dark') {
+    html.classList.add('dark');
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
+  }
 
-  darkModeToggle.addEventListener('click', () => {
+  toggleBtn.addEventListener('click', () => {
     html.classList.toggle('dark');
-    try {
-      if (html.classList.contains('dark')) {
-        localStorage.theme = 'dark';
-        themeIcon?.classList.replace('fa-moon', 'fa-sun');
-      } else {
-        localStorage.theme = 'light';
-        themeIcon?.classList.replace('fa-sun', 'fa-moon');
-      }
-    } catch {}
+    const isDark = html.classList.contains('dark');
+    localStorage.theme = isDark ? 'dark' : 'light';
+    themeIcon.classList.replace(isDark ? 'fa-moon' : 'fa-sun', isDark ? 'fa-sun' : 'fa-moon');
   });
 }
 
