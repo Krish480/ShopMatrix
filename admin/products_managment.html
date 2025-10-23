@@ -22,12 +22,13 @@
 
 <body>
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <div id="header-placeholder" class="sticky top-0 z-50"></div>
 
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div class="min-h-screen">
+
         <!-- Admin Navigation -->
-
-        <nav class="bg-white dark:bg-gray-800 shadow-md sticky text-white top-0">
+        <nav class="bg-white dark:bg-gray-800 shadow-md z-10 sticky top-0"
+            style=" background-color: var(--secondary-bg);">
             <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
                 <h1 class="text-xl font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-2">
                     <i class="fa-solid fa-chart-column"></i> Admin Panel
@@ -36,19 +37,23 @@
                 <!-- Desktop Nav -->
                 <div id="admin-menu" class="hidden md:flex items-center space-x-4">
                     <a href="/admin/admin.html"
-                        class="flex items-center px-3 py-2 text-sm rounded-md hover:bg-indigo-50 dark:hover:bg-gray-700 text-indigo-600 font-medium">
+                        class="flex items-center px-3 py-2 text-sm rounded-md hover:bg-indigo-50 dark:hover:bg-gray-700 text-indigo-600 font-medium"
+                        style="color: var(--text-main);">
                         <i class="fa-solid fa-home mr-2"></i> Dashboard
                     </a>
                     <a href="/admin/shop_management.html"
-                        class="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
+                        class="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
+                        style="color: var(--text-main);">
                         <i class="fa-solid fa-shop mr-2"></i> Shops
                     </a>
                     <a href="/admin/products_managment.html"
-                        class="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
+                        class="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
+                        style="color: var(--text-main);">
                         <i class="fa-solid fa-box-open mr-2"></i> Products
                     </a>
                     <a href="/admin/offer_manament.html"
-                        class="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
+                        class="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
+                        style="color: var(--text-main);">
                         <i class="fa-solid fa-tags mr-2"></i> Offers
                     </a>
 
@@ -65,14 +70,14 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="admin-menu-btn"
-                    class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                <button id="admin-menu-btn" class="md:hidden p-2 rounded-lg focus:outline-none cursor-pointer">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
 
             <!-- Mobile Menu -->
-            <div id="admin-mobile-menu" class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white">
+            <div id="admin-mobile-menu" class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white"
+                style="background-color: var(--bg); color: var(--text-main);">
                 <a href="/admin/admin.html" class="block px-4 py-2 hover:bg-gray-600"><i
                         class="fa-solid fa-home mr-2"></i>Dashboard</a>
                 <a href="/admin/shop_management.html" class="block px-4 py-2 hover:bg-gray-600"><i
@@ -86,17 +91,21 @@
                 </button>
             </div>
         </nav>
-        <div class="p-6">
+
+        <div class="p-6" style="background-color: var(--bg);">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-6">
                 <!-- Left: Title & Icon -->
                 <div class="flex items-center gap-4">
-                    <div
-                        class="p-4 rounded-lg bg-indigo-100 dark:bg-indigo-900 shadow flex items-center justify-center">
-                        <i class="fa-solid fa-box-open text-indigo-600 dark:text-indigo-300 text-3xl"></i>
+                    <div class="p-4 rounded-lg bg-indigo-100 dark:bg-indigo-900 shadow flex items-center justify-center"
+                        style="background-color: var(--icon1bg);">
+                        <i class="fa-solid fa-box-open text-indigo-600 dark:text-indigo-300 text-3xl"
+                            style="color: var(--icon1color);"></i>
                     </div>
                     <div>
-                        <h1 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">Product Management</h1>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base">Manage your product inventory
+                        <h1 class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white"
+                            style="color: var(--text-main);">Product Management</h1>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base" style="color: var(--muted);">
+                            Manage your product inventory
                             and listings</p>
                     </div>
                 </div>
@@ -108,7 +117,8 @@
                         <i
                             class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         <input type="text" placeholder="Search products..."
-                            class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 shadow-sm">
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 shadow-sm"
+                            style="background-color: var(--secondary-bg); color: var(--muted);">
                     </div>
 
                     <!-- Add Product Button -->
@@ -122,22 +132,26 @@
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
                 <!-- Total Products -->
-                <div
-                    class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg transition-shadow flex items-center gap-4">
-                    <div class="p-3 rounded-full bg-indigo-100 dark:bg-indigo-900">
-                        <i class="fa-solid fa-box text-indigo-600 dark:text-indigo-300 text-2xl"></i>
+                <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg transition-shadow flex items-center gap-4"
+                    style="background-color: var(--secondary-bg); color: var(--muted);">
+                    <div class="p-3 rounded-full" style="background-color: var(--icon1bg);">
+                        <i class="fa-solid fa-box text-indigo-600 dark:text-indigo-300 text-2xl"
+                            style="color: var(--icon1color);"></i>
                     </div>
                     <div>
                         <p class="text-gray-500 dark:text-gray-400 text-sm">Total Products</p>
-                        <p class="text-2xl font-bold text-gray-800 dark:text-white">124</p>
+                        <p class="text-2xl font-bold text-gray-800 dark:text-white" style="color: var(--black-white);">
+                            124</p>
                     </div>
                 </div>
 
                 <!-- Active Products -->
-                <div
-                    class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg transition-shadow flex items-center gap-4">
-                    <div class="p-3 rounded-full bg-green-100 dark:bg-green-900">
-                        <i class="fa-solid fa-check text-green-600 dark:text-green-300 text-2xl"></i>
+                <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg transition-shadow flex items-center gap-4"
+                    style="background-color: var(--secondary-bg);">
+                    <div class="p-3 rounded-full bg-green-100 dark:bg-green-900"
+                        style="background-color: var(--icon2bg);">
+                        <i class="fa-solid fa-check text-green-600 dark:text-green-300 text-2xl"
+                            style="color: var(--icon2color);"></i>
                     </div>
                     <div>
                         <p class="text-gray-500 dark:text-gray-400 text-sm">Active</p>
@@ -146,8 +160,8 @@
                 </div>
 
                 <!-- Out of Stock -->
-                <div
-                    class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg transition-shadow flex items-center gap-4">
+                <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg transition-shadow flex items-center gap-4"
+                    style="background-color: var(--secondary-bg);">
                     <div class="p-3 rounded-full bg-red-100">
                         <i class="fa-solid fa-triangle-exclamation text-red-600 dark:text-red-300 text-2xl"></i>
                     </div>
@@ -158,10 +172,12 @@
                 </div>
 
                 <!-- Categories -->
-                <div
-                    class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg transition-shadow flex items-center gap-4">
-                    <div class="p-3 rounded-full bg-indigo-100 dark:bg-indigo-900">
-                        <i class="fa-solid fa-tags text-indigo-600 dark:text-indigo-300 text-2xl"></i>
+                <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg transition-shadow flex items-center gap-4"
+                    style="background-color: var(--secondary-bg);">
+                    <div class="p-3 rounded-full bg-indigo-100 dark:bg-indigo-900"
+                        style="background-color: var(--icon1bg);">
+                        <i class="fa-solid fa-tags text-indigo-600 dark:text-indigo-300 text-2xl"
+                            style="color: var(--icon1color);"></i>
                     </div>
                     <div>
                         <p class="text-gray-500 dark:text-gray-400 text-sm">Categories</p>
@@ -173,37 +189,41 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead class="bg-gray-50 dark:bg-gray-700">
-                            <tr>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                        <thead style="background-color: var(--secondary-bg); color: var(--muted);">
+                            <tr style="background-color: var(--bg3); color:var(--text-main);">
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                    style="color: var(--muted);">
                                     Product</th>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                    style="color: var(--muted);">
                                     Category</th>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                    style="color: var(--muted);">
                                     Price</th>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                    style="color: var(--muted);">
                                     Stock</th>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                    style="color: var(--muted);">
                                     Status</th>
-                                <th
-                                    class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider"
+                                    style="color: var(--muted);">
                                     Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                        <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700"
+                            style="background-color: var(--secondary-bg);">
                             <!-- Example Row -->
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10 bg-gray-200 dark:bg-gray-600 rounded-md">
+                                            <img src="https://plus.unsplash.com/premium_photo-1678099940967-73fe30680949?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJlbWl1bSUyMGhlYWRwaG9uZXN8ZW58MHwyfDB8fHww&auto=format&fit=crop&q=60&w=600"
+                                                class="rounded-md" alt="">
                                         </div>
                                         <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Premium
+                                            <div class="text-sm font-medium text-gray-900 dark:text-white"
+                                                style="color: var(--black-white);">Premium
                                                 Headphones</div>
                                             <div class="text-sm text-gray-500 dark:text-gray-400">SKU: 000001</div>
                                         </div>
@@ -211,13 +231,14 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                                     Electronics</td>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                                    $199.99</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+                                    style="color: var(--black-white);">
+                                    ₹1,999</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">45</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                                        style="background-color: var(--icon2bg); color: var(--icon2color);">Active</span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex justify-end space-x-2">
@@ -236,13 +257,17 @@
                                     </div>
                                 </td>
                             </tr>
+
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10 bg-gray-200 dark:bg-gray-600 rounded-md">
+                                            <img src="https://images.unsplash.com/photo-1618532498309-08ba18e6da89?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=874"
+                                                class="rounded-md" alt="">
                                         </div>
                                         <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Bluetooth
+                                            <div class="text-sm font-medium text-gray-900 dark:text-white"
+                                                style="color: var(--black-white);">Bluetooth
                                                 Speaker</div>
                                             <div class="text-sm text-gray-500 dark:text-gray-400">SKU: 000006</div>
                                         </div>
@@ -250,13 +275,14 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                                     Electronics</td>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                                    $59.99</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+                                    style="color: var(--black-white);">
+                                    ₹5,999</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">80</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                                        style="background-color: var(--icon2bg); color: var(--icon2color);">Active</span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex justify-end space-x-2">
@@ -279,10 +305,14 @@
                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10 bg-gray-200 dark:bg-gray-600 rounded-md">
+                                        <div class="flex-shrink-0 h-10 w-10 bg-gray-200 dark:bg-gray-600 rounded-md"
+                                            style="background-color:  var(--);">
+                                            <img src="https://m.media-amazon.com/images/I/61FTABGJz3L.jpg"
+                                                class="rounded-md" alt="">
                                         </div>
                                         <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Yoga Mat
+                                            <div class="text-sm font-medium text-gray-900 dark:text-white"
+                                                style="color: var(--black-white);">Yoga Mat
                                             </div>
                                             <div class="text-sm text-gray-500 dark:text-gray-400">SKU: 000007</div>
                                         </div>
@@ -290,13 +320,14 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Fitness
                                 </td>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                                    $19.99</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+                                    style="color: var(--black-white);">
+                                    ₹1,999</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">50</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                                        style="background-color: var(--icon2bg); color: var(--icon2color);">Active</span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex justify-end space-x-2">
@@ -320,9 +351,12 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10 bg-gray-200 dark:bg-gray-600 rounded-md">
+                                            <img src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/11/apple-watch-ultra-2.jpg"
+                                                class="rounded-md" alt="">
                                         </div>
                                         <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Smartwatch
+                                            <div class="text-sm font-medium text-gray-900 dark:text-white"
+                                                style="color: var(--black-white);">Smartwatch
                                             </div>
                                             <div class="text-sm text-gray-500 dark:text-gray-400">SKU: 000008</div>
                                         </div>
@@ -330,9 +364,9 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                                     Wearables</td>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                                    $149.99</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+                                    style="color: var(--black-white);">
+                                    ₹1,499</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">0</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span
@@ -361,9 +395,12 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10 bg-gray-200 dark:bg-gray-600 rounded-md">
+                                            <img src="https://images.unsplash.com/photo-1620109433753-a62f2c961b69?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880"
+                                                class="rounded-md" alt="">
                                         </div>
                                         <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Leather
+                                            <div class="text-sm font-medium text-gray-900 dark:text-white"
+                                                style="color: var(--black-white);">Leather
                                                 Wallet</div>
                                             <div class="text-sm text-gray-500 dark:text-gray-400">SKU: 000009</div>
                                         </div>
@@ -371,13 +408,14 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                                     Accessories</td>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                                    $49.99</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+                                    style="color: var(--black-white);">
+                                    ₹499</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">25</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                                        style="background-color: var(--icon2bg); color: var(--icon2color);">Active</span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex justify-end space-x-2">
@@ -401,9 +439,12 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10 bg-gray-200 dark:bg-gray-600 rounded-md">
+                                            <img src="https://images.unsplash.com/photo-1632160872021-7e65d76ad849?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1964"
+                                                class="rounded-md" alt="">
                                         </div>
                                         <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Gaming Mouse
+                                            <div class="text-sm font-medium text-gray-900 dark:text-white"
+                                                style="color: var(--black-white);">Gaming Mouse
                                             </div>
                                             <div class="text-sm text-gray-500 dark:text-gray-400">SKU: 000010</div>
                                         </div>
@@ -411,14 +452,15 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                                     Electronics</td>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                                    $79.99</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+                                    style="color: var(--black-white);">
+                                    ₹799</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">100
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                                        style="background-color: var(--icon2bg); color: var(--icon2color);">Active</span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex justify-end space-x-2">
@@ -442,9 +484,12 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10 bg-gray-200 dark:bg-gray-600 rounded-md">
+                                            <img src="https://cdn.images.fecom-media.com/FE00006284/images/Flexible%20Desk%20Lamp_7vp_3EfGQk.jpg"
+                                                class="rounded-md" alt="">
                                         </div>
                                         <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Desk Lamp
+                                            <div class="text-sm font-medium text-gray-900 dark:text-white"
+                                                style="color: var(--black-white);">Desk Lamp
                                             </div>
                                             <div class="text-sm text-gray-500 dark:text-gray-400">SKU: 000011</div>
                                         </div>
@@ -452,13 +497,14 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Home &
                                     Living</td>
-                                <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                                    $34.99</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white"
+                                    style="color: var(--black-white);">
+                                    ₹349</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">60</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span
-                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Active</span>
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                                        style="background-color: var(--icon2bg); color: var(--icon2color);">Active</span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex justify-end space-x-2">
@@ -483,24 +529,29 @@
                 </div>
 
                 <!-- Pagination -->
-                <div
-                    class="bg-gray-50 dark:bg-gray-700 px-4 py-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-600 sm:px-6">
+                <div class="bg-gray-50 dark:bg-gray-700 px-4 py-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-600 sm:px-6"
+                    style="background-color: var(--bg3);">
                     <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                        <p class="text-sm text-gray-700 dark:text-gray-300">
+                        <p class="text-sm text-gray-700 dark:text-gray-300" style="color:  var(--muted);">
                             Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span
                                 class="font-medium">124</span> results
                         </p>
                         <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
                             <a href="#"
-                                class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700">←</a>
+                                class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+                                style="background-color: var(--bg2);">←</a>
                             <a href="#" aria-current="page"
-                                class="z-10 bg-indigo-50 dark:bg-indigo-900 border-indigo-500 dark:border-indigo-700 text-indigo-600 dark:text-indigo-300 relative inline-flex items-center px-4 py-2 border text-sm font-medium">1</a>
+                                class="z-10 bg-indigo-50 dark:bg-indigo-900 border-indigo-500 dark:border-indigo-700 text-indigo-600 dark:text-indigo-300 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                                style="background-color: var(--bg2);">1</a>
                             <a href="#"
-                                class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium">2</a>
+                                class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                                style="background-color: var(--bg2);">2</a>
                             <a href="#"
-                                class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium">3</a>
+                                class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                                style="background-color: var(--bg2);">3</a>
                             <a href="#"
-                                class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700">→</a>
+                                class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+                                style="background-color: var(--bg2);">→</a>
                         </nav>
                     </div>
                 </div>
@@ -509,16 +560,14 @@
     </div>
 
     <!-- Footer Section -->
-    <footer
-        class="bg-gradient-to-t from-slate-900 via-indigo-900 to-slate-900 text-gray-300 py-12 px-6 md:px-16 lg:px-24">
+    <footer class="footer py-12 px-6 md:px-16 lg:px-24">
 
-        <div
-            class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 border-t border-gray-700 pt-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pt-10">
 
             <!-- About Section -->
             <div>
-                <h2 class="text-2xl font-bold text-white mb-4">ShopMetrix</h2>
-                <p class="text-gray-400 text-sm leading-relaxed">
+                <h2 class="text-2xl font-bold mb-4" style="color: var(--text-main)">ShopMetrix</h2>
+                <p class="text-sm leading-relaxed" style="color: var(--muted)">
                     Your one-stop destination for premium quality products at unbeatable prices.
                     Experience smart shopping with ShopMetrix — fast, reliable, and trusted by thousands.
                 </p>
@@ -526,55 +575,53 @@
 
             <!-- Quick Links -->
             <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                <h3 class="text-lg font-semibold mb-4" style="color: var(--text-main)">Quick Links</h3>
                 <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Home</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Products</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">About Us</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Contact</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
 
             <!-- Customer Support -->
             <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Customer Support</h3>
+                <h3 class="text-lg font-semibold mb-4" style="color: var(--text-main)">Customer Support</h3>
                 <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Help Center</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Returns & Refunds</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Terms & Conditions</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
                 </ul>
             </div>
 
             <!-- Newsletter / Contact -->
             <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Stay Connected</h3>
-                <p class="text-gray-400 text-sm mb-3">
+                <h3 class="text-lg font-semibold mb-4" style="color: var(--text-main)">Stay Connected</h3>
+                <p class="text-sm mb-3" style="color: var(--muted)">
                     Subscribe to our newsletter to get the latest offers and updates.
                 </p>
                 <form class="flex flex-col sm:flex-row items-center gap-2">
                     <input type="email" placeholder="Enter your email"
-                        class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
-                    <button
-                        class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg font-medium transition">
+                        class="w-full px-3 py-2 rounded-lg focus:outline-none">
+                    <button class="text-white px-4 py-2 rounded-lg font-medium">
                         Subscribe
                     </button>
                 </form>
 
                 <!-- Social Media Icons -->
-                <div class="flex gap-4 mt-6">
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-linkedin-in"></i></a>
+                <div class="flex gap-4 mt-6 social">
+                    <a href="#"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
                 </div>
             </div>
-
         </div>
 
         <!-- Copyright -->
-        <div class="mt-8 text-center text-gray-500 text-sm">
-            © 2025 <span class="text-indigo-400 font-medium">ShopMetrix</span>. All Rights Reserved.
+        <div class="mt-8 text-center text-sm" style="color: var(--muted)">
+            © 2025 <span style="color: var(--accent-start); font-weight: 600;">ShopMetrix</span>. All Rights Reserved.
         </div>
     </footer>
 
