@@ -19,20 +19,22 @@
 
 
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <div id="header-placeholder" class="sticky top-0 z-50"></div>
 
     <!-- Main Content -->
     <main class="container mx-auto p-6">
 
         <!-- MERCHANT HUB HEADER -->
         <header
-            class="sticky top-2 z-20  bg-white dark:bg-gray-800 mt-5 shadow-[0_0_10px_#2563eb] rounded-2xl mx-2 transition-all duration-300">
+            class="sticky top-2 z-40 bg-white dark:bg-gray-800 shadow-[0_0_10px_#2563eb] rounded-2xl mx-2 transition-all duration-300"
+            style="background-color: var(--secondary-bg);">
             <div class="flex items-center justify-between p-4">
                 <!-- Left: Mobile Menu + Title -->
                 <div class="flex items-center">
                     <!-- Hamburger Button -->
                     <button id="merchant-mobile-menu-btn"
-                        class="md:hidden mr-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-xl transition">
+                        class="md:hidden mr-4 p-2 rounded-lg cursor-pointer text-gray-700 dark:text-gray-300 text-xl transition"
+                        style="color: var(--text-main);">
                         <i id="menu-icon" class="fas fa-bars"></i>
                     </button>
                     <h2 class="text-xl font-bold text-indigo-500">Merchant Hub</h2>
@@ -41,19 +43,23 @@
                 <!-- Desktop Nav -->
                 <nav class="hidden md:flex space-x-2">
                     <a href="/merchant/dashboard.html"
-                        class="flex items-center px-4 py-2 bg-indigo-100/50 dark:bg-gray-700 text-white font-medium rounded-lg transition-all hover:bg-indigo-200/50 dark:hover:bg-gray-600">
+                        class="flex items-center px-4 py-2 bg-indigo-100/50 dark:bg-gray-700 text-white font-medium rounded-lg transition-all hover:bg-indigo-200/50 dark:hover:bg-gray-600"
+                        style=" color: var(--text-main);">
                         <i class="fas fa-home text-lg mr-2"></i> Dashboard
                     </a>
                     <a href="/merchant/add-product.html"
-                        class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all">
+                        class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all"
+                        style=" color: var(--text-main);">
                         <i class="fas fa-plus-square text-lg mr-2"></i> Add Product
                     </a>
                     <a href="/merchant/Productlist.html"
-                        class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all">
+                        class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all"
+                        style=" color: var(--text-main);">
                         <i class="fas fa-list-ul text-lg mr-2"></i> Product List
                     </a>
                     <a href="/merchant/My_store.html"
-                        class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all">
+                        class="flex items-center px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-indigo-100/50 dark:hover:bg-gray-700 rounded-lg transition-all"
+                        style=" color: var(--text-main);">
                         <i class="fas fa-store text-lg mr-2"></i> My Store
                     </a>
                 </nav>
@@ -79,28 +85,28 @@
 
             <!-- Merchant Mobile Menu -->
             <div id="merchant-mobile-menu"
-                class="hidden md:hidden bg-gray-100 dark:bg-gray-700 rounded-b-2xl transition-all duration-300 overflow-hidden">
-                <a href="/merchant/dashboard.html"
-                    class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                class="hidden md:hidden bg-gray-100 dark:bg-gray-700 rounded-b-2xl transition-all duration-300 overflow-hidden"
+                style="background-color: var(--bg); color: var(--text-main);">
+                <a href="/merchant/dashboard.html" class="flex items-center px-4 py-3 text-white gap-2"
+                    style="color: var(--text-main);">
                     <i class="fas fa-home"></i> Dashboard
                 </a>
-                <a href="/merchant/add-product.html"
-                    class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                <a href="/merchant/add-product.html" class="flex items-center px-4 py-3 text-white gap-2"
+                    style="color: var(--text-main);">
                     <i class="fas fa-plus-square"></i> Add Product
                 </a>
-                <a href="/merchant/Productlist.html"
-                    class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                <a href="/merchant/Productlist.html" class="flex items-center px-4 py-3 text-white gap-2"
+                    style="color: var(--text-main);">
                     <i class="fas fa-list-ul"></i> Product List
                 </a>
-                <a href="/merchant/My_store.html"
-                    class="flex items-center px-4 py-3 text-white hover:bg-indigo-100/50 dark:hover:bg-gray-600 gap-2">
+                <a href="/merchant/My_store.html" class="flex items-center px-4 py-3 text-white gap-2"
+                    style="color: var(--text-main);">
                     <i class="fas fa-store"></i> My Store
                 </a>
             </div>
         </header>
 
         <!-- Add Product header -->
-
         <div class="flex justify-between items-center py-4 mb-6 border-b border-gray-200 dark:border-gray-700 px-4">
 
             <!-- Left: Logo & Title -->
@@ -118,8 +124,8 @@
                             class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-indigo-600 flex items-center justify-center text-white font-bold text-lg">
                             <i class="fa-solid fa-user"></i>
                         </div>
-                        <span id="merchantName"
-                            class="hidden md:inline text-gray-700 dark:text-gray-200 font-medium">Merchant</span>
+                        <span id="merchantName" class="hidden md:inline text-gray-700 dark:text-gray-200 font-medium"
+                            style="color: var(--black-white);">Merchant</span>
                     </div>
                 </a>
 
@@ -135,8 +141,8 @@
         </div>
 
 
-        <div
-            class="bg-white dark:bg-gray-800 shadow-2xl rounded-2xl p-8 max-w-8xl mx-auto border border-gray-200 dark:border-gray-700">
+        <div class="bg-white dark:bg-gray-800 shadow-2xl rounded-2xl p-8 max-w-8xl mx-auto border border-gray-200 dark:border-gray-700"
+            style="background-color: var(--secondary-bg);">
             <h2 class="text-2xl font-semibold mb-6 flex items-center gap-2 text-indigo-500">
                 <i class="fas fa-plus-circle"></i> Add a New Product
             </h2>
@@ -147,7 +153,8 @@
                 <div class="relative">
                     <i class="fas fa-tag absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300"></i>
                     <input type="text" placeholder="Product Name"
-                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm">
+                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
+                        style="background-color:  var(--bg2);">
                 </div>
 
                 <!-- Product Category -->
@@ -155,7 +162,8 @@
                     <i
                         class="fas fa-list-alt absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300"></i>
                     <select
-                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm">
+                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
+                        style="background-color:  var(--bg2);">
                         <option disabled selected>Select Category</option>
                         <option>Electronics</option>
                         <option>Clothing</option>
@@ -171,7 +179,8 @@
                     <i
                         class="fa-solid fa-indian-rupee-sign absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300"></i>
                     <input type="number" placeholder="Price"
-                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm">
+                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
+                        style="background-color:  var(--bg2);">
                 </div>
 
                 <!-- Product Stock -->
@@ -179,14 +188,16 @@
                     <i
                         class="fas fa-boxes absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-300"></i>
                     <input type="number" placeholder="Stock Quantity"
-                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm">
+                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
+                        style="background-color:  var(--bg2);">
                 </div>
 
                 <!-- Product Description -->
                 <div class="relative">
                     <i class="fas fa-align-left absolute left-3 top-3 text-gray-400 dark:text-gray-300"></i>
                     <textarea rows="4" placeholder="Description"
-                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"></textarea>
+                        class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm"
+                        style="background-color: var(--bg2); color: var(--surface);"></textarea>
                 </div>
 
                 <!-- Product Image -->
@@ -195,7 +206,8 @@
                         <i class="fa-solid fa-image text-indigo-500"></i> Upload Product Image
                     </label>
                     <input type="file" accept="image/*" id="product-image"
-                        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+                        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                        style="background-color:  var(--bg2);">
                     <img id="preview-image" src="" alt="Preview" class="mt-4 rounded-lg hidden max-h-60">
                 </div>
 
@@ -211,16 +223,14 @@
     </main>
 
     <!-- Footer Section -->
-    <footer
-        class="bg-gradient-to-t from-slate-900 via-indigo-900 to-slate-900 text-gray-300 py-12 px-6 md:px-16 lg:px-24">
+    <footer class="footer py-12 px-6 md:px-16 lg:px-24">
 
-        <div
-            class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 border-t border-gray-700 pt-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pt-10">
 
             <!-- About Section -->
             <div>
-                <h2 class="text-2xl font-bold text-white mb-4">ShopMetrix</h2>
-                <p class="text-gray-400 text-sm leading-relaxed">
+                <h2 class="text-2xl font-bold mb-4" style="color: var(--text-main)">ShopMetrix</h2>
+                <p class="text-sm leading-relaxed" style="color: var(--muted)">
                     Your one-stop destination for premium quality products at unbeatable prices.
                     Experience smart shopping with ShopMetrix — fast, reliable, and trusted by thousands.
                 </p>
@@ -228,55 +238,53 @@
 
             <!-- Quick Links -->
             <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                <h3 class="text-lg font-semibold mb-4" style="color: var(--text-main)">Quick Links</h3>
                 <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Home</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Products</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">About Us</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Contact</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
 
             <!-- Customer Support -->
             <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Customer Support</h3>
+                <h3 class="text-lg font-semibold mb-4" style="color: var(--text-main)">Customer Support</h3>
                 <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Help Center</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Returns & Refunds</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Terms & Conditions</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
                 </ul>
             </div>
 
             <!-- Newsletter / Contact -->
             <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Stay Connected</h3>
-                <p class="text-gray-400 text-sm mb-3">
+                <h3 class="text-lg font-semibold mb-4" style="color: var(--text-main)">Stay Connected</h3>
+                <p class="text-sm mb-3" style="color: var(--muted)">
                     Subscribe to our newsletter to get the latest offers and updates.
                 </p>
                 <form class="flex flex-col sm:flex-row items-center gap-2">
                     <input type="email" placeholder="Enter your email"
-                        class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
-                    <button
-                        class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg font-medium transition">
+                        class="w-full px-3 py-2 rounded-lg focus:outline-none">
+                    <button class="text-white px-4 py-2 rounded-lg font-medium">
                         Subscribe
                     </button>
                 </form>
 
                 <!-- Social Media Icons -->
-                <div class="flex gap-4 mt-6">
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-linkedin-in"></i></a>
+                <div class="flex gap-4 mt-6 social">
+                    <a href="#"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
                 </div>
             </div>
-
         </div>
 
         <!-- Copyright -->
-        <div class="mt-8 text-center text-gray-500 text-sm">
-            © 2025 <span class="text-indigo-400 font-medium">ShopMetrix</span>. All Rights Reserved.
+        <div class="mt-8 text-center text-sm" style="color: var(--muted)">
+            © 2025 <span style="color: var(--accent-start); font-weight: 600;">ShopMetrix</span>. All Rights Reserved.
         </div>
     </footer>
 
