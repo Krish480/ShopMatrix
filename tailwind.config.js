@@ -2,9 +2,12 @@
 module.exports = {
   content: [
     "./*.html",
-    "./src/**/*.{html,js}", // HTML aur JS files scan ke liye
+    "./components/**/*.html",
+    "./js/**/*.js",
+    "./src/**/*.{html,js}",
+    "./pages/**/*.html"
   ],
-  darkMode: 'class', // dark mode toggle
+  darkMode: 'class',
   theme: {
     container: {
       center: true,
@@ -24,7 +27,7 @@ module.exports = {
           light: "#6EE7B7",
           DEFAULT: "#3B82F6",
           dark: "#1E40AF",
-          pinkCustom: '#FB5E9C'
+          pinkCustom: '#FB5E9C',
         },
       },
       fontFamily: {
