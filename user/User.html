@@ -35,24 +35,74 @@
 
         .card-glow {
             box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-        }        
+        }
     </style>
 </head>
 
 <body class="antialiased bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
 
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <div id="header-placeholder" class="sticky top-0 z-50"></div>
 
     <!-- Main -->
     <main class="container mx-auto px-4 py-4">
-        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-white dark:bg-gray-800 shadow-md rounded-xl mb-6 gap-3">
-            <h1 class="text-xl font-bold text-gray-800 dark:text-gray-200">Mall Explorer — ShopMetrix</h1>
-            <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
-                <span id="userGreeting" class="text-gray-700 dark:text-gray-200 font-medium">Hello, User</span>
-                <button id="logoutBtn" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg shadow-sm flex items-center gap-2 transition">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </button>
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <!-- Left Section -->
+            <div>
+                <h1 class="text-3xl font-bold">Mall Explorer</h1>
+                <p class="text-sm" style="color: var(--muted);"> Find shops, offers and compare products </p>
+            </div>
+
+             <!-- Right Section -->
+            <div class="relative flex-grow md:flex-grow-0 md:w-64 lg:w-96 flex items-center gap-2"> 
+                
+                <!-- Search Box -->
+                <div class="relative flex-grow"> <i
+                        class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-800 dark:text-gray-200"
+                        style="color: var(--muted);"></i> <input type="text" placeholder="Search shops or categories..."
+                        class="pl-10 pr-4 py-2 w-full rounded-full text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
+                        style="background-color: var(--secondary-bg); color: var(--text-main);" /> </div>
+                
+                        <!-- Products Button --> 
+                 <a href="../Products.html" data-discover="true"
+                    class="flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300"
+                    style="background-color: var(--secondary-bg); color: var(--text-main);"> <i
+                        class="fa-solid fa-box-open text-lg"></i> <span
+                        class="hidden sm:inline hover:text-[#FF5200] font-medium">Products</span> </a>
+                
+                        <!-- User Button with Toast -->
+                <div class="relative"> <button id="userBtn"
+                        class="flex items-center space-x-2 w-max p-2 px-3 py-2 rounded-full transition-all duration-300 hover:brightness-95"
+                        style="background-color: var(--secondary-bg); color: var(--text-main);">
+                        <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white"> <i
+                                class="fa-solid fa-user"></i>
+                        </div>
+                        <span class="hidden sm:inline font-medium hover:text-[#FF5200]"
+                            style="color: var(--text-main);">User
+                        </span>
+                    </button>
+                    
+                    <!-- Toast Dropdown -->
+                    <div id="userToast" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.3s ease; background-color: var(--bg);"
+                        class="absolute right-0 mt-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg p-4 text-sm text-gray-800 dark:text-gray-200 z-50">
+                        <p id="userGreeting" class="font-semibold mb-2" style="color: var(--text-main)">User</p>
+                        <p id="useremail" class="text-gray-500 dark:text-gray-400 text-xs mb-3" style="color: var(--muted);">user@gmail.com</p>
+                        <ul class="space-y-2" style="color: var(--black-white);">
+                            <li><a href="../user/userprofile.html" class="flex items-center gap-2 hover:text-indigo-500"><i
+                                        class="fa-solid fa-user"></i> Profile</a></li>
+                            <li><a href="../user/my_orders.html" class="flex items-center gap-2 hover:text-indigo-500"><i
+                                        class="fa-solid fa-box"></i> My Orders</a></li>
+                            <li><a href="../user/wishlist.html" class="flex items-center gap-2 hover:text-indigo-500"><i
+                                        class="fa-solid fa-heart"></i> Wishlist</a></li>
+                            <li><a href="../user/my_cart.html" class="flex items-center gap-2 hover:text-indigo-500 relative"><i
+                                        class="fa-solid fa-cart-shopping"></i> MyCart </a></li>                                                               
+                            <li><a href="../user/setting.html" class="flex items-center gap-2 hover:text-indigo-500"><i
+                                        class="fa-solid fa-gear"></i> Settings</a></li>
+                            <li><a href="#" id="logoutBtn" class="flex items-center gap-2 hover:text-red-900"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -62,11 +112,15 @@
             <div class="lg:flex-1 space-y-6">
 
                 <!-- Category + filters bar -->
-                <section class="rounded-xl p-4 card-glow dark:bg-gray-800 shadow-md">
+                <section class="rounded-xl p-4 card-glow dark:bg-gray-800 shadow-md"
+                    style="background-color:  var(--secondary-bg);">
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <div>
-                            <h2 class="text-lg font-semibold dark:text-gray-100"><i class="fa-solid fa-list-grid mr-2 text-blue-500"></i> Shop Categories</h2>
-                            <p class="text-sm text-gray-500 dark:text-gray-300 mt-1">Tap a category to filter shops instantly</p>
+                            <h2 class="text-lg font-semibold dark:text-gray-100" style="color: var(--black-white);"><i
+                                    class="fa-solid fa-list-grid mr-2 text-blue-500"></i> Shop Categories</h2>
+                            <p class="text-sm text-gray-500 dark:text-gray-300 mt-1" style="color: var(--muted);">Tap a
+                                category to filter shops
+                                instantly</p>
                         </div>
 
                         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
@@ -80,20 +134,25 @@
                 </section>
 
                 <!-- Shops list -->
-                <section class="rounded-xl bg-white dark:bg-gray-800 shadow-md overflow-hidden">
-                    <div class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-gray-100 dark:border-gray-700 gap-3">
+                <section class="rounded-xl bg-white dark:bg-gray-800 shadow-md overflow-hidden"
+                    style="background-color: var(--secondary-bg);">
+                    <div
+                        class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-gray-100 dark:border-gray-700 gap-3">
                         <div class="flex items-center gap-4">
                             <h3 class="text-lg font-semibold">Shops</h3>
-                            <span id="shopsCount" class="text-sm text-gray-500 dark:text-gray-300">—</span>
+                            <span id="shopsCount" class="text-sm text-gray-500 dark:text-gray-300"
+                                style="color: var(--muted);">—</span>
                         </div>
 
                         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
                             <label class="text-sm text-gray-500 hidden sm:inline">Floor</label>
-                            <select id="floorFilter" class="px-3 py-1 rounded-lg bg-gray-100 dark:bg-gray-700 text-sm">
+                            <select id="floorFilter" class="px-3 py-1 rounded-lg bg-gray-100 dark:bg-gray-700 text-sm"
+                                style="background-color:  var(--bg2);">
                                 <!-- floors filled by JS -->
                             </select>
 
-                            <select id="sortSelect" class="px-3 py-1 rounded-lg bg-gray-100 dark:bg-gray-700 text-sm">
+                            <select id="sortSelect" class="px-3 py-1 rounded-lg bg-gray-100 dark:bg-gray-700 text-sm"
+                                style="background-color: var(--bg2);">
                                 <option value="recommended">Recommended</option>
                                 <option value="offers">Best Offers</option>
                                 <option value="name">Name</option>
@@ -106,64 +165,139 @@
                     </div>
                 </section>
 
-                <!-- Compare -->
-                <section class="rounded-xl bg-gray-200/50 dark:bg-gray-800 shadow-md p-5">
+                <!-- Compare Section -->
+                <section
+                    class="rounded-xl bg-gray-200/50 dark:bg-gray-800 shadow-md p-5 transition-all duration-300 hover:shadow-lg"
+                    style="background-color: var(--secondary-bg);">
+
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-3">
-                        <h3 class="text-lg font-semibold flex items-center gap-2">
+                        <h3 class="text-lg font-semibold flex items-center gap-2" style="color: var(--text-main);">
                             <i class="fa-solid fa-scale-balanced text-purple-500"></i> Compare Products
                         </h3>
-                        <button id="addCompare" class="text-sm text-blue-500 hover:bg-gray-700 rounded-full px-2 py-1 font-semibold">
+                        <button id="addCompare"
+                            class="text-sm text-blue-500 hover:bg-indigo-600 hover:text-white rounded-full px-3 py-1 font-semibold transition-all duration-300">
                             + Add Product
                         </button>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Product cards (as in your code) -->
+                        <!-- Product 1 -->
+                        <div class="rounded-xl shadow-md p-4 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                            style="background-color:  var(--bg3);">
+                            <img src="https://m.media-amazon.com/images/I/71RVuBs3q9L._SL1500_.jpg"
+                                alt="Samsung Galaxy S24 Ultra"
+                                class=" object-cover mb-3 rounded-md transition-all duration-300 hover:scale-105">
+                            <h4 class="text-lg font-semibold mb-1" style="color: var(--text-main);">Samsung Galaxy S24
+                                Ultra (12GB, 256GB)</h4>
+                            <p class="text-gray-500 dark:text-gray-400 mb-2" style="color: var(--black-white);">
+                                ₹1,29,999</p>
+                            <ul class="text-sm text-gray-600 dark:text-gray-300 mb-3 space-y-1"
+                                style="color: var(--muted);">
+                                <li>• 6.8" QHD+ Dynamic AMOLED 2X Display (120Hz)</li>
+                                <li>• Qualcomm Snapdragon 8 Gen 3 Processor</li>
+                                <li>• 200MP Quad Camera System</li>
+                                <li>• 5000mAh Battery with 45W Fast Charging</li>
+                                <li>• Titanium Frame, S-Pen Support</li>
+                            </ul>
+                            <button
+                                class="text-xs text-red-500 hover:bg-red-600 hover:text-white rounded-full px-3 py-1 font-medium transition-all duration-300">
+                                Remove
+                            </button>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="rounded-xl shadow-md p-4 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                            style="background-color:  var(--bg3);">
+                            <img src="https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=880"
+                                alt="Apple MacBook Air M3"
+                                class=" object-contain mb-3 rounded-lg transition-all duration-300 hover:scale-105">
+                            <h4 class="text-lg font-semibold mb-1" style="color: var(--text-main);">Apple MacBook Air M3
+                                (8GB, 256GB SSD, 13-inch)</h4>
+                            <p class="text-gray-500 dark:text-gray-400 mb-2" style="color: var(--black-white);">
+                                ₹1,29,990</p>
+                            <ul class="text-sm text-gray-600 dark:text-gray-300 mb-3 space-y-1"
+                                style="color:  var(--muted);">
+                                <li>• Apple M3 Chip (8-core CPU, 10-core GPU)</li>
+                                <li>• 13.6" Liquid Retina Display</li>
+                                <li>• 18-hour Battery Life</li>
+                                <li>• 8GB Unified Memory, 256GB SSD</li>
+                                <li>• MagSafe 3 Charging, Touch ID</li>
+                            </ul>
+                            <button
+                                class="text-xs text-red-500 hover:bg-red-600 hover:text-white rounded-full px-3 py-1 font-medium transition-all duration-300">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Compare Button -->
+                    <div class="flex justify-center mt-6">
+                        <button
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-full shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                            🔍 Compare Now
+                        </button>
                     </div>
                 </section>
+
+
+
 
             </div>
 
             <!-- Sidebar -->
             <aside class="lg:w-80 space-y-6 w-full">
                 <!-- Filters -->
-                <div class="rounded-xl bg-gray-200/50 dark:bg-gray-800 p-4 shadow-md">
+                <div class="rounded-xl bg-gray-200/50 dark:bg-gray-800 p-4 shadow-md transition-all duration-300 hover:shadow-lg"
+                    style="background-color: var(--secondary-bg);">
                     <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-semibold">Filters</h3>
-                        <button id="resetFilters" class="text-sm text-gray-500 cursor-pointer hover:bg-gray-700 rounded-full px-2">
-                            <i class="fa-solid fa-rotate-right fa-spin-pulse"></i> Reset
+                        <h3 class="text-lg font-semibold" style="color: var(--text-main);">Filters</h3>
+                        <button id="resetFilters"
+                            class="text-sm text-gray-500 cursor-pointer hover:bg-indigo-600 hover:text-white rounded-full px-3 py-1 transition-all duration-300">
+                            <i class="fa-solid fa-rotate-right fa-spin-pulse mr-1"></i> Reset
                         </button>
                     </div>
+
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm text-gray-400 mb-1">Floor</label>
-                            <select id="floorSelect" class="w-full p-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700">
+                            <select id="floorSelect" class="w-full p-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 
+               transition-all duration-300 hover:border-indigo-500 hover:shadow-sm"
+                                style="background-color: var(--bg2); color: var(--text-main);">
                                 <!-- floors set by JS -->
                             </select>
                         </div>
 
                         <div>
                             <label class="block text-sm text-gray-400 mb-1">Category</label>
-                            <select id="categorySelect" class="w-full p-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700">
+                            <select id="categorySelect" class="w-full p-2 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 
+               transition-all duration-300 hover:border-indigo-500 hover:shadow-sm"
+                                style="background-color: var(--bg2); color: var(--text-main);">
                                 <!-- categories set by JS -->
                             </select>
                         </div>
 
-                        <button id="applyFilters" class="w-full py-2 rounded-lg bg-indigo-700 text-white">Apply Filters</button>
+                        <button id="applyFilters"
+                            class="w-full py-2 rounded-lg bg-indigo-700 text-white font-medium transition-all duration-300 hover:bg-indigo-800 hover:shadow-md">
+                            Apply Filters
+                        </button>
                     </div>
                 </div>
 
+
                 <!-- Current Offers -->
-                <div class="rounded-xl bg-gray-200/50 dark:bg-gray-800 p-4 shadow-md">
+                <div class="rounded-xl bg-gray-200/50 dark:bg-gray-800 p-4 shadow-md"
+                    style="background-color:  var(--secondary-bg);">
                     <div class="flex items-center justify-between mb-2">
-                        <h3 class="text-lg font-semibold">Current Offers <span id="offersCount" class="text-sm text-gray-400 ml-2"></span></h3>
+                        <h3 class="text-lg font-semibold">Current Offers <span id="offersCount"
+                                class="text-sm text-gray-400 ml-2"></span></h3>
                         <i class="fa-solid fa-tags text-yellow-500"></i>
                     </div>
                     <ul id="offersList" class="space-y-3"></ul>
                 </div>
 
                 <!-- Floor Guide -->
-                <div class="rounded-xl bg-gray-200/50 dark:bg-gray-800 p-4 shadow-md">
+                <div class="rounded-xl bg-gray-200/50 dark:bg-gray-800 p-4 shadow-md"
+                    style="background-color:  var(--secondary-bg);">
                     <div class="flex items-center justify-between mb-3">
                         <h3 class="text-lg font-semibold">Floor Guide</h3>
                         <i class="fa-solid fa-map-location-dot text-indigo-400"></i>
@@ -174,80 +308,75 @@
         </div>
     </main>
 
-    <!-- Footer Section -->
-    <footer
-        class="bg-gradient-to-t from-slate-900 via-indigo-900 to-slate-900 text-gray-300 py-12 px-6 md:px-16 lg:px-24">
+          <!-- Footer Section -->
+  <footer class="footer py-12 px-6 md:px-16 lg:px-24">
 
-        <div
-            class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 border-t border-gray-700 pt-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pt-10">
 
-            <!-- About Section -->
-            <div>
-                <h2 class="text-2xl font-bold text-white mb-4">ShopMetrix</h2>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Your one-stop destination for premium quality products at unbeatable prices.
-                    Experience smart shopping with ShopMetrix — fast, reliable, and trusted by thousands.
-                </p>
-            </div>
+      <!-- About Section -->
+      <div>
+        <h2 class="text-2xl font-bold mb-4" style="color: var(--text-main)">ShopMetrix</h2>
+        <p class="text-sm leading-relaxed" style="color: var(--muted)">
+          Your one-stop destination for premium quality products at unbeatable prices.
+          Experience smart shopping with ShopMetrix — fast, reliable, and trusted by thousands.
+        </p>
+      </div>
 
-            <!-- Quick Links -->
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Home</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Products</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">About Us</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Contact</a></li>
-                </ul>
-            </div>
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4" style="color: var(--text-main)">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
 
-            <!-- Customer Support -->
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Customer Support</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Help Center</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Returns & Refunds</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-indigo-400 transition-colors">Terms & Conditions</a></li>
-                </ul>
-            </div>
+      <!-- Customer Support -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4" style="color: var(--text-main)">Customer Support</h3>
+        <ul class="space-y-2">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
 
-            <!-- Newsletter / Contact -->
-            <div>
-                <h3 class="text-lg font-semibold text-white mb-4">Stay Connected</h3>
-                <p class="text-gray-400 text-sm mb-3">
-                    Subscribe to our newsletter to get the latest offers and updates.
-                </p>
-                <form class="flex flex-col sm:flex-row items-center gap-2">
-                    <input type="email" placeholder="Enter your email"
-                        class="w-full px-3 py-2 rounded-lg bg-slate-800 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
-                    <button
-                        class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg font-medium transition">
-                        Subscribe
-                    </button>
-                </form>
+      <!-- Newsletter / Contact -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4" style="color: var(--text-main)">Stay Connected</h3>
+        <p class="text-sm mb-3" style="color: var(--muted)">
+          Subscribe to our newsletter to get the latest offers and updates.
+        </p>
+        <form class="flex flex-col sm:flex-row items-center gap-2">
+          <input type="email" placeholder="Enter your email" class="w-full px-3 py-2 rounded-lg focus:outline-none">
+          <button class="text-white px-4 py-2 rounded-lg font-medium">
+            Subscribe
+          </button>
+        </form>
 
-                <!-- Social Media Icons -->
-                <div class="flex gap-4 mt-6">
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="hover:text-indigo-400 text-xl"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-            </div>
-
+        <!-- Social Media Icons -->
+        <div class="flex gap-4 mt-6 social">
+          <a href="#"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter text-xl"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram text-xl"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
         </div>
+      </div>
+    </div>
 
-        <!-- Copyright -->
-        <div class="mt-8 text-center text-gray-500 text-sm">
-            © 2025 <span class="text-indigo-400 font-medium">ShopMetrix</span>. All Rights Reserved.
-        </div>
-    </footer>
+    <!-- Copyright -->
+    <div class="mt-8 text-center text-sm" style="color: var(--muted)">
+      © 2025 <span style="color: var(--accent-start); font-weight: 600;">ShopMetrix</span>. All Rights Reserved.
+    </div>
+  </footer>
 
     <script src="../js/user.js"></script>
     <script src="../js/include-components.js"></script>
 
-    
+
 </body>
 
 </html>
