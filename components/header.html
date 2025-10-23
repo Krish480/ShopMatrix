@@ -1,74 +1,118 @@
-<header class="bg-white dark:bg-gray-800 sticky top-0 w-full shadow-md z-50 transition-all duration-300 py-3 text-gray-800 dark:text-gray-200">
-  <div class="container mx-auto flex justify-between items-center px-4">
+<!DOCTYPE html>
+<html lang="en" class="dark">
 
-    <!-- Logo & Mobile Menu Button -->
-    <div class="flex items-center gap-6">
-      <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
-        <i id="menu-icon" class="fa-solid fa-bars"></i>
-      </button>
-      <div class="flex items-center space-x-3">
-        <img src="/images/ShopMatrix_logo.png" alt="ShopMatrix Logo" class="h-10 w-auto object-contain">
-        <span class="text-xl font-bold">ShopMetrix</span>
-      </div>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopMetrix Header</title>
+  <link rel="stylesheet" href="../dist/output.css">
+  <link rel="stylesheet" href="/css/theme-vars.css">
+</head>
 
-    <!-- Desktop Search -->
-    <div class="hidden md:flex flex-1 max-w-xl mx-8">
-      <form action="" class="w-full">
-        <div class="relative">
-          <input type="text" placeholder="Search products..."
-            class="w-full h-12 bg-gray-200 dark:bg-gray-700 py-2 pl-4 pr-10 rounded-full text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
-          <button type="submit"
-            class="absolute right-3 top-1/2 -translate-y-1/2 text-lg text-gray-400 dark:text-gray-200 hover:text-indigo-500 transition">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
+<body>
+  <header class="sticky top-0 w-full shadow-md z-50 transition-all duration-300 py-3"
+    style="background-color: var(--surface); color: var(--text-main);">
+
+    <div class="container mx-auto flex justify-between items-center px-4">
+
+      <!-- Logo & Mobile Menu -->
+      <div class="flex items-center gap-6">
+        <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none cursor-pointer">
+          <i id="menu-icon" class="fa-solid fa-bars" style="color: var(--text-main);"></i>
+        </button>
+
+        <div class="flex items-center space-x-3">
+          <img src="/images/ShopMatrix_logo.png" alt="ShopMatrix Logo" class="h-10 w-auto object-contain">
+          <span class="text-xl font-bold" style="color: var(--text-main);">ShopMetrix</span>
         </div>
-      </form>
+      </div>
+
+      <!-- Desktop Search -->
+      <div class="hidden md:flex flex-1 max-w-xl mx-8">
+        <form class="w-full">
+          <div class="relative">
+            <input type="text" placeholder="Search products..."
+              class="w-full h-12 py-2 pl-4 pr-10 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
+              style="background-color: var(--bg); border: 2px solid var(--secodary-border-color); color: var(--text-main);">
+            <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 text-lg hover:opacity-80 transition"
+              style="color: var(--muted);">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-4 main-nav">
+        <a href="/index.html"
+          class="nav-link px-3 py-2 rounded flex flex-col items-center gap-1 transition-colors duration-200 active-nav">
+          <i class="fa-solid fa-house text-xl"></i>
+          <span class="text-base font-semibold">Home</span>
+        </a>
+        <a href="/Products.html"
+          class="nav-link px-3 py-2 rounded flex flex-col items-center gap-1 transition-colors duration-200">
+          <i class="fa-solid fa-bag-shopping text-lg"></i>
+          <span class="text-base font-semibold">Products</span>
+        </a>
+        <a href="/admin/admin.html"
+          class="nav-link px-3 py-2 rounded flex flex-col items-center gap-1 transition-colors duration-200">
+          <i class="fa-solid fa-shield text-lg"></i>
+          <span class="text-base font-semibold">Admin</span>
+        </a>
+        <a href="/merchant/dashboard.html"
+          class="nav-link px-3 py-2 rounded flex flex-col items-center gap-1 transition-colors duration-200">
+          <i class="fa-solid fa-shop text-lg"></i>
+          <span class="text-base font-semibold">Merchant</span>
+        </a>
+        <a href="/user/User.html"
+          class="nav-link px-3 py-2 rounded flex flex-col items-center gap-1 transition-colors duration-200">
+          <i class="fa-solid fa-user text-lg"></i>
+          <span class="text-base font-semibold">User</span>
+        </a>
+      </nav>
+
+
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-4">
+        <button id="mobile-search-btn" class="md:hidden text-xl focus:outline-none">
+          <i class="fa-solid fa-magnifying-glass" style="color: var(--text-main);"></i>
+        </button>
+
+        <button id="dark-mode-toggle"
+          class="flex items-center justify-center text-2xl w-10 h-10 rounded-full focus:outline-none transition"
+          style="background-color: var(--accent-start); color: var(--text-main);">
+          <i id="theme-icon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
     </div>
 
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex font-medium items-center gap-4 main-nav">
-      <a href="/index.html" class="nav-link px-3 py-2 rounded flex flex-col items-center gap-1 transition-colors duration-200 hover:bg-gray-700 hover:text-indigo-600">
-        <i class="fa-solid fa-house text-lg"></i><span class="text-xs">Home</span>
-      </a>
-      <a href="/Products.html" class="nav-link px-3 py-2 rounded flex flex-col items-center gap-1 transition-colors duration-200 hover:bg-gray-700 hover:text-indigo-600">
-        <i class="fa-solid fa-bag-shopping text-lg"></i><span class="text-xs">Products</span>
-      </a>
-      <a href="/admin/admin.html" class="nav-link px-3 py-2 rounded flex flex-col items-center gap-1 transition-colors duration-200 hover:bg-gray-700 hover:text-indigo-600">
-        <i class="fa-solid fa-shield text-lg"></i><span class="text-xs">Admin</span>
-      </a>
-      <a href="/merchant/dashboard.html" class="nav-link px-3 py-2 rounded flex flex-col items-center gap-1 transition-colors duration-200 hover:bg-gray-700 hover:text-indigo-600">
-        <i class="fa-solid fa-shop text-lg"></i><span class="text-xs">Merchant</span>
-      </a>
-      <a href="/user/User.html" class="nav-link px-3 py-2 rounded flex flex-col items-center gap-1 transition-colors duration-200 hover:bg-gray-700 hover:text-indigo-600">
-        <i class="fa-solid fa-user text-lg"></i><span class="text-xs">User</span>
-      </a>
-    </nav>
-
-    <!-- Right Buttons -->
-    <div class="flex items-center gap-4">
-      <button id="mobile-search-btn" class="md:hidden text-xl focus:outline-none">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-      <button id="dark-mode-toggle" class="text-xl focus:outline-none">
-        <i id="theme-icon" class="fa-solid fa-moon"></i>
-      </button>
+    <!-- Mobile Search -->
+    <div id="mobile-search" class="hidden md:hidden px-4 pb-2 pt-3" style="background-color: var(--bg); ">
+      <input type="text" placeholder="Search products..."
+        class="w-full py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+        style="background-color: var(--surface); border: 2px solid var(--secodary-border-color); color: var(--text-main);">
     </div>
 
-  </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pt-3"
+      style="background-color: var(--surface);">
+      <a href="/index.html" class=" py-2 px-4 flex items-center gap-2 transition"
+        style="color: var(--text-main);"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/Products.html" class=" py-2 px-4 flex items-center gap-2 transition"
+        style="color: var(--text-main);"><i class="fa-solid fa-bag-shopping"></i> Products</a>
+      <a href="/admin/admin.html" class=" py-2 px-4 flex items-center gap-2 transition"
+        style="color: var(--text-main);"><i class="fa-solid fa-shield"></i> Admin</a>
+      <a href="/merchant/dashboard.html" class=" py-2 px-4 flex items-center gap-2 hover:opacity-80 transition"
+        style="color: var(--text-main);"><i class="fa-solid fa-shop"></i> Merchant</a>
+      <a href="/user/User.html" class=" py-2 px-4 flex items-center gap-2 transition"
+        style="color: var(--text-main);"><i class="fa-solid fa-user"></i> User</a>
+    </div>
 
-  <!-- Mobile Search -->
-  <div id="mobile-search" class="hidden md:hidden px-4 pb-3 bg-gray-700 dark:bg-gray-800">
-    <input type="text" placeholder="Search products..."
-      class="w-full py-2 px-4 rounded-full text-gray-200 bg-gray-400 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
-  </div>
+  </header>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-gray-700 dark:bg-gray-800 text-white">
-    <a href="/index.html" class="mobile-nav-link py-2 px-4 flex items-center gap-2 transition-colors duration-200 hover:bg-gray-600"><i class="fa-solid fa-house"></i> Home</a>
-    <a href="/Products.html" class="mobile-nav-link py-2 px-4 flex items-center gap-2 transition-colors duration-200 hover:bg-gray-600"><i class="fa-solid fa-bag-shopping"></i> Products</a>
-    <a href="/admin/admin.html" class="mobile-nav-link py-2 px-4 flex items-center gap-2 transition-colors duration-200 hover:bg-gray-600"><i class="fa-solid fa-shield"></i> Admin</a>
-    <a href="/merchant/dashboard.html" class="mobile-nav-link py-2 px-4 flex items-center gap-2 transition-colors duration-200 hover:bg-gray-600"><i class="fa-solid fa-shop"></i> Merchant</a>
-    <a href="/user/User.html" class="mobile-nav-link py-2 px-4 flex items-center gap-2 transition-colors duration-200 hover:bg-gray-600"><i class="fa-solid fa-user"></i> User</a>
-  </div>
-</header>
+
+</body>
+
+</html>
