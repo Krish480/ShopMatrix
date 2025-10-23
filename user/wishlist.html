@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - ShopMetrix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="../css/theme-vars.css">
+    <link rel="icon" href="../images/ShopMatrix_logo.png">
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div id="header-placeholder" class="sticky top-0"></div>
+    <div class="max-w-6xl mx-auto my-12 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-colors duration-300" style="background-color: var(--secondary-bg);">
+
+        <!-- Back Button -->
+        <div class="mb-6">
+            <button id="backBtn"
+                class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all" style="background-color: var(--bg2); color: var(--text-main);">
+                <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+        </div>
+
+        <h2 class="text-3xl font-bold text-purple-500 mb-6">My Wishlist</h2>
+
+        <!-- Wishlist Filter -->
+        <div class="flex justify-between items-center mb-6">
+            <span class="text-gray-600 dark:text-gray-300 font-medium" style="color: var(--muted);">Total Items: <span id="wishlistCount">0</span></span>
+            <select id="sortFilter" class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-purple-500 outline-none" style="background-color: var(--bg2); color: var(--black-white);" >
+                <option value="default">Sort by Default</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+                <option value="newest">Newest</option>
+            </select>
+        </div>
+
+        <!-- Wishlist Items Grid -->
+        <div id="wishlistGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+
+        <!-- Empty Wishlist Message -->
+        <div id="emptyMsg" class="hidden text-center text-gray-500 dark:text-gray-300 mt-20" style="color: var(--muted);">
+            <i class="fa-solid fa-heart-crack text-6xl mb-4"></i>
+            <p class="text-lg">Your wishlist is empty. Start adding products you love!</p>
+        </div>
+
+    </div>
+
+    <script src="../js/include-components.js"></script>
+    <script src="../js/wishlist.js"></script>
+</body>
+</html>
