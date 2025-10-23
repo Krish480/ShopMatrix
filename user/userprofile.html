@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - ShopMetrix</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/theme-vars.css">
+    <link rel="icon" href="../images/ShopMatrix_logo.png">
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+    style="background-color: var(--bg);">
+
+    <header id="header-placeholder" class="sticky top-0"></header>
+
+    <div
+        class="max-w-4xl mx-auto my-12 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-colors duration-300" style="background-color: var(--secondary-bg);">
+
+        <!-- Back Button -->
+        <div class="mb-4">
+            <button id="backBtn"
+                class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 shadow hover:shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-all"style="background-color: var(--bg2); color: var(--text);">
+                <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
+            <!-- Profile Photo -->
+            <div class="relative w-32 h-32 md:w-36 md:h-36">
+                <img id="profilePic" src="https://i.pravatar.cc/150?img=3" alt="User Photo"
+                    class="w-full h-full object-cover rounded-full border-4 border-purple-500 shadow-lg">
+                <button id="editPicBtn"
+                    class="absolute -top-[0.75rem] -right-[0.75rem] bg-purple-500 text-white p-2 rounded-full shadow-lg hover:bg-purple-600 transition-all">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+
+            </div>
+
+            <!-- User Info -->
+            <div class="flex-1 text-center md:text-left">
+                <h2 id="userName" class="text-3xl font-bold text-purple-500">Krishna Pandey</h2>
+                <p id="userEmail" class="text-gray-500 dark:text-gray-300 mt-1" style="color: var(--muted);">user@gmail.com</p>
+                <button id="editProfileBtn"
+                    class="mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium hover:shadow-lg transition-all">
+                    <i class="fa-solid fa-pen mr-2"></i>Edit Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- Update/Delete buttons -->
+        <div id="picOptions" class="mt-4 flex gap-4 justify-center hidden">
+            <button id="uploadPicBtn"
+                class="flex items-center gap-2 px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600"><i
+                    class="fa-solid fa-upload"></i> Upload</button>
+            <button id="deletePicBtn"
+                class="flex items-center gap-2 px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"><i
+                    class="fa-solid fa-trash"></i> Delete</button>
+        </div>
+
+        <!-- Profile Details -->
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+                class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-lg transition-all" style="background-color: var(--bg2);">
+                <i class="fa-solid fa-phone text-purple-500 text-xl"></i>
+                <div><span class="font-semibold">Phone:</span> <span id="userPhone">+91 9876543210</span></div>
+            </div>
+            <div
+                class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-lg transition-all" style="background-color: var(--bg2);">
+                <i class="fa-solid fa-location-dot text-purple-500 text-xl"></i>
+                <div><span class="font-semibold">Address:</span> <span id="userAddress">Bhopal, MP</span></div>
+            </div>
+            <div
+                class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-lg transition-all" style="background-color: var(--bg2);">
+                <i class="fa-solid fa-cake-candles text-purple-500 text-xl"></i>
+                <div><span class="font-semibold">DOB:</span> <span id="userDOB">15 Jan 2000</span></div>
+            </div>
+            <div
+                class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-xl shadow hover:shadow-lg transition-all" style="background-color: var(--bg2);">
+                <i class="fa-solid fa-user text-purple-500 text-xl"></i>
+                <div><span class="font-semibold">Gender:</span> <span id="userGender">Male</span></div>
+            </div>
+        </div>
+
+        <!-- Edit Form -->
+        <div id="editForm"
+            class="mt-8 hidden border-t border-gray-300 dark:border-gray-600 pt-6 space-y-4 animate-fadeIn">
+            <h3 class="text-xl font-semibold">Edit Profile Info</h3>
+            <input id="editName" type="text" placeholder="Full Name"
+                class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-purple-500 outline-none" style="background-color:  var(--bg2); color: var(--muted);">
+            <input id="editEmail" type="email" placeholder="Email Address"
+                class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-purple-500 outline-none" style="background-color:  var(--bg2); color: var(--muted);">
+            <input id="editPhone" type="text" placeholder="Phone Number"
+                class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-purple-500 outline-none" style="background-color:  var(--bg2); color: var(--muted);">
+            <input id="editAddress" type="text" placeholder="Address"
+                class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-purple-500 outline-none" style="background-color:  var(--bg2); color: var(--muted);">
+
+            <!-- DOB with Calendar -->
+            <div class="w-full">
+                <label for="editDOB" class="block mb-1 font-semibold text-gray-700 dark:text-gray-200">Date of
+                    Birth:</label>
+                <input id="editDOB" type="date"
+                    class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-purple-500 outline-none" style="background-color:  var(--bg2); color: var(--muted);">
+            </div>
+
+            <!-- Gender with Radio Buttons -->
+            <div class="w-full">
+                <span class="block mb-1 font-semibold text-gray-700 dark:text-gray-200" style="color: var(--black-white);">Gender:</span>
+                <div class="flex gap-4">
+                    <label class="flex items-center gap-2 text-gray-700 dark:text-gray-200" style="color: var(--black-white);">
+                        <input type="radio" name="gender" value="Male" class="accent-purple-500"> Male
+                    </label>
+                    <label class="flex items-center gap-2 text-gray-700 dark:text-gray-200" style="color: var(--black-white);">
+                        <input type="radio" name="gender" value="Female" class="accent-purple-500"> Female
+                    </label>
+                    <label class="flex items-center gap-2 text-gray-700 dark:text-gray-200" style="color: var(--black-white);">
+                        <input type="radio" name="gender" value="Other" class="accent-purple-500"> Other
+                    </label>
+                </div>
+            </div>
+
+            <button id="saveChangesBtn"
+                class="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium hover:shadow-lg transition-all">Save
+                Changes</button>
+        </div>
+
+    </div>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.4s ease;
+        }
+    </style>
+    <script src="../js/include-components.js"></script>
+    <script src="../js/userprofile.js"></script>
+    <script src="../js/user.js"></script>
+</body>
+
+</html>
