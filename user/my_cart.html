@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart - ShopMetrix</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link rel="stylesheet" href="../dist/output.css">
+  <link rel="stylesheet" href="../css/theme-vars.css">
+  <link rel="icon" href="../images/ShopMatrix_logo.png">
+</head>
+
+<body class="transition-colors duration-300" style="background-color: var(--bg);">
+
+  <div id="header-placeholder" class="sticky top-0"></div>
+
+  <!-- Main Content -->
+  <div class="max-w-4xl mx-auto mt-6 p-4 md:p-8 min-h-screen">
+
+    <!-- Back Button -->
+    <div class="flex items-center mb-6">
+      <button id="backBtn"
+        class="flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+        <i class="fas fa-arrow-left mr-2"></i> Back to Shop
+      </button>
+    </div>
+
+    <!-- Empty Cart Message -->
+    <div id="emptyCart"
+      class="hidden flex flex-col items-center justify-center text-center py-16 space-y-4 transition-all duration-500 ease-in-out">
+      <div class="text-gray-400 dark:text-gray-500 text-5xl animate-bounce">
+        <i class="fa-solid fa-cart-shopping text-3xl"></i>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-700 dark:text-gray-200" style="color: var(--black-white);">
+        Your Cart is Empty
+      </h2>
+      <p class="text-gray-500 dark:text-gray-400 text-lg md:text-xl max-w-md">
+        Looks like you haven’t added anything yet. Start shopping to fill your cart!
+      </p>
+      <a href="../Products.html"
+        class="mt-4 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium flex items-center gap-2">
+        <i class="fas fa-arrow-right"></i> Shop Now
+      </a>
+    </div>
+
+    <!-- Cart Items -->
+    <div id="cartItems" class="divide-y divide-gray-200 dark:divide-gray-700"></div>
+
+    <!-- Cart Summary -->
+    <div id="cartSummary"
+      class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl mt-6 p-6 hidden" style="background-color: var(--bg3);">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-gray-600 dark:text-gray-400" style="color: var(--muted);">Subtotal</span>
+        <span class="text-gray-800 dark:text-white font-medium" id="subtotal" style="color: var(--black-white);">₹0.00</span>
+      </div>
+      <div class="flex justify-between items-center mb-6">
+        <span class="text-gray-600 dark:text-gray-400" style="color: var(--muted);">Shipping</span>
+        <span class="text-gray-800 dark:text-white font-medium" style="color: var(--black-white);">Free</span>
+      </div>
+      <div class="flex justify-between items-center mb-6">
+        <span class="text-lg font-bold text-gray-800 dark:text-white" style="color: var(--black-white);">Total</span>
+        <span class="text-xl font-bold text-indigo-500" id="total">₹0.00</span>
+      </div>
+      <button
+        class="w-full py-3 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium flex items-center justify-center">
+        Proceed to Checkout <i class="fas fa-arrow-right ml-2"></i>
+      </button>
+    </div>
+
+  </div>
+
+
+  <script src="../js/include-components.js"></script>
+  <script src="../js/my_cart.js"></script>
+
+</body>
+
+</html>
