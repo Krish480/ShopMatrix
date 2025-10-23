@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - ShopMetrix</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/theme-vars.css">
+    <link rel="icon" href="../images/ShopMatrix_logo.png">
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300" style="background-color: var(--bg);">
+
+    <!-- Header -->
+     <div id="header-placeholder" class="sticky top-0"></div>
+
+    <div
+        class="max-w-6xl mx-auto my-12 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 transition-colors duration-300" style="background-color: var(--secondary-bg);">
+
+        <!-- Back Button -->
+        <div class="mb-6">
+            <button id="backBtn"
+                class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all" style="background-color:  var(--bg2); color: var(--text-main);">
+                <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+        </div>
+
+        <h2 class="text-3xl font-bold text-purple-500 mb-6">My Orders</h2>
+
+        <div class="flex flex-col md:flex-row md:justify-between items-center mb-6 gap-4">
+            <!-- Filter -->
+            <div class="flex items-center gap-2">
+                <label for="statusFilter" class="font-semibold text-gray-700 dark:text-gray-200" style="color: var(--black-white);">Filter by
+                    Status:</label>
+                <select id="statusFilter"
+                    class="p-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-purple-500 outline-none" style="background-color: var(--bg2); color: var(--text-main);">
+                    <option value="All">All</option>
+                    <option value="Delivered">Delivered</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div id="pagination" class="flex items-center gap-2"></div>
+        </div>
+
+        <!-- Orders Grid -->
+        <div id="ordersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Orders will be inserted here dynamically via JS -->
+        </div>
+
+
+    </div>
+
+    <!-- Order Details Modal -->
+    <div id="orderModal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-xl w-11/12 max-w-lg relative">
+            <button id="closeModal"
+                class="absolute top-4 right-4 text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white">
+                <i class="fa-solid fa-xmark fa-lg"></i>
+            </button>
+            <h3 id="modalOrderID" class="text-xl font-semibold text-purple-500 mb-4">Order #10234</h3>
+            <div id="modalContent" class="space-y-2 text-gray-700 dark:text-gray-200">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/include-components.js"></script>
+    <script src="../js/my_order.js"></script>
+</body>
+
+</html>
