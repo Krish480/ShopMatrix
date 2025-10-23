@@ -1,19 +1,19 @@
 // merchant.js
 
-// 🔹 Highlight active nav link
-document.addEventListener("DOMContentLoaded", () => {
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('nav a, #merchant-mobile-menu a');
+// Auto highlight active page link in navbar
+document.addEventListener("DOMContentLoaded", function () {
+  const currentPage = window.location.pathname.split("/").pop(); 
+  const navLinks = document.querySelectorAll("nav a");
 
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-            link.classList.add('bg-indigo-500', 'text-white');
-            link.classList.remove('text-gray-800', 'dark:text-gray-200');
-        } else {
-            link.classList.remove('bg-indigo-500', 'text-white');
-            link.classList.add('text-gray-800', 'dark:text-gray-200');
-        }
-    });
+  navLinks.forEach((link) => {
+    const linkPage = link.getAttribute("href").split("/").pop();
+
+    if (linkPage === currentPage) {
+      link.classList.add("active-nav","nav-active","true");
+    } else {
+      link.classList.remove("active-nav","nav-active");
+    }
+  });
 });
 
 // Merchant Hamburger Menu
@@ -33,7 +33,7 @@ if (merchantMenuBtn && merchantMenu && merchantMenuIcon) {
 }
 
 
-// 🔹 Chart.js Revenue Overview
+// Chart.js Revenue Overview
 const ctx = document.getElementById('revenueChart');
 if (ctx) {
     new Chart(ctx, {
