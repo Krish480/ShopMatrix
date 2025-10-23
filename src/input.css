@@ -1,11 +1,41 @@
 @import "tailwindcss";
 
-/* Active nav ke liye */
+/* Active Nav Desktop */
 .active-nav {
-  @apply bg-gray-700 text-indigo-500 font-semibold rounded-md;
+  @apply font-bold rounded-md bg-purple-300 text-purple-900 transition-colors duration-200;
 }
 
-/* Agar mobile nav bhi chahiye */
+/* Hover effect for Desktop nav links */
+.nav-link:hover {
+  @apply bg-purple-200 text-purple-950;
+}
+
+/* Dark Mode for Active Nav Desktop */
+html.dark .active-nav {
+  @apply bg-gray-800 text-purple-300;
+}
+
+/* Dark mode hover */
+html.dark .nav-link:hover {
+  @apply bg-gray-700 text-purple-100;
+}
+
+/* Active Nav Mobile */
 .active-nav-mobile {
-  @apply bg-gray-800 text-indigo-500 font-semibold rounded-md;
+  @apply bg-purple-300 text-purple-500 font-bold rounded-md transition-colors duration-200;
+}
+
+/* Dark Mode Mobile */
+html.dark .active-nav-mobile {
+  @apply bg-gray-800 text-purple-400;
+}
+
+/* Mobile hover effect */
+.active-nav-mobile:hover {
+  @apply bg-purple-400 text-purple-700;
+}
+
+/* Dark Mode hover mobile */
+html.dark .active-nav-mobile:hover {
+  @apply bg-gray-800 text-purple-200;
 }
