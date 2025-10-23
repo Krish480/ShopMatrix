@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const linkPage = link.getAttribute("href").split("/").pop();
 
     if (linkPage === currentPage) {
-      link.classList.add("bg-indigo-100", "text-indigo-600", "dark:bg-gray-700", "dark:text-indigo-300");
+      link.classList.add("active-nav","nav-active","true");
     } else {
-      link.classList.remove("bg-indigo-100", "text-indigo-600", "dark:bg-gray-700", "dark:text-indigo-300");
+      link.classList.remove("active-nav","nav-active");
     }
   });
 });
