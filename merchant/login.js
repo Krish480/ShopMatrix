@@ -1,5 +1,5 @@
+// merchant/login.js
 const merchantLoginForm = document.getElementById("merchantLoginForm");
-
 // Custom Toast Function using Toastify
 function showToast(type, message, position = "top") {
   // position = "top" or "bottom"

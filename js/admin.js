@@ -31,16 +31,20 @@ document.addEventListener("DOMContentLoaded", function () {
         
 
         //  Logout section 
-
   document.addEventListener('DOMContentLoaded', () => {
     // Check if user is logged in
-    auth.onAuthStateChanged((user) => {
-      if (!user) {
+    auth.onAuthStateChanged(async (user) => {
+    if (user) {
+      const doc = await firebase.firestore().collection("users").doc(user.uid).get();
+      if (!doc.exists || doc.data().role !== "admin") {
+        // Not an admin → redirect login
         window.location.href = "login.html";
-      } else {
-        console.log("Admin logged in:", user.email);
       }
-    });
+    } else {
+      // Not logged in → redirect login
+      window.location.href = "login.html";
+    }
+  });
 
     // Logout functionality
     const logoutBtns = document.querySelectorAll("button, a");

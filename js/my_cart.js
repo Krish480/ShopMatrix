@@ -87,14 +87,14 @@ function renderCart() {
     const card = document.createElement("div");
     card.className =
       "p-4 md:p-6 flex flex-col md:flex-row items-center justify-between group transition-colors duration-200 rounded-xl";
-
+    card.style.backgroundColor = "var(--bg3)"
     // Build markup - safe values
     const priceStr = `₹${(item.price || 0).toFixed(2)}`;
     card.innerHTML = `
       <div class="flex items-center w-full md:w-2/3" >
         <img src="${item.img || 'https://via.placeholder.com/120'}" alt="${escapeHtml(item.name)}" class="w-20 h-20 border-var(--border-color) rounded-lg object-cover border border-gray-200 dark:border-gray-700 mr-4">
         <div class="flex flex-col">
-          <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-1">${escapeHtml(item.name)}</h3>
+          <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-1" style="color: var(--black-white)">${escapeHtml(item.name)}</h3>
           <p class="text-indigo-600 dark:text-indigo-400 font-semibold">${priceStr}</p>
         </div>
       </div>
@@ -102,7 +102,7 @@ function renderCart() {
         <button class="qty-btn p-2 bg-indigo-500 rounded-l-md hover:bg-indigo-600" data-action="decrease" data-index="${index}" aria-label="Decrease quantity">
           <i class="fas fa-minus"></i>
         </button>
-        <span class="px-4 py-2 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-white qty-text">${item.qty}</span>
+        <span class="px-4 py-2 text-gray-800 dark:text-white qty-text" style="background-color: var(--secondary-bg); color: var(--black-white)">${item.qty}</span>
         <button class="qty-btn p-2 bg-indigo-500 rounded-r-md hover:bg-indigo-600" data-action="increase" data-index="${index}" aria-label="Increase quantity">
           <i class="fas fa-plus"></i>
         </button>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/theme-vars.css">
     <link rel="icon" href="../images/ShopMatrix_logo.png">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="../js/firebaseConfig.js"></script>
+  
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
@@ -41,7 +46,7 @@
 
             <!-- User Info -->
             <div class="flex-1 text-center md:text-left">
-                <h2 id="userName" class="text-3xl font-bold text-purple-500">Krishna Pandey</h2>
+                <h2 id="userName" class="text-3xl font-bold text-purple-500">User Name</h2>
                 <p id="userEmail" class="text-gray-500 dark:text-gray-300 mt-1" style="color: var(--muted);">user@gmail.com</p>
                 <button id="editProfileBtn"
                     class="mt-4 px-6 py-2 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium hover:shadow-lg transition-all">
@@ -145,8 +150,8 @@
         }
     </style>
     <script src="../js/include-components.js"></script>
+    <!-- <script src="../js/user.js"></script> -->
     <script src="../js/userprofile.js"></script>
-    <script src="../js/user.js"></script>
 </body>
 
 </html>

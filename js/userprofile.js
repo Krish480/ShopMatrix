@@ -1,3 +1,4 @@
+// userprofile.js
 // --- DOM Refs ---
 const editBtn = document.getElementById("editProfileBtn");
 const editForm = document.getElementById("editForm");
@@ -80,5 +81,20 @@ document.addEventListener("click", (e) => {
 // --- Back Button ---
 backBtn.addEventListener("click", () => {
     if (document.referrer) window.history.back();
-    else window.location.href = "dashboard.html"; // fallback
+    else window.location.href = "User.html"; // fallback
 });
+
+auth.onAuthStateChanged(async (user) => {
+    if (!user) return window.location.href = "login.html";
+    const doc = await db.collection('users').doc(user.uid).get();
+    if (!doc.exists) return window.location.href = "login.html";
+    const data = doc.data();
+
+    nameEl.textContent = data.name;
+    emailEl.textContent = data.email;
+
+    // pre-fill edit form
+    document.getElementById("editName").value = data.name;
+    document.getElementById("editEmail").value = data.email;
+});
+

@@ -1,5 +1,5 @@
+// user/user.js
 //  Data + JS 
-
 //  SAMPLE DATA 
 const shops = [
     {
@@ -64,34 +64,34 @@ const mobileSearchBtn = document.getElementById("mobileSearchBtn");
 
 //  User Toast
 const userBtn = document.getElementById("userBtn");
-            const userToast = document.getElementById("userToast");
+const userToast = document.getElementById("userToast");
 
-            userBtn.addEventListener("click", (e) => {
-                e.stopPropagation();
+userBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
 
-                if (userToast.style.maxHeight === "0px" || userToast.style.maxHeight === "") {
-                    // Show
-                    userToast.style.maxHeight = userToast.scrollHeight + "px";
-                    userToast.style.opacity = "1";
-                } else {
-                    // Hide
-                    userToast.style.maxHeight = "0";
-                    userToast.style.opacity = "0";
-                }
-            });
+    if (userToast.style.maxHeight === "0px" || userToast.style.maxHeight === "") {
+        // Show
+        userToast.style.maxHeight = userToast.scrollHeight + "px";
+        userToast.style.opacity = "1";
+    } else {
+        // Hide
+        userToast.style.maxHeight = "0";
+        userToast.style.opacity = "0";
+    }
+});
 
-            document.addEventListener("click", (e) => {
-                if (!userToast.contains(e.target) && !userBtn.contains(e.target)) {
-                    userToast.style.maxHeight = "0";
-                    userToast.style.opacity = "0";
-                }
-            });
+document.addEventListener("click", (e) => {
+    if (!userToast.contains(e.target) && !userBtn.contains(e.target)) {
+        userToast.style.maxHeight = "0";
+        userToast.style.opacity = "0";
+    }
+});
 
 function renderCategoryPills() {
-  categoryPills.innerHTML = "";
-  uniqueCategories.forEach(cat => {
-    const btn = document.createElement("button");
-    btn.className = `
+    categoryPills.innerHTML = "";
+    uniqueCategories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.className = `
       category-pill 
       px-4 py-2 rounded-full text-sm 
       bg-gray-200 dark:bg-gray-800 
@@ -100,24 +100,24 @@ function renderCategoryPills() {
       hover:bg-indigo-700 hover:text-white 
       hover:shadow-md
     `;
-    btn.textContent = cat;
+        btn.textContent = cat;
 
-    if (state.category === cat) {
-      btn.classList.add("pill-active");
-      btn.style.backgroundColor = "var(--accent-start)";
-      btn.style.color = "white";
-    }
+        if (state.category === cat) {
+            btn.classList.add("pill-active");
+            btn.style.backgroundColor = "var(--accent-start)";
+            btn.style.color = "white";
+        }
 
-    btn.addEventListener("click", () => {
-      state.category = cat;
-      // reset floor and search
-      state.search = "";
-      applyFilters();
-      renderAll();
+        btn.addEventListener("click", () => {
+            state.category = cat;
+            // reset floor and search
+            state.search = "";
+            applyFilters();
+            renderAll();
+        });
+
+        categoryPills.appendChild(btn);
     });
-
-    categoryPills.appendChild(btn);
-  });
 }
 
 function renderFloorSelectors() {
@@ -152,10 +152,10 @@ function renderFloorSelectors() {
 function shopCardHTML(shop) {
     const hasOffer = !!shop.offer;
     return `
-        <article class="p-4 rounded-lg ${hasOffer ? 'ring-1 ring-amber-100' : ''} bg-white dark:bg-gray-900 shadow-sm" style="background-color:  var(--bg2);">
+        <article class="p-4 rounded-lg ${hasOffer ? 'ring-1 ring-amber-100' : ''} bg-white dark:bg-gray-900 shadow-sm" style="background-color: var(--bg2);">
           <div class="flex justify-between items-start">
             <div>
-              <h3 class="font-semibold style="color=var(--text-main)">${shop.name}</h3>
+              <h3 class="font-semibold" style="color: var(--text-main)">${shop.name}</h3>
               <div class="flex items-center gap-2 mt-1 text-sm">
                 <span class="px-2 py-1 rounded-full bg-blue-900 text-blue-200 text-xs">${shop.category}</span>
                 <span class="px-2 py-1 rounded-full bg-purple-900 text-purple-200 text-xs">Floor: ${shop.floor}</span>
@@ -164,17 +164,17 @@ function shopCardHTML(shop) {
             </div>
             ${hasOffer ? `<span class="px-2 py-1 rounded-full bg-red-900 text-red-200 text-xs">${shop.offer.percent ? shop.offer.percent + '% OFF' : 'Offer'}</span>` : ''}
           </div>
-          <p class="mt-2 text-sm text-gray-500 dark:text-gray-300" style="color: var(--muted)" >${shop.desc}</p>
-          ${hasOffer ? `<div class="mt-3 p-3 rounded border border-dashed border-gray-200 dark:border-gray-700" style="background-color:  var(--secondary-bg);>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-300" style="color: var(--muted)">${shop.desc}</p>
+          ${hasOffer ? `<div class="mt-3 p-3 rounded border border-dashed border-gray-200 dark:border-gray-700" style="background-color: var(--secondary-bg);">
             <p class="text-sm font-medium text-gray-800 dark:text-yellow-400">✨ ${shop.offer.text}</p>
             <p class="text-xs text-gray-400 mt-1">Valid until: ${shop.offer.until}</p>
             </div>` : ''}
           <div class="mt-3 flex gap-2">
             <button class="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-indigo-700 text-white hover:brightness-95 text-sm"><i class="fa-solid fa-ticket"></i> View Offer</button>
-            <button class="inline-flex items-center gap-2 px-3 py-2 rounded-lg  text-sm" style="background-color:  var(--secondary-bg);"><i class="fa-solid fa-location-dot"></i> Map</button>
+            <button class="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm" style="background-color: var(--secondary-bg);"><i class="fa-solid fa-location-dot"></i> Map</button>
           </div>
         </article>
-      `;
+    `;
 }
 
 function renderShops(filtered) {
@@ -208,82 +208,7 @@ function renderOffers(filtered) {
     });
 }
 
-function renderFloorGuide(filtered) {
-  floorGuide.innerHTML = "";
-  const floors = uniqueFloors.filter(f => f !== "All");
 
-  floors.forEach(f => {
-    const shopsOnFloor = filtered.filter(s => s.floor === f);
-
-    // Main container
-    const container = document.createElement("div");
-    container.className =
-      "p-3 rounded-lg shadow-sm transition-all duration-300";
-    container.style.backgroundColor = "var(--bg2)";
-    container.style.color = "var(--text-main)";
-
-    // Header
-    const header = document.createElement("div");
-    header.className = "flex items-center justify-between";
-    header.innerHTML = `
-      <h4 class="font-bold" style="color: var(--text-main);">
-        ${f} 
-        <span class="text-sm" style="color: var(--text-muted);">
-          (${shopsOnFloor.length})
-        </span>
-      </h4>
-      <button 
-        class="text-sm font-semibold rounded-full px-3 py-1 transition-all duration-200"
-        style="
-          color: var(--accent-start); 
-          background-color: var(--secondary-bg);
-        "
-        onmouseover="this.style.backgroundColor='var(--accent-start)'; this.style.color='var(--text-light)';"
-        onmouseout="this.style.backgroundColor='var(--secondary-bg)'; this.style.color='var(--accent-start)';"
-        data-floor="${f}">
-        View
-      </button>
-    `;
-    container.appendChild(header);
-
-    // List
-    const list = document.createElement("div");
-    list.className = "mt-2 text-sm";
-    list.style.color = "var(--text-muted)";
-
-    if (shopsOnFloor.length === 0) {
-      list.innerHTML = `<p style="color: var(--text-muted); font-size: 0.8rem;">No shops visible for current filters</p>`;
-    } else {
-      const ul = document.createElement("ul");
-      ul.className = "space-y-1";
-      shopsOnFloor.forEach((s) => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-          <span style="color: var(--text-main); font-weight: 500;">${s.name}</span>
-          <span style="color: var(--text-muted); font-size: 0.75rem;"> — ${s.category}</span>
-        `;
-        ul.appendChild(li);
-      });
-      list.appendChild(ul);
-    }
-
-    container.appendChild(list);
-    floorGuide.appendChild(container);
-  });
-
-  // View buttons functionality
-  document.querySelectorAll(".view-floor").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const f = e.currentTarget.dataset.floor;
-      state.floor = f;
-      floorFilter.value = f;
-      floorSelect.value = f;
-      applyFilters();
-      renderAll();
-      window.scrollTo({ top: 400, behavior: "smooth" });
-    });
-  });
-}
 
 //  Filtering logic 
 function applyFilters() {
@@ -430,21 +355,24 @@ function init() {
     });
 }
 
-// initialize on load
-window.addEventListener('DOMContentLoaded', init);
 
-//  Logout 
+// --- Auth Check & User Info ---
+auth.onAuthStateChanged(async (user) => {
+    if (!user) return window.location.href = "login.html";
+    const doc = await firebase.firestore().collection('users').doc(user.uid).get();
+    if (!doc.exists) return window.location.href = "login.html";
+    const data = doc.data();
+    document.getElementById('userGreeting').textContent = `Hello, ${data.name}`;
+    document.getElementById('useremail').textContent = data.email;
 
-auth.onAuthStateChanged(user => {
-    if (user) {
-        const name = user.displayName || localStorage.getItem('userName') || user.email;
-        document.getElementById('userGreeting').textContent = `Hello, ${name}`;
-        document.getElementById('useremail').textContent = `Hello, ${user.email}`;
-    } else {
-        window.location.href = "login.html";
-    }
+    init();
 });
 
+
+window.addEventListener('DOMContentLoaded', init);
+
+
+//  Logout 
 const logoutBtn = document.getElementById('logoutBtn');
 logoutBtn.addEventListener('click', () => {
     auth.signOut()
